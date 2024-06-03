@@ -1,0 +1,18 @@
+{
+    "data": {
+        "id": 2,
+        "attributes": {
+            "stripeId": "cus_MkOo6vF7sNmfaa",
+            "discordId": "discord",
+            "createdAt": "2022-11-05T21:35:18.577Z",
+            "updatedAt": "2022-11-29T05:13:21.759Z",
+            "publishedAt": "2022-11-05T21:35:18.573Z",
+            "name": "guest-m",
+            "strategy": ["ABC-001", "FPB-001", "VA-001"],
+            "photo": {
+                "data": null
+            }
+        }
+    },
+    "meta": {}
+}

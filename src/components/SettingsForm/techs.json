@@ -1,0 +1,114 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "name": "INTRADAY TRADE",
+                "summary": "This one searches the 15-minute bars to detect a certain pattern.  It flags stocks that are near support-resistance, ABC pattern, Pivot Point and VSA.  There are too much noise in smaller time frames.",
+                "video": "C9G5KgB9Ze4",
+                "price": 99.99,
+                "sales_price": null,
+                "is_on_sale": false,
+                "description": "Our Day trader AI is attuned to events that cause short-term market moves. It continuously monitors the entire market and looks for certain technical patterns that have shown a predictable price movement in the past.  It also considers volume and pricing to make sure the techniques are applied to the right situations.\nIt will help you eliminate wasted time and keep you fresh for those moments when you trade.",
+                "access": "paid",
+                "techName": "EXPERT TWO",
+                "techSummary": "A list of popular trading techniques to take your day trading to the next level.",
+                "techDescription": "The first pull-back of the day is a powerful mechanism.   When this happens within the first hour of the market opening, it is a good signal that the market will move.\nABCD above Histogram is also a popular indicator.  The time of the day and volume also plays a key role with this technique.\nSelling or Buying climax is also a popular indicator.  When there is that much movement without apparent cause, the market correct should be near.",
+                "createdAt": "2022-10-25T22:06:21.997Z",
+                "updatedAt": "2022-12-04T08:00:00.035Z",
+                "publishedAt": "2022-10-25T22:08:28.657Z",
+                "scheduleResource": [
+                    {
+                        "id": "plan_MgeqBAciOzkGPr",
+                        "name": "Intraday Trading",
+                        "groupOnly": true
+                    },
+                    {
+                        "id": "r1",
+                        "name": "Opening",
+                        "parentId": "plan_MgeqBAciOzkGPr"
+                    },
+                    {
+                        "id": "r2",
+                        "name": "Closing",
+                        "parentId": "plan_MgeqBAciOzkGPr"
+                    }
+                ],
+                "scheduleTemplate": [
+                    {
+                        "id": 1,
+                        "end": "11:00:00Z",
+                        "days": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "start": "09:30:00Z",
+                        "title": "Class A1",
+                        "bgColor": "green",
+                        "resourceId": "r1"
+                    },
+                    {
+                        "id": 2,
+                        "end": "16:30:00Z",
+                        "days": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "start": "15:30:00Z",
+                        "title": "Class B2",
+                        "bgColor": "green",
+                        "resourceId": "r2"
+                    }
+                ],
+                "technique_details": [
+                    {
+                        "id": 1,
+                        "sequence": 2,
+                        "title": "ABCD PATTERN (DAY)",
+                        "subtitle": "August 2, 2022",
+                        "description": "The ABCD pattern is a highly recognizable value pattern that happens in stocks across the globe every day. \nThe main recognizable feature of an ABCD pattern is that the A to B leg (AB leg) matches the C to D leg (CD leg) — in other words, AB ≈ CD. The B to C leg (BC leg) meanwhile, represents pullbacks and consolidation of value. These patterns can go both ways and can thus be bullish or bearish. Depending on which it is, the investor will either buy or sell at the D point.\nThe ABCD pattern, though varied, is one of the most reliable and established patterns in trading. It can be used for investments in both bearish and bullish trends and gives the information necessary to avoid heavy losses. Although these patterns offer information to the investor, it is still paramount that they do their own research before investing, as markets can be affected by a plethora of external factors.",
+                        "video": "C9G5KgB9Ze4",
+                        "summary": "The ABCD pattern is one of the most popular strategies.  It is easy to recognize and implement.  It is common to look for additional confirmation with volume, MACD histogram, level 2 and time of the day.",
+                        "createdAt": "2022-10-25T22:10:06.336Z",
+                        "updatedAt": "2022-12-18T03:44:36.513Z",
+                        "publishedAt": "2022-10-25T22:10:07.970Z",
+                        "strategy": "ABC-001"
+                    },
+                    {
+                        "id": 2,
+                        "sequence": 1,
+                        "title": "FIRST PULLBACK (DAY)",
+                        "subtitle": "August 1, 2022",
+                        "description": "Pullback strategies are popular because they are relatively simple to identify and have a solid track record in terms of investor returns.\nTrading pullbacks requires a degree of patience. The price movement is one big giveaway that a pullback is occurring – price falling away from a price peak being the obvious signal. There are other metrics to consider and, as importantly, at what time to step into the market to trade. At the time that price starts to change direction, there is every chance that the move could be more than short-lived.\nIf trading volumes increase at the time of the trade reversal, the move might be more fundamental in nature. If volumes are consistent, then there is more chance that the price move is short term in nature.\nAny price move accompanied by, or triggered by, market events or company news could signal a change in the perception of valuations and that the price move will be greater and longer-lasting.\nIf technical indicators such as trend lines and moving averages offer support to price, then this is an indication that the move is down to buyers temporarily running out of steam. The buyers are there, just at lower price levels. If price crashes through support levels, then this could be a sign that the price change is based on something else.",
+                        "video": "N9SUmtuGnHQ",
+                        "summary": "The first pullback of the day is a tried-and-true strategy used by seasoned and novice traders alike. It is the right entry and exit that makes the difference. ",
+                        "createdAt": "2022-10-25T22:11:31.359Z",
+                        "updatedAt": "2022-12-18T03:45:37.420Z",
+                        "publishedAt": "2022-10-25T22:11:32.277Z",
+                        "strategy": "FPB-001"
+                    },
+                    {
+                        "id": 3,
+                        "sequence": 3,
+                        "title": "VOLUME ANALYSIS (DAY)",
+                        "subtitle": "August 2, 2022",
+                        "description": "When price is pushed down by a strong Bearish pressure, a strong counterattack of Bullish pressure is required to break the decline. As a result, when \"Smart Money\" are in need to break a strong decline, they must put a lot of buying pressure and we receive a strong volume surge.\n\nPrice should be in a down-trend.  The last lowest bar should be on extremely high (ultra-high) volume suggesting the \"Smart Money\" entered the game and they are trying to beat the strong Bears who are the main engine of a decline.\nThe last lowest bar should be narrow bar, or it can be a long bar yet with close above the middle of the bar (long lower shadow if candlesticks are used). This would signal that the Bearish pressure was broken, and the Bears yielded to the \"Smart Money\"\nThis chart pattern could be any of the Bullish reversal candlestick patterns (Bullish Abandoned Baby, Bullish Doji Star, Bullish Counterattack and etc.) accompanied by a strong volume surge on the lowest candle.\n\nThe main point of this chart pattern is that you must see a broken Bearish pressure at the bottom of a down move on ultra-high volume.\n\nAfter such a heavy volume surge we should expect a strong bullish reversal. A stronger volume surge was witnessed during the Selling climax - stronger pressure was applied against the Bears and a stronger reversal up could be expected. While Buying Climax is a strong reversal signal, it is still could be recommended to see the next bar as a confirmation of this Sign of Strength.",
+                        "video": "C9G5KgB9Ze4",
+                        "summary": "Buying and selling climax without an apparent usually leads to market correction.",
+                        "createdAt": "2022-10-25T22:48:52.616Z",
+                        "updatedAt": "2022-12-18T03:47:39.453Z",
+                        "publishedAt": "2022-10-25T22:48:55.883Z",
+                        "strategy": "VA-001"
+                    }
+                ]
+            }
+        }
+    ],
+    "meta": {}
+}

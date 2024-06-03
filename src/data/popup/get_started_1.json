@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "icon": "../images/svg/linea/linea-basic-target.svg",
+        "title": "AI Receptionist",
+        "desc": "Let our AI receptionist greet your customers and answer their questions. Our AI receptionist can also schedule appointments and take messages.",
+        "pageLink": "Learn More",
+        "link": "/"
+    },
+    {
+        "id": 2,
+        "icon": "../images/svg/linea/linea-basic-picture-multiple.svg",
+        "title": "AI Answers",
+        "desc": "Our AI answers can help you provide better sales and customer service. Our AI answers can answer questions about your products and services, and can also provide information about your company.",
+        "pageLink": "Learn More",
+        "link": "/"
+    },
+    {
+        "id": 3,
+        "icon": "../images/svg/linea/linea-basic-picture.svg",
+        "title": "Custom AI Solution",
+        "desc": "We can create a custom AI solution for your business. Our AI solutions can help you improve your sales, customer service, and marketing.",
+        "pageLink": "Learn More",
+        "link": "/"
+    },
+    {
+        "id": 4,
+        "icon": "../images/svg/linea/linea-ecommerce-cart-plus.svg",
+        "title": "Increase Revenue",
+        "desc": "Our AI can provide immediate and accurate feedback to your customers, helping you increase sales. It will reduce turnover from existing customers by being available and useful.",
+        "pageLink": "Learn More",
+        "link": "/"
+    },
+    {
+        "id": 5,
+        "icon": "../images/svg/linea/linea-basic-gear.svg",
+        "title": "Easy to Use",
+        "desc": "Our AI works with natural language, so it is easy to use. Our AI can be used on any device, and can be integrated with your existing systems.",
+        "pageLink": "Learn More",
+        "link": "/"
+    },
+    {
+        "id": 6,
+        "icon": "../images/svg/linea/linea-basic-display.svg",
+        "title": "Improve With Experience",
+        "desc": "Our AI can learn from your customers and improve over time. With every interaction, our AI will learn and improve, providing better service to your customers.",
+        "pageLink": "Learn More",
+        "link": "/"
+    }
+]

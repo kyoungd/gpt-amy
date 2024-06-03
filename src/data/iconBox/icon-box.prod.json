@@ -1,0 +1,29 @@
+[
+    {
+      "id": "1",
+      "icon": "images/svg/linea/linea-basic-target.svg",
+      "title": "Receptionist AI",
+      "price": "$99.99/month",
+      "desc": "In today's fast-paced business world, first impressions are crucial. That's why we've developed \"Amy,\" the state-of-the-art AI receptionist designed to streamline your front desk experience and leave a lasting positive impression on your clients and guests. ",
+      "stripeSubscriptionPriceId": "price_1MuTu6Ittz0L0oqPsm6sFmsQ",
+      "stripeSetupPriceId": "price_1MuUrOIttz0L0oqPSb7qIcOr"
+    },
+    {
+      "id": "2",
+      "icon": "images/svg/linea/linea-basic-sheet-pencil.svg",
+      "title": "Questions Answers AI",
+      "price": "$99.99/month",
+      "desc": "Providing exceptional customer service is key to maintaining a competitive edge in today's business landscape. That's where \"Amy,\" shines.  She is an AI assistant designed to help your clients navigate your company's products and services with ease and accuracy.",
+      "stripeSubscriptionPriceId": "price_1MuTxwIttz0L0oqPFnxqSX3H",
+      "stripeSetupPriceId": "price_1MuUqIIttz0L0oqP1nJsZu8j"
+    },
+    {
+      "id": "3",
+      "icon": "images/svg/linea/linea-basic-picture.svg",
+      "title": "Custom AI Solution",
+      "price": "call for quote",
+      "desc": "Amy is designed to gather information from people using natural language processing. Amy can understand and interpret human language, allowing for seamless communication and data collection. Whether you need to collect information from customers, employees, or stakeholders, our AI is here to help. ",
+      "stripeSubscriptionPriceId": "",
+      "stripeSetupPriceId": ""
+    }
+  ]

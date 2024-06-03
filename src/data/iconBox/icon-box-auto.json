@@ -1,0 +1,42 @@
+[
+    {
+      "id": "1",
+      "icon": "images/svg/linea/linea-basic-target.svg",
+      "title": "Receptionist AI",
+      "telephone": "",
+      "price": "$99.99/month",
+      "desc": "Alternative Phone Demo. +1 (424) 407 1682  In today's fast-paced business world, first impressions are crucial. That's why we've developed \"Amy,\" the state-of-the-art AI receptionist designed to streamline your front desk experience and leave a lasting positive impression on your clients and guests. ",
+      "stripeSubscriptionPriceId": "price_1N4FPKIttz0L0oqPFva25Iwx",
+      "stripeSetupPriceId": "price_1N4FR4Ittz0L0oqPwYDgX6XL"
+    },
+    {
+      "id": "2",
+      "icon": "images/svg/linea/linea-basic-sheet-pencil.svg",
+      "title": "Receptionist AI",
+      "telephone": "18189607092",
+      "price": "$99.99/month",
+      "desc": "Alternative Phone Demo. !!!PHONE_NUMBER!!!.  In today's fast-paced business world, first impressions are crucial. That's why we've developed \"Amy,\" the state-of-the-art AI receptionist designed to streamline your front desk experience and leave a lasting positive impression on your clients and guests. ",
+      "stripeSubscriptionPriceId": "price_1N4FPKIttz0L0oqPFva25Iwx",
+      "stripeSetupPriceId": "price_1N4FR4Ittz0L0oqPwYDgX6XL"
+    },
+    {
+      "id": "3",
+      "icon": "images/svg/linea/linea-basic-picture.svg",
+      "title": "Custom AI Solution",
+      "telephone": "18189607092",
+      "price": "call for quote",
+      "desc": "Amy is designed to gather information from people using natural language processing. Amy can understand and interpret human language, allowing for seamless communication and data collection. Whether you need to collect information from customers, employees, or stakeholders, our AI is here to help. ",
+      "stripeSubscriptionPriceId": "price_1N4FPKIttz0L0oqPFva25Iwx",
+      "stripeSetupPriceId": "price_1N4FR4Ittz0L0oqPwYDgX6XL"
+    },
+    {
+      "id": "4",
+      "icon": "images/svg/linea/linea-basic-sheet-pencil.svg",
+      "title": "Real Estate Agent AI",
+      "telephone": "14244071682",
+      "price": "$99.99/month",
+      "desc": "Alternative Phone Demo. !!!PHONE_NUMBER!!!.  Amy is a virtural assistant designed specifically for real estate agents. Upon receiving phone calls, she engages callers with a natural and human-like conversation. It efficiently provides information about property listings, answers frequently asked questions about properties, schedules viewings, and even takes notes on client preferences. Amy ensures no call goes unanswered, improving client satisfaction and freeing up agents to focus on more complex tasks.",
+      "stripeSubscriptionPriceId": "price_1N4FPKIttz0L0oqPFva25Iwx",
+      "stripeSetupPriceId": "price_1N4FR4Ittz0L0oqPwYDgX6XL"
+    }
+  ]

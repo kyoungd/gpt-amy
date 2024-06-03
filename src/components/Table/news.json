@@ -1,0 +1,177 @@
+{
+    "data": [
+        {
+            "id": 30110872,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/news/22/12/30110872/csw-industrials-adopts-new-100m-stock-buyback-boosts-credit-facility",
+                "author": "Shivani Kumaresan",
+                "source": "benzinga",
+                "summary": "\n",
+                "symbols": [
+                    "CSWI"
+                ],
+                "headline": "CSW Industrials Adopts New $100M Stock Buyback; Boosts Credit Facility",
+                "sentiment": 0.915718019,
+                "created_at": "2022-12-16T17:18:09Z",
+                "updated_at": "2022-12-16T17:18:10Z"
+            }
+        },
+        {
+            "id": 30109423,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/wiim/22/12/30109423/meta-platforms-shares-are-trading-higher-after-jp-morgan-upgraded-the-stock-from-neutral-to-overweig",
+                "author": "Benzinga Newsdesk",
+                "source": "benzinga",
+                "summary": "",
+                "symbols": [
+                    "META"
+                ],
+                "headline": "Meta Platforms shares are trading higher after JP Morgan upgraded the stock from Neutral to Overweight and raised its price target from $115 to $150.",
+                "sentiment": 0.9141079783,
+                "created_at": "2022-12-16T14:51:21Z",
+                "updated_at": "2022-12-16T14:51:22Z"
+            }
+        },
+        {
+            "id": 30097363,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/analyst-ratings/analyst-color/22/12/30097363/walmarts-focus-on-merchant-services-last-mile-delivery-and-other-key-areas-likely-t",
+                "author": "Anusuya Lahiri",
+                "source": "benzinga",
+                "summary": "\n",
+                "symbols": [
+                    "WMT"
+                ],
+                "headline": "Walmart&#39;s Focus On Merchant Services, Last Mile Delivery And Other Key Areas Likely To Drive Attractive Market Share Gains, Analyst Says",
+                "sentiment": 0.9135432839,
+                "created_at": "2022-12-15T19:43:08Z",
+                "updated_at": "2022-12-15T19:43:09Z"
+            }
+        },
+        {
+            "id": 30112460,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/analyst-ratings/analyst-color/22/12/30112460/verizon-with-stable-and-notably-growing-dividend-likely-to-beat-other-tmt-names-aga",
+                "author": "Anusuya Lahiri",
+                "source": "benzinga",
+                "summary": "\n",
+                "symbols": [
+                    "VZ"
+                ],
+                "headline": "Verizon With Stable And Notably Growing Dividend Likely To Beat Other TMT Names Against Macro Headwinds, Analyst Says",
+                "sentiment": 0.9121667147,
+                "created_at": "2022-12-16T18:01:12Z",
+                "updated_at": "2022-12-16T18:01:12Z"
+            }
+        },
+        {
+            "id": 30108097,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/wiim/22/12/30108097/adobe-shares-are-trading-higher-after-the-company-reported-better-than-expected-q4-eps-results-and-i",
+                "author": "Benzinga Newsdesk",
+                "source": "benzinga",
+                "summary": "",
+                "symbols": [
+                    "ADBE"
+                ],
+                "headline": "Adobe shares are trading higher after the company reported better-than-expected Q4 EPS results and issued Q1 EPS guidance above estimates.",
+                "sentiment": 0.908637166,
+                "created_at": "2022-12-16T13:41:18Z",
+                "updated_at": "2022-12-16T13:41:18Z"
+            }
+        },
+        {
+            "id": 30109143,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/analyst-ratings/analyst-color/22/12/30109143/analyst-touts-key-underlying-improvements-for-hexo-despite-q1-revenue-drop",
+                "author": "Jelena Martinovic",
+                "source": "benzinga",
+                "summary": "Hexo Corp. (NASDAQ: HEXO) reported a 29% year-over-year and 16% sequential decrease in net revenue to CA$ 35.8 million ($26.3 million) in the first quarter of fiscal 2023.",
+                "symbols": [
+                    "HEXO",
+                    "TLRY"
+                ],
+                "headline": "Analyst Touts &#39;Key Underlying Improvements&#39; For HEXO Despite Q1 Revenue Drop",
+                "sentiment": -0.9439310431,
+                "created_at": "2022-12-16T16:09:12Z",
+                "updated_at": "2022-12-16T16:09:13Z"
+            }
+        },
+        {
+            "id": 30098286,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/markets/cryptocurrency/22/12/30098286/lido-staked-ether-decreases-more-than-5-within-24-hours",
+                "author": "Benzinga Insights",
+                "source": "benzinga",
+                "summary": "Lido Staked Ether&#39;s (CRYPTO: STETH) price has decreased 5.59% over the past 24 hours to $1,255.15, continuing its downward trend over the past week of -1.0%, moving from $1,273.96 to its current price. ",
+                "symbols": [
+                    "STETHUSD"
+                ],
+                "headline": "Lido Staked Ether Decreases More Than 5% Within 24 hours",
+                "sentiment": -0.9444121718,
+                "created_at": "2022-12-15T19:01:04Z",
+                "updated_at": "2022-12-15T19:01:05Z"
+            }
+        },
+        {
+            "id": 30093551,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/markets/cryptocurrency/22/12/30093551/litecoin-falls-more-than-6-in-24-hours",
+                "author": "Benzinga Insights",
+                "source": "benzinga",
+                "summary": "Litecoin&#39;s (CRYPTO: LTC) price has decreased 6.92% over the past 24 hours to $73.51, continuing its downward trend over the past week of -3.0%, moving from $76.06 to its current price. ",
+                "symbols": [
+                    "LTCUSD"
+                ],
+                "headline": "Litecoin Falls More Than 6% In 24 hours",
+                "sentiment": -0.946819365,
+                "created_at": "2022-12-15T15:00:32Z",
+                "updated_at": "2022-12-15T15:00:33Z"
+            }
+        },
+        {
+            "id": 30114322,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/markets/penny-stocks/22/12/30114322/why-biondvax-pharmaceuticals-stock-is-getting-obliterated-during-fridays-trading-session",
+                "author": "Henry Khederian",
+                "source": "benzinga",
+                "summary": "Biondvax Pharmaceuticals Ltd - ADR (NASDAQ: BVXV) shares are trading lower by 58.60% to $3.64 during Friday&#39;s session after the company priced its 1.6 million unit offering at $5 per unit.",
+                "symbols": [
+                    "BVXV"
+                ],
+                "headline": "Why Biondvax Pharmaceuticals Stock Is Getting Obliterated During Friday&#39;s Trading Session",
+                "sentiment": -0.948338449,
+                "created_at": "2022-12-16T20:46:53Z",
+                "updated_at": "2022-12-16T20:46:53Z"
+            }
+        },
+        {
+            "id": 30090779,
+            "attributes": {
+                "T": "n",
+                "url": "https://www.benzinga.com/markets/cannabis/22/12/30090779/hexo-q1-2023-revenue-drops-29-yoy-announces-share-consolidation",
+                "author": "Vuk Zdinjak",
+                "source": "benzinga",
+                "summary": "HEXO Corp. (NASDAQ: HEXO) (TSX:HEXO) released its financial results for the first quarter, revealing net revenue of CA$35.8 million, a decrease of 29% comparatively to CA$50.2 million in Q1 2022 and a decrease of 16% compared to CA$42.5 million net revenue i",
+                "symbols": [
+                    "HEXO",
+                    "TSX:HEXO"
+                ],
+                "headline": "Hexo Q1 2023 Revenue Drops 29% YoY, Announces Share Consolidation",
+                "sentiment": -0.9589193463,
+                "created_at": "2022-12-15T13:18:08Z",
+                "updated_at": "2022-12-15T13:18:09Z"
+            }
+        }
+    ],
+    "meta": {}
+}

@@ -1,0 +1,47 @@
+[
+    {
+      "id": "1",
+      "icon": "images/svg/linea/linea-basic-target.svg",
+      "title": "Investor Relations",
+      "price": "$99.99/month",
+      "desc": [
+        "Tailored for investor communication",
+        "Understands financial terminology and investor relations",
+        "24/7 availability for consistent interactions",
+        "Adapts to individual investor preferences",
+        "Enhances trust and funding opportunities"
+      ],
+      "stripeSubscriptionPriceId": "price_1OiUFOIttz0L0oqPTzYokFQ5",
+      "stripeSetupPriceId": ""
+    },
+    {
+      "id": "2",
+      "icon": "images/svg/linea/linea-basic-sheet-pencil.svg",
+      "title": "Cusomer Engagement",
+      "price": "$99.99/month",
+      "desc": [
+        "Personalized, empathetic responses to customer queries",
+        "Seamless integration across phone and web platforms",
+        "Strengthens customer loyalty and drives sales",
+        "Ensures customers feel valued and understood",
+        "Exclusively designed for customer engagement"
+      ],
+      "stripeSubscriptionPriceId": "price_1OiUFOIttz0L0oqPTzYokFQ5",
+      "stripeSetupPriceId": ""
+    },
+    {
+      "id": "3",
+      "icon": "images/svg/linea/linea-basic-picture.svg",
+      "title": "Available 24/7",
+      "price": "$99.99/month",
+      "desc": [
+        "Combined capabilities for investors and customers",
+        "Dual-focus for effective communication in sales and funding",
+        "Adaptable communication style for audience-specific impact",
+        "Streamlines start-up’s overall communication strategy",
+        "Accessible on both phone and web for maximum reach"
+      ],
+      "stripeSubscriptionPriceId": "price_1OiUFOIttz0L0oqPTzYokFQ5",
+      "stripeSetupPriceId": ""
+    }
+  ]

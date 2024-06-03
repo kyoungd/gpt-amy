@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "icon": "images/svg/linea/linea-basic-target.svg",
+    "title": "Grow your business",
+    "desc": [
+      "Enhance business efficiency",
+      "Seamless integration with existing operations",
+      "Deliver precise information consistently",
+      "Achieve cost reduction"
+    ],
+    "stripeSubscriptionPriceId": "price_1OiUFOIttz0L0oqPTzYokFQ5",
+    "stripeSetupPriceId": ""
+  },
+  {
+    "id": "2",
+    "icon": "images/svg/linea/linea-basic-sheet-pencil.svg",
+    "title": "Maximize ROI",
+    "desc": [
+      "Provide superior services",
+      "Minimize operational expenses",
+      "Utilize your expertise effectively",
+      "Boost customer satisfaction"
+    ],
+    "stripeSubscriptionPriceId": "price_1OiUFOIttz0L0oqPTzYokFQ5",
+    "stripeSetupPriceId": ""
+  },
+  {
+    "id": "3",
+    "icon": "images/svg/linea/linea-basic-picture.svg",
+    "title": "24/7 Availability",
+    "desc": [
+      "Always accessible for customer inquiries",
+      "Ensure continuous customer support",
+      "Provide immediate responses anytime",
+      "Maintain consistent and dependable service"
+    ],
+    "stripeSubscriptionPriceId": "price_1OiUFOIttz0L0oqPTzYokFQ5",
+    "stripeSetupPriceId": ""
+  }
+]

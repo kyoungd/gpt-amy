@@ -1,0 +1,195 @@
+[
+    {
+        "id": 1,
+        "homeImage": "./images/portfolio/portfolio-1.jpg",
+        "image": "images/project/project-1.jpg",
+        "title": "Do not trade alone.",
+        "date": "28 Dec 2022",
+        "client": "2Human",
+        "categories": ["expert", "trading"],
+        "awards": ["2021 Digital World Awards 2020 Finale Awards"],
+        "excerpt": "Here are the challenges of trading alone.  It is not for the faint of heart.",
+        "body": [
+            "<p>One major problem is the lack of access to the same resources and information as larger trading firms. Individual traders may have a harder time obtaining timely and accurate data on market trends, financial news, and other factors that can impact stock prices. This can make it difficult for them to make informed trading decisions.</p>",
+            "<p>Another issue is the lack of support and guidance. Trading can be a complex and risky endeavor, and individual traders may not have the benefit of experienced mentors or colleagues to turn to for advice. This can increase the chances of making costly mistakes, especially for inexperienced traders.</p>",
+            "<p>Individual traders also have to manage their own risk and handle the emotional and psychological aspects of trading on their own. It can be difficult to stay disciplined and avoid making impulsive decisions, especially during times of market volatility.</p>",
+            "<p>Finally, individual traders may have a harder time executing trades efficiently due to their smaller trade sizes. This can lead to higher trading costs and reduced profits.</p>",
+            "<p>Overall, while individual stock trading can be rewarding, it is important for traders to be aware of the challenges they may face and to be prepared to overcome them.</p>"
+            ],
+        "btn": {
+            "text": "Go to link",
+            "link": "/"
+        },
+        "largeImage": "images/project/work-details-1.jpg",
+        "subContent": {
+            "title": "Trading with experts",
+            "text": "Individual stock traders, who trade alone without the support, face a number of challenges."
+        },
+        "gallery": {
+            "imageOne": "images/project/work-details-2.jpg",
+            "imageTwo": "images/project/work-details-3.jpg",
+            "imageThree": "images/project/work-details-4.jpg"
+        }
+    },
+    {
+        "id": 2,
+        "homeImage": "./images/portfolio/portfolio-2.jpg",
+        "image": "images/project/project-2.jpg",
+        "title": "AI to find trades",
+        "date": "28 Nov 2022",
+        "client": "2Human",
+        "categories": ["AI", "trading"],
+        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
+        "excerpt": "AI cannot trade for you, but it can help you find trades before it happens.",
+        "body": [
+            "Data-Based Trading Decisions - AI trading bots are able to analyse millions of potential scenarios in a split second, simplifying data analysis. A human could never analyse data as quickly as an AI trade bot, meaning that trading decisions can be based upon a far greater quantity of historical data than ever before.",
+            "Less work - Trading isn’t an 9-5 venture – it’s always on the go and forever changing. However, it’s impossible for any trader to be on the ball 24 hour per day, 7 days per week. There is only so much time that anyone can spend trading, even for the most devoted of traders.",
+            "Removes Emotion From The Trading Process - It’s easy to make emotional trades when you’re trading. This could be a snap decision made through instinct without the necessary research being performed quickly, or an irrational attempt to win back money after a well-thought-out trade goes wrong.",
+            "Suitable For Both Beginners And Advanced Traders - Whether you’re a complete beginner when it comes to trading, or an advanced trader, AI trading systems can simplify trading. Beginners can access the trading market without the need for any prior experience. This enables even novices to dive in without the need for extensive research, by authorising the AI ti fund trades autonomously."
+            ],
+        "btn": {
+            "text": "Go to link",
+            "link": "/"
+        },
+        "largeImage": "images/project/work-details-1.jpg",
+        "subContent": {
+            "title": "AI helper",
+            "text": "AI can help you trade more efficiently and effectively."
+        },
+        "gallery": {
+            "imageOne": "images/project/work-details-2.jpg",
+            "imageTwo": "images/project/work-details-3.jpg",
+            "imageThree": "images/project/work-details-4.jpg"
+        }
+    },
+    {
+        "id": 3,
+        "homeImage": "./images/portfolio/portfolio-3.jpg",
+        "image": "images/project/project-3.jpg",
+        "title": "Common trading mistakes",
+        "date": "21 Nov 2022",
+        "client": "2Human",
+        "categories": ["advice", "trading"],
+        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
+        "excerpt": "Here are list of common mistakes that all traders make, sometime in their career.",
+        "body": [
+            "Lack of patience. The stock (Forex) market is a device for transferring money from the impatient to the patient – Warren Buffett.  Wait for the right opportunity.  Rushing to make money             is the best way to lose them.  Be patient.",
+            "Over-Trading - This is the number 1 Forex trading account killer. Whilst this is subjective and different to each trader, what it boils down to is pretty simple. Over-trading is when you are taking trades that do not fit your trading plan and rules simply because you are trying to make more money.",
+            "Starting and Continuing to Move Stops - Fear is the main driver because the trader does not want to lose money and so they will move their stop further and further away hoping price will turn around. This will often see them lose more and more money.",
+            "Constantly changing Profit-targets.  This includes taking profit early when you had a set profit target or continually disregarding your own targets hoping to make more profits.",
+            "Revenge Trading.  We have all done it before.  After losing money you quickly place more and more trades trying to regain your losses only to lose even more money.",
+            "Money Management Errors. These include trade management errors such as risking far too much on each trade hoping to make more, doubling up on certain types of trades and not using a stop loss."
+            ],
+        "btn": {
+            "text": "Go to link",
+            "link": "/"
+        },
+        "largeImage": "images/project/work-details-1.jpg",
+        "subContent": {
+            "title": "Common Mistakes.",
+            "text": "All stock traders make these mistakes sometime in their career.  Learn and grow."
+        },
+        "gallery": {
+            "imageOne": "images/project/work-details-2.jpg",
+            "imageTwo": "images/project/work-details-3.jpg",
+            "imageThree": "images/project/work-details-4.jpg"
+        }
+    },
+    {
+        "id": 4,
+        "homeImage": "./images/portfolio/portfolio-4.jpg",
+        "image": "images/project/project-4.jpg",
+        "title": "Best Trading Strategy",
+        "date": "19 Nov 2022",
+        "client": "HighGrove Partners",
+        "categories": ["advice", "trading"],
+        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
+        "excerpt": "Selecting the right trading strategy may be one of the most important steps you’ll take.",
+        "body": [
+                "Benefits of Selecting the Right Trading Strategy - Selecting the right trading strategy may be one of the most important steps you’ll take.  Remember that the goal is to eventually master a certain strategy. So when you find something that shows promise and suits you, focus on it. Refine it.",
+                "Try different strategies. Look for the right fit. That’s generally a smart move … you don’t know what works until you try it.  The market changes.  No strategy works forever.  The market is constantly evolving and so should you.",
+                "Finding your stride - Different strategies work better in different environments. Trading breakouts can be advantageous when a lot of stocks are making breakouts … But when the market’s quiet, you may be better off trading for quick scalps and swing trades. Your trading success depends a lot on picking the right strategy for the right market environment.",
+                "Peace of mind. As traders, we all have different psychological makeup and risk tolerances. Some of us can’t sleep at night if we have an open position, so we might focus on day trading. Others might hate the frenzied pace of day trading. You might feel perfectly calm holding positions for weeks. Trading shouldn’t mean dying of stress. You should enjoy your life — pick a strategy that fits your mindset.",
+                "Lifestyle. Different lifestyles mean different strategies. Day trading can mean sitting in front of the screen all day … not great for a 9-to-5er. Longer-term trading often means you won’t be in front of the screens as much. It’s generally much more accessible if you work a full-time job. When you’re picking your strategy, keep your preferred lifestyle in mind."
+                ],
+        "btn": {
+            "text": "Go to link",
+            "link": "/"
+        },
+        "largeImage": "images/project/work-details-1.jpg",
+        "subContent": {
+            "title": "Best Trading Strategy",
+            "text": "There are trading strategies that works better than others.  Here, we spent some time exploring which ones are the best."
+        },
+        "gallery": {
+            "imageOne": "images/project/work-details-2.jpg",
+            "imageTwo": "images/project/work-details-3.jpg",
+            "imageThree": "images/project/work-details-4.jpg"
+        }
+    },
+    {
+        "id": 5,
+        "homeImage": "./images/portfolio/portfolio-5.jpg",
+        "image": "images/project/project-5.jpg",
+        "title": "Market Seasonlity",
+        "date": "28 Sep 2022",
+        "client": "2Human",
+        "categories": ["trend", "trading"],
+        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
+        "excerpt": "Quickly analyzing the digital business landscape, we create effective action plans and design optimal strategies.",
+        "body": [
+            "<p>The stock market can exhibit certain patterns of performance over the course of the year, which is known as seasonality. This means that certain sectors or industries may perform better at certain times of the year due to a variety of factors such as changes in consumer demand, weather, or regulatory changes.</p>",
+            "<p>One example of seasonality in the stock market is the <strong>Santa Claus Rally,</strong> which refers to the tendency for stock prices to rise in the last week of December and the first two weeks of January. This is thought to be due to a combination of factors such as year-end tax planning and an influx of holiday shopping-related revenue.</p>",
+            "<p>Another example is the <strong>Summer Slump,</strong> which refers to the historically lower levels of stock market activity and performance during the summer months. This is often attributed to the impact of vacation season on trading volumes and the potential for market uncertainty due to a lack of major news events.</p>",
+            "<p>It's important to note that seasonality is not a guarantee of future performance and should not be the sole basis for investment decisions. However, recognizing and understanding the potential effects of seasonality can be useful for investors as they develop their trading strategies.</p>"
+        ],
+        "btn": {
+            "text": "Go to link",
+            "link": "/"
+        },
+        "largeImage": "images/project/work-details-1.jpg",
+        "subContent": {
+            "title": "Market Seasonality",
+            "text": "Market seasonality refers to the tendency for certain sectors or industries to perform better at certain times of the year due to a variety of factors such as changes in consumer demand, weather, or regulatory changes. Understanding and recognizing the potential effects of seasonality can be useful for investors as they develop their trading strategies, though it should not be the sole basis for investment decisions."
+        },
+        "gallery": {
+            "imageOne": "images/project/work-details-2.jpg",
+            "imageTwo": "images/project/work-details-3.jpg",
+            "imageThree": "images/project/work-details-4.jpg"
+        }
+    },
+    {
+        "id": 6,
+        "homeImage": "./images/portfolio/portfolio-6.jpg",
+        "image": "images/project/project-6.jpg",
+        "title": "Trade With Trend",
+        "date": "22 Sep 2022",
+        "client": "HighGrove Partners",
+        "categories": ["trend", "trading"],
+        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
+        "excerpt": "Trend trading is a strategy that involves identifying the overall direction that the market is moving in and then positioning oneself to profit from that trend.",
+        "body": [
+            "<p>Trading with the market trend, also known as trend trading, is a strategy that involves identifying the overall direction that the market is moving in and then positioning oneself to profit from that trend. This can be done through the use of various financial instruments, such as stocks, futures, options, and exchange-traded funds (ETFs).</p>",
+            "<p>One of the key benefits of trend trading is that it allows traders to take advantage of the natural momentum that exists in the market. By following the trend, traders can potentially ride the wave of a trend for a longer period of time, increasing the chances of profiting from their trades.</p>",
+            "<p>There are several approaches that traders can take when it comes to trend trading. One approach is to use technical analysis to identify trend changes. This involves looking at chart patterns and indicators, such as moving averages and relative strength index (RSI), to identify buying or selling opportunities.</p>",
+            "<p>Another approach is to use fundamental analysis to identify trends. This involves looking at the underlying factors that can drive the market, such as economic indicators, company earnings, and political events.</p>",
+            "<p>Regardless of the approach that is taken, it is important for traders to have a solid risk management strategy in place when trend trading. This can involve setting stop-loss orders to minimize potential losses and using position sizing to control the amount of risk that is taken on.</p>",
+            "<p>In conclusion, trend trading is a strategy that involves identifying and following the overall direction of the market in order to profit from its momentum. By using technical or fundamental analysis, and implementing risk management techniques, traders can potentially increase their chances of success with this approach.</p>"
+        ],
+        "btn": {
+            "text": "Go to link",
+            "link": "/"
+        },
+        "largeImage": "images/project/work-details-1.jpg",
+        "subContent": {
+            "title": "Trade With Trend",
+            "text": "Trend trading is a strategy that involves identifying the overall direction that the market is moving in and then positioning oneself to profit from that trend. Trend trading allows traders to take advantage of the natural momentum that exists in the market and potentially ride the wave of a trend for a longer period of time."
+        },
+        "gallery": {
+            "imageOne": "images/project/work-details-2.jpg",
+            "imageTwo": "images/project/work-details-3.jpg",
+            "imageThree": "images/project/work-details-4.jpg"
+        }
+    }
+    
+]

@@ -1,0 +1,14 @@
+[
+    {
+    "id": "1",
+    "icon": "images/svg/linea/linea-basic-message-txt.svg",
+    "title": "Give Us A Call",
+    "info": "(+1) 747-224-7144"
+    },
+    {
+    "id": "2",
+    "icon": "images/svg/linea/linea-basic-mail-open-text.svg",
+    "title": "Help Desk",
+    "info": "info@2human.ai"
+    }
+]
