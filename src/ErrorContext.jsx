@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 // ErrorContext creation
 const ErrorContext = createContext();
@@ -38,6 +39,12 @@ const ErrorMessage = ({ message, onClose }) => {
   );
 };
 
+// PropTypes for ErrorMessage component
+ErrorMessage.propTypes = {
+  message: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
+
 // ErrorProvider component definition
 export const ErrorProvider = ({ children }) => {
   const [error, setError] = useState('');
@@ -56,4 +63,9 @@ export const ErrorProvider = ({ children }) => {
       {show && <ErrorMessage message={error} onClose={() => setShow(false)} />}
     </ErrorContext.Provider>
   );
+};
+
+// PropTypes for ErrorProvider component
+ErrorProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

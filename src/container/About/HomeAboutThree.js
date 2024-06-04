@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
 import Parallax from 'parallax-js';
 import ModalVideo from "react-modal-video";
 

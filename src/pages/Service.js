@@ -3,7 +3,7 @@ import SEO from '../components/SEO';
 import Header from "../partials/header/Header";
 import Breadcrumb from '../container/Breadcrumb/Breadcrumb';
 import ServiceIconBoxTwo from '../container/service/ServiceIconBoxTwo';
-import ServiceSkill from '../container/service/ServiceSkill';
+// import ServiceSkill from '../container/service/ServiceSkill';
 import Footer from '../container/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop.jsx';
 

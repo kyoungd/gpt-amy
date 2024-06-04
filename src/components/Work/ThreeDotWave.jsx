@@ -1,20 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
-export default function ThreeDotWave({ size = "4rem", color = "black" }) {
+export default function ThreeDotWave({ size, color }) {
   const loadingContainer = {
-    width: size, // Dynamically set based on props
-    height: size, // Dynamically set based on props
+    width: size,
+    height: size,
     display: "flex",
     justifyContent: "space-around",
   };
 
   const loadingCircle = {
     display: "block",
-    width: "1rem", // Increased size
-    height: "1rem", // Increased size
-    backgroundColor: color, // Dynamically set based on props
-    borderRadius: "0.5rem", // Adjusted for increased size
+    width: "1rem",
+    height: "1rem",
+    backgroundColor: color,
+    borderRadius: "0.5rem",
   };
 
   const loadingContainerVariants = {
@@ -70,3 +71,13 @@ export default function ThreeDotWave({ size = "4rem", color = "black" }) {
     </motion.div>
   );
 }
+
+ThreeDotWave.propTypes = {
+  size: PropTypes.string,
+  color: PropTypes.string,
+};
+
+ThreeDotWave.defaultProps = {
+  size: "4rem",
+  color: "black",
+};

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import Logo from '../../components/logo/Logo';
 import NavBar from '../../components/NavBar/NavBar';
 import HeaderSearch from '../../components/HeaderSearch/HeaderSearch';
-import BtnLink from '../../components/Btn/BtnLink';
+// import BtnLink from '../../components/Btn/BtnLink';
 import MobileMenu from "../../components/NavBar/MobileMenu"
 import MainSearch from "../../components/NavBar/MainSearch"
 import { useUserState } from '../../components/UserContext';
@@ -18,7 +18,7 @@ const LogoStyle = styled.p`
 `;
 
 const Header = () => {
-    const { isAuthenticated, user } = useUserState();
+    const { user } = useUserState();
     console.log('user: ', user);
 
     const [ofcanvasShow, setOffcanvasShow] = useState(false);

@@ -14,7 +14,7 @@ AboutUs.propTypes = {
     jwt: PropTypes.string.isRequired
 };
 
-export default function AboutUs ({jwt}) {
+export default function AboutUs () {
 
     return (
         <React.Fragment>

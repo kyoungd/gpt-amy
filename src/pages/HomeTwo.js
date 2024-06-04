@@ -6,11 +6,11 @@ import HomeAboutTwo from '../components/About/HomeAboutTwo.jsx';
 import Funfact from '../container/Funfact/Funfact';
 import ServiceIconBox from '../container/service/ServiceIconBoxTwo';
 import HomeSkillWithVideo from '../container/HomeSkillWithVideo/HomeSkillWithVideo';
-import PortfolioTwo from '../container/Portfolio/PortfolioTwo';
-import TestimonialContainer from '../container/Testimonial/TestimonialContainer'
-import HomeBlog from '../container/BlogGrid/HomeBlog';
+// import PortfolioTwo from '../container/Portfolio/PortfolioTwo';
+// import TestimonialContainer from '../container/Testimonial/TestimonialContainer'
+// import HomeBlog from '../container/BlogGrid/HomeBlog';
+// import BrandContainer from '../container/Brand/BrandContainer';
 import ContactInformation from '../container/ContactInformation/ContactInformationThree';
-import BrandContainer from '../container/Brand/BrandContainer';
 import Footer from '../container/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop.jsx';
 

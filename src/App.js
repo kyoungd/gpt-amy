@@ -46,7 +46,7 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/"}`} element={<HomeOne/>}/>
               <Route path={`${process.env.PUBLIC_URL + "/home-two"}`} element={<HomeTwo/>}/>
               <Route path={`${process.env.PUBLIC_URL + "/home-three"}`} element={<HomeThree/>}/>
-              <Route path={`${process.env.PUBLIC_URL + "/about"}`} element={<About jwt={jwt} />} />
+              <Route path={`${process.env.PUBLIC_URL + "/about"}`} element={<About />} />
               <Route path={`${process.env.PUBLIC_URL + "/service"}`} element={<Service/>} />
 
               <Route path={`${process.env.PUBLIC_URL + "/work-details/:id"}`} element={<WorkDetails/>} />
