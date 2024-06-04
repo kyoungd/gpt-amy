@@ -28,7 +28,6 @@ const PageOrderSuccess = lazy(() => import("./pages/PageOrderSuccess"));
 const PageOrderFailed = lazy(() => import("./pages/PageOrderFailed"));
 const PageConsultingAgreement = lazy(() => import("./pages/PageConsultingAgreement"));
 const PageSoftwareAsService = lazy(() => import("./pages/PageSoftwareAsService"));
-const PageKnowledgeBase = lazy(() => import("./pages/PageKnowledgeBase"));
 const PageStartup = lazy(() => import("./pages/PageStartup"));
 const PageReportMessage = lazy(() => import("./pages/PageReportMessage"));
 const PageCheckout = lazy(() => import("./pages/PageCheckout"));
@@ -59,7 +58,6 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/home-three"}`} element={<HomeThree/>}/>
               <Route path={`${process.env.PUBLIC_URL + "/about"}`} element={<About jwt={jwt} />} />
               <Route path={`${process.env.PUBLIC_URL + "/service"}`} element={<Service/>} />
-              <Route path={`${process.env.PUBLIC_URL + "/knowledge"}`} element={<PageKnowledgeBase jwt={jwt} />} />
 
               <Route path={`${process.env.PUBLIC_URL + "/work-details/:id"}`} element={<WorkDetails/>} />
               <Route path={`${process.env.PUBLIC_URL + "/blog-grid"}`} element={<BlogGrid/>} />
