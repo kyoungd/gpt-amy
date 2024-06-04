@@ -14,7 +14,7 @@ const PageAgreementCheckbox = () => {
     const title = "Agreements before Purchase";
     return (
         <React.Fragment>
-            <SEO title="2HUMAN – Agreement Checkbox" />
+            <SEO title="SARACOTI – Agreement Checkbox" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"

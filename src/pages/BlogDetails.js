@@ -15,7 +15,7 @@ const BlogDetails = () => {
     const data = BlogClassicData.filter(blog => blog.id === blogId);
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Blog Details" />
+            <SEO title="SARACOTI || Blog Details" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-four.jpg"

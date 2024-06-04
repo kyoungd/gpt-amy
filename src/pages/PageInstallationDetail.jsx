@@ -12,7 +12,7 @@ const PageInstallationDetail = () => {
     const title = "Service Detail";
     return (
         <React.Fragment>
-            <SEO title="2HUMAN – Service Detail" />
+            <SEO title="SARACOTI – Service Detail" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"

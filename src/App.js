@@ -17,13 +17,10 @@ const BlogClassic = lazy(() => import("./pages/BlogClassic"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
 const BlogCategories = lazy(() => import("./pages/BlogCategories"));
 const BlogTag = lazy(() => import("./pages/BlogTag"));
-const Login = lazy(() => import("./pages/Login"));
-const Logout = lazy(() => import("./pages/Logout"));
 const PageBilling = lazy(() => import("./pages/PageBilling"));
 const HomeGetStarted = lazy(() => import("./pages/HomeGetStarted"));
 const LoginRedirect = lazy(() => import("./pages/LoginRedirect"));
 const Test = lazy(() => import("./pages/Test"));
-const Register = lazy(() => import("./pages/Register"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const PageAgreementCheckbox = lazy(() => import("./pages/PageAgreementCheckbox"));
@@ -71,9 +68,6 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/category/:slug"}`} element={<BlogCategories/>} />
               <Route path={`${process.env.PUBLIC_URL + "/blog-details/:id"}`}element={<BlogDetails/>} />
               <Route path={`${process.env.PUBLIC_URL + "/contact"}`} element={<PageOrderSuccess jwt={jwt}/>} />
-              <Route path={`${process.env.PUBLIC_URL + "/login"}`} element={<Login/>} />
-              <Route path={`${process.env.PUBLIC_URL + "/login/register"}`} element={<Register/>} />
-              <Route path={`${process.env.PUBLIC_URL + "/logout"}`} element={<Logout/>} />
               <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} element={<HomeOne />} />
               <Route path={`${process.env.PUBLIC_URL + "/billings"}`} element={<PageBilling jwt={jwt} />} />
               <Route path={`${process.env.PUBLIC_URL + "/get-started"}`} element={<HomeGetStarted jwt={jwt} />} />

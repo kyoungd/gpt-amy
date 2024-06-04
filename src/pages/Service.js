@@ -11,7 +11,7 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const Service = () => {
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Service" />
+            <SEO title="SARACOTI || Service" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"

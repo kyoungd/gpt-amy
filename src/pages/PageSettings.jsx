@@ -24,7 +24,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
 function PageSettings ({jwt, classOption}) {
     return (
         <React.Fragment>
-            <SEO title="2Human || Settings" />
+            <SEO title="Saracoti || Settings" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-five.jpg"

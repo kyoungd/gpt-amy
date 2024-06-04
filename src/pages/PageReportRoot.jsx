@@ -177,7 +177,7 @@ function PageReportRoot ({jwt, title, subtitle, apipath, EditComponent, FilterDa
 
     return (
         <React.Fragment>
-            <SEO title="2Human || Settings" />
+            <SEO title="Saracoti || Settings" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-five.jpg"

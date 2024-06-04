@@ -12,7 +12,7 @@ const PageSetupSteps = () => {
     const title = "Installation Status";
     return (
         <React.Fragment>
-            <SEO title="2HUMAN – Installation Status" />
+            <SEO title="SARACOTI – Installation Status" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"

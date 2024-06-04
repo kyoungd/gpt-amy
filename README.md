@@ -9,8 +9,8 @@ HTTP GET - https://test.com/api/account/general
               "updatedAt": "2024-03-17T21:21:25.013Z",
               "publishedAt": "2024-02-21T21:24:02.785Z",
               "stripe_customer_id": "cus_PbZtTtaxwOxprq",
-              "company_name": "2 human AI",
-              "introduction_message": "Thanks for calling 2 Human AI.  This is Amy.  How can I help you?"
+              "company_name": "saracoti AI",
+              "introduction_message": "Thanks for calling Saracoti AI.  This is Amy.  How can I help you?"
           }
       }
 }

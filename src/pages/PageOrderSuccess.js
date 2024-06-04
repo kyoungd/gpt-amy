@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 const PageOrderSuccess = ({ jwt }) => {
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Order Success" />
+            <SEO title="SARACOTI || Order Success" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-two.jpg"

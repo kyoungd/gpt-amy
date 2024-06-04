@@ -9,7 +9,7 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const PageOrderFailed = () => {
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Transaction Failed" />
+            <SEO title="SARACOTI || Transaction Failed" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-two.jpg"

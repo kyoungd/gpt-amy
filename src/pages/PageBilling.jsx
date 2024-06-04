@@ -57,7 +57,7 @@ export default function PageBilling({jwt, classOption}) {
     
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Billings"/>
+            <SEO title="SARACOTI || Billings"/>
             <Header/>
             <Breadcrumb image="images/bg/breadcrumb-bg-three.jpg" title="Best AI for your business" content="Home" contentTwo="Main"/>
             <div className={`section section-padding-t90 section-padding-bottom ${classOption}`}>
@@ -106,7 +106,7 @@ export default function PageBilling({jwt, classOption}) {
 
 //     return (
 //         <React.Fragment>
-//             <SEO title="2HUMAN || Billings"/>
+//             <SEO title="SARACOTI || Billings"/>
 //             <Header/>
 //             <Breadcrumb image="images/bg/breadcrumb-bg-three.jpg" title="Best AI for your business" content="Home" contentTwo="Main"/>
 //             <div className={`section section-padding-t90 section-padding-bottom ${classOption}`}>

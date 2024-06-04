@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 const PageAi = ({ jwt }) => {
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Test AI" />
+            <SEO title="SARACOTI || Test AI" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-two.jpg"

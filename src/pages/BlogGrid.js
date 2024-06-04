@@ -11,7 +11,7 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const BlogGrid = () => {
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Blog" />
+            <SEO title="SARACOTI || Blog" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-four.jpg"

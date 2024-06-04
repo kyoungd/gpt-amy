@@ -22,7 +22,7 @@ const GetStartedStartup = ({ jwt, showBlockName, classOption }) => {
                             jwt={jwt} 
                             name="CHATBOT - add this script to your website" 
                             Service={GetStartedChatbot} 
-                            description="If you prefer, request an appointment to speak with our engineer at support@2human.ai."
+                            description="If you prefer, request an appointment to speak with our engineer at support@saracoti.com."
                             classOption="section section-padding-bottom" 
                         />
                     }
@@ -31,7 +31,7 @@ const GetStartedStartup = ({ jwt, showBlockName, classOption }) => {
                             jwt={jwt} 
                             name="PHONE - select a phone number" 
                             Service={GetStartedPhoneNumber} 
-                            description="If you prefer, request an appointment to speak with our engineer at support@2human.ai."
+                            description="If you prefer, request an appointment to speak with our engineer at support@saracoti.com."
                             classOption="section section-padding-bottom" 
                         />
                     }

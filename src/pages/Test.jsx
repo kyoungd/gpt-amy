@@ -9,7 +9,7 @@ const Service = () => {
     const classOption = "section section-padding-t90 section-padding-bottom";
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Service" />
+            <SEO title="SARACOTI || Service" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"

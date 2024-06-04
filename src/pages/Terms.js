@@ -10,7 +10,7 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const Terms = () => {
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Privacy" />
+            <SEO title="SARACOTI || Privacy" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-five.jpg"

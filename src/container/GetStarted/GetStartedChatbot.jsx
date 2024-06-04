@@ -56,7 +56,7 @@ const GetStartedChatbox = ({ jwt }) => {
     };
 
     const copyToClipboard = () => {
-        const scriptTag = `<script src="https://2human.ai/widget.js" data-token="${activeLink}"></script>`;
+        const scriptTag = `<script src="https://saracoti.com/widget.js" data-token="${activeLink}"></script>`;
         navigator.clipboard.writeText(scriptTag).then(() => {
             setCopySuccess('Copied!');
             setTimeout(() => setCopySuccess(''), 2000); // Clear message after 2 seconds
@@ -72,7 +72,7 @@ const GetStartedChatbox = ({ jwt }) => {
                 <>
                     <p>
                         <code>
-                        {'<script src="https://2human.ai/widget.js" data-token="' + activeLink + '"></script>'}
+                        {'<script src="https://saracoti.com/widget.js" data-token="' + activeLink + '"></script>'}
                         </code>
                     </p>
                     <Button variant="primary" onClick={copyToClipboard}>Copy to Clipboard</Button>

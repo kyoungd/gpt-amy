@@ -9,11 +9,11 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const PageConsultingAgreement = () => {
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Privacy" />
+            <SEO title="SARACOTI || Privacy" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"
-                title="2human.ai software consulting agreement"
+                title="saracoti.com software consulting agreement"
                 content="Home"
                 contentTwo="Software Consulting Agreement"
             />

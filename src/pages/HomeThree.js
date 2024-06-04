@@ -24,7 +24,7 @@ const HomeThree = () => {
     return (
         <React.Fragment>
             {sectionLearnMore && <div>
-                <SEO title="2Human AI || Customer Service AI" />
+                <SEO title="Saracoti AI || Customer Service AI" />
                 <Header />
                 <IntroThree refSectionLearnMore={sectionLearnMore} />
                 <HomeAboutThree refSectionLearnMore={sectionLearnMore} />

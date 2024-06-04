@@ -3,17 +3,8 @@ import PropTypes from "prop-types";
 import SectionTitleTwo from '../SectionTitles/SectionTitleTwo';
 import Tilt from 'react-parallax-tilt';
 import Parallax from 'parallax-js';
-// import CountUp from 'react-countup';
-// import VisibilitySensor from "react-visibility-sensor";
 
 const HomeAboutTwo = ({ refSectionLearnMore }) => {
-    // const [didViewCountUp, setDidViewCountUp] = useState(false);
-
-    // const onVisibilityChange = isVisible => {
-    //     if (isVisible) {
-    //     setDidViewCountUp(true);
-    //     }
-    // };
     const [scale] = useState(1.04);
     const sceneEl = useRef(null);
     useEffect(() => {
@@ -42,30 +33,12 @@ const HomeAboutTwo = ({ refSectionLearnMore }) => {
                             <div className="row mb-n6">
                                 <div className="col-md-5 col-sm-6 col-12 mb-6">
                                     <div className="about-funfact">
-                                        {/* <div className="number">
-                                            <VisibilitySensor
-                                                onChange={onVisibilityChange}
-                                                offset={{ top: 10 }}
-                                                delayedCall
-                                                >
-                                                <CountUp end={didViewCountUp ? 27 : 0} />
-                                            </VisibilitySensor>+
-                                        </div> */}
                                         <h6 className="text">Happy Clients</h6>
                                         <p>Enhance customer satisfaction with our AI, which delivers quick and accurate responses to all inquiries.</p>
                                     </div>
                                 </div>
                                 <div className="col-md-5 col-sm-6 col-12 mb-6">
                                     <div className="about-funfact">
-                                        {/* <div className="number">
-                                            <VisibilitySensor
-                                                onChange={onVisibilityChange}
-                                                offset={{ top: 10 }}
-                                                delayedCall
-                                                >
-                                                <CountUp end={didViewCountUp ? 110 : 0} />
-                                            </VisibilitySensor>+
-                                        </div> */}
                                         <h6 className="text">Natural interaction</h6>
                                         <p>Our cutting-edge AI uses natural language processing to listen and respond to customer inquiries, ensuring a seamless and intuitive interaction experience.</p>
                                     </div>

@@ -30,35 +30,35 @@ const TermBox = ({ classOption }) => {
 
                                 This Terms of Service Agreement (the &quot;Agreement&quot;) governs the provision of the Service (as defined
                                 below) by us to you. We reserve the right to change or revise the terms and conditions of this
-                                Agreement at any time, by posting any changes or a revised Agreement on this site (www.2human.ai)
-                                (&quot;2human Site&quot;). We will alert you that changes or revisions have been made by indicating on the top of
+                                Agreement at any time, by posting any changes or a revised Agreement on this site (www.saracoti.com)
+                                (&quot;saracoti Site&quot;). We will alert you that changes or revisions have been made by indicating on the top of
                                 this Agreement the date it was last revised. The changed or revised Agreement will be effective
                                 immediately after it is posted on this web site. Your use of the Service following the posting of any such
                                 changes or of a revised Agreement will constitute your acceptance of any such changes or revisions. We
-                                encourage you to review this Agreement whenever you visit www.2human.ai to make sure that you
+                                encourage you to review this Agreement whenever you visit www.saracoti.com to make sure that you
                                 understand the terms of the Service provided to you. If you do not agree to this Agreement (including
                                 any referenced policies or guidelines), please immediately terminate your use of the Service. If you
                                 would like to print this Agreement, please click the print button on your browser toolbar.
                                 I. THE SERVICE
 
-                                (a) Age Requirements for Use of Services. All services offered by www.2human.ai are for the sole use of
+                                (a) Age Requirements for Use of Services. All services offered by www.saracoti.com are for the sole use of
                                 licensed businesses and individuals over the age of 18.
-                                (b) 2human Projects. Advertised services are provided either on a “set cost” for basic services that do
+                                (b) saracoti Projects. Advertised services are provided either on a “set cost” for basic services that do
                                 not require additional programming beyond the options provided and Consulting services for more
                                 complex or individualized projects such as Lead Generation, Client intake, Customer Service… which
-                                must be developed based on the needs and desires of each individual request as 2human™ has virtually
+                                must be developed based on the needs and desires of each individual request as saracoti™ has virtually
                                 unlimited capability.
-                                (c) Scope of service. &quot;2human™ Site&quot; and www.2human.ai are to be used to provide legal contract
+                                (c) Scope of service. &quot;saracoti™ Site&quot; and www.saracoti.com are to be used to provide legal contract
                                 services only. Violent, indecent, obscene and/or sexually explicit projects and/or language will not be
                                 tolerated and will not be programmed on this service.
-                                (d) Cost of services: 2Human will run ads, specials, promotions… from time to time and reserves the
+                                (d) Cost of services: Saracoti will run ads, specials, promotions… from time to time and reserves the
                                 right to control pricing based on, among other things, market value, internal and external costs, client
                                 volume, complexity and network requirements.
                                 Programming costs are set at $200.00 per hour for all special projects requiring script development,
                                 coding or consulting and are done on a remote basis to avoid travel and per diem expenses. Should
                                 client request such onsite services, costs and expenses will be discussed, invoiced and paid in advance.
                                 (e) Payment.
-                                (i) Payment Method: You will be charged for services through your 2human account and the bank
+                                (i) Payment Method: You will be charged for services through your saracoti account and the bank
                                 information you provide in your profile. Standard bank rates and other applicable fees may apply
                                 depending on your financial institution.
                                 (ii) Right to Change Prices and Availability of Content. Prices and availability of any Content are subject
@@ -82,11 +82,11 @@ const TermBox = ({ classOption }) => {
                                 your responsibility. In light of the foregoing, you acknowledge and agree that you will not be entitled to
                                 any refund for any Fees you pay for the Content if the Content is incompatible with your Device.
 
-                                (h) Customer Service. For customer service, please contact info@2human.ai or call (800) 201-0601.
+                                (h) Customer Service. For customer service, please contact info@saracoti.com or call (800) 201-0601.
                                 II. TERM AND TERMINATION
                                 (a) Term. The term of this Agreement (the &quot;Term&quot;) will begin on the date on which you first use
-                                2human™ Site and shall continue until you request removal from the service via email to
-                                support@2human.ai to be removed from our system. We may terminate this Agreement at any time,
+                                saracoti™ Site and shall continue until you request removal from the service via email to
+                                support@saracoti.com to be removed from our system. We may terminate this Agreement at any time,
                                 for any reason; provided that we provide you with twenty‐four (24) hour written (or e‐mail) notice.
                                 Further, we may terminate this Agreement or any part of the Service immediately, without notice, in the
                                 event you breach any obligation hereunder.
@@ -124,7 +124,7 @@ const TermBox = ({ classOption }) => {
                                 attempt to gain unauthorized access to other computer systems or networks connected to the Service).
                                 (c) Resale of the Content. You will not resell the Content or the use of or access to the Service.
                                 (d) Report of Abuse. You will report any violations of the terms of this Agreement by other users of the
-                                Service of which you become aware by contacting us at support@2human.ai.
+                                Service of which you become aware by contacting us at support@saracoti.com.
                                 V. CONTENT USAGE RULES
                                 You acknowledge that the Content may contain security technology that limits your usage of the
                                 Content to some or all of the following usage rules, and you agree to use the Content in compliance with
@@ -147,22 +147,22 @@ const TermBox = ({ classOption }) => {
                                 The images appearing on this web site are for entertainment purposes only.
                                 VII. YOUR ACCESS TO VENDORS; THIRD PARTY LINKS; ACCOUNT ACCESS
                                 (a) Third Party Links. We are not responsible in any way for, and do not guaranty the availability of, any
-                                email from or links to third party Web sites and resources which may be accessed through 2human™
+                                email from or links to third party Web sites and resources which may be accessed through saracoti™
                                 Site. In addition, we do not endorse and are not responsible or liable for any content, advertising, goods
                                 or services, or other materials available on or from such Web sites or resources. We will not be
                                 responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or
                                 in connection with use of or reliance on any such content, advertising, goods or services, or other
                                 materials on or available from such Web sites or resources.
-                                (b) Infringer Policy. If you believe that any material available through 2human™ Site infringes upon any
-                                copyright you own or control, or that any link on the 2human™ Site directs users to another Web site
+                                (b) Infringer Policy. If you believe that any material available through saracoti™ Site infringes upon any
+                                copyright you own or control, or that any link on the saracoti™ Site directs users to another Web site
 
                                 that contains material that you own or control, you may file a notification of such infringement with our
                                 Designated Agent. Please refer to the &quot;Copyright Policy&quot; and &quot;Notice and Procedure for Notifying
-                                Designated Agent of Claims of Copyright Infringement&quot; set forth on The 2human™ Site at
-                                www.2human.ai.
+                                Designated Agent of Claims of Copyright Infringement&quot; set forth on The saracoti™ Site at
+                                www.saracoti.com.
                                 VIII. YOUR PRIVACY
                                 We believe strongly in protecting user privacy and providing you with notice of our use of data, including
-                                personal identifying information, collected on The 2human™ Site. Unless required to provide the Service
+                                personal identifying information, collected on The saracoti™ Site. Unless required to provide the Service
                                 to you, we will not disclose your personal identifiable information to third parties without your express
                                 permission. Additionally, we will not disclose your email address, or the email addresses of individuals
                                 sending you emails, to direct marketers.
@@ -240,27 +240,27 @@ const TermBox = ({ classOption }) => {
                                 delivered to 1489 W Warm Springs Rd, #110, Henderson, NV 89014, tel. (800) 201-0601. All notices to
                                 you will be delivered to via your mobile device or contact information as provided by you. We may also
                                 provide notices of changes to this Agreement or any other matter by displaying notices to you generally
-                                on The 2human Site. Notices to us must be sent by either overnight courier or certified mail, return
+                                on The saracoti Site. Notices to us must be sent by either overnight courier or certified mail, return
                                 receipt requested.
                                 XIII. TRADEMARKS
-                                2human™, its logo, and other 2human.ai trademarks, service marks, graphics, and logos used in
+                                saracoti™, its logo, and other saracoti.com trademarks, service marks, graphics, and logos used in
                                 connection with the Service and Content are trademarks or registered trademarks owned by us in the
                                 U.S. and/or other countries. Other trademarks, service marks, graphics, and logos used in connection
                                 with the Service and Content may be the trademarks of their respective owners. You are granted no
                                 right or license with respect to any of the aforesaid trademarks and any use of such trademarks.
                                 XIV. SMS ALERTS
-                                If you gave us your e‐mail address when you registered, we may use it to send you www.2human.ai
+                                If you gave us your e‐mail address when you registered, we may use it to send you www.saracoti.com
                                 newsletters, product updates, service‐related information, and other offers and information from us or
                                 our business partners, and you hereby consent to such e‐mails. We may also contact you by e‐mail to
                                 respond to any customer service inquiries you submit. We do not disclose your e‐mail address to
                                 business partners or to anyone other than employees and agents working for or on behalf of us, except
                                 as required by subpoenas, court orders, or legal requirements. We do not use your e‐mail address to
-                                correlate your identity to your Internet usage paths. If you do not want to receive www.2human.ai
+                                correlate your identity to your Internet usage paths. If you do not want to receive www.saracoti.com
                                 newsletters, offers, and product and service information, simply click the unsubscribe link at the bottom
                                 of the e-mail address where such information is being sent.
                                 XV. GENERAL
                                 (a) En��re Agreement. This Agreement comprises the entire agreement among you and u
-                                (www.2human.ai ) and supersedes any prior agreements pertaining to the subject matter contained
+                                (www.saracoti.com ) and supersedes any prior agreements pertaining to the subject matter contained
                                 herein.
                                 (b) Effect of Waiver. Failure by us to exercise or enforce any right or provision of this Agreement will not
                                 constitute a waiver of such right or provision. If any provision of this Agreement is found by a court of

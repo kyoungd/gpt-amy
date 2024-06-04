@@ -21,7 +21,7 @@ const BlogTag = () => {
     const tagTitle = data[0].tags[0]
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || Blog" />
+            <SEO title="SARACOTI || Blog" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-four.jpg"

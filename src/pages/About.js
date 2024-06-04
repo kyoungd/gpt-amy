@@ -18,11 +18,11 @@ export default function AboutUs ({jwt}) {
 
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || About" />
+            <SEO title="SARACOTI || About" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg.jpg"
-                title="A few steps to get started with 2HUMAN AI."
+                title="A few steps to get started with SARACOTI AI."
                 content="Home"
                 contentTwo="Learn More"
             />

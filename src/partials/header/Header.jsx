@@ -53,7 +53,7 @@ const Header = () => {
                     <div className="container position-relative">
                         <div className="row justify-content-between align-items-center">
                             <div className="col-xl-2 col-auto order-0">
-                                <LogoStyle><strong>2HUMAN</strong></LogoStyle>
+                                <LogoStyle><strong>SARACOTI</strong></LogoStyle>
                                 {/* <Logo 
                                     image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}
                                 /> */}

@@ -240,7 +240,7 @@ function StartupRoot ({jwt, title, subtitle, apipath, pageTypes, EditComponent, 
     const [menuName, subMenuName] = getMenuSubMenu(title);
     return (
         <React.Fragment>
-            <SEO title="2Human || Settings" />
+            <SEO title="Saracoti || Settings" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-five.jpg"

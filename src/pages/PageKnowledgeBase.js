@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 const PageContent = ({jwt}) => {
     return (
         <React.Fragment>
-            <SEO title="2HUMAN || knowledge base" />
+            <SEO title="SARACOTI || knowledge base" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"

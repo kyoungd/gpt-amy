@@ -16,12 +16,12 @@ const FooterTwo = () => {
                     {/* <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 col-12 mb-6">
                         <div className="footer-widget">
                             <div className="footer-logo">
-                                <LogoStyle>2HUMAN</LogoStyle>
+                                <LogoStyle>SARACOTI</LogoStyle>
                             </div>
                             <div className="footer-widget-content">
                                 <div className="content">
                                     <p><Link to={process.env.PUBLIC_URL + "/"}>(+1) 747-224-7144</Link></p>
-                                    <p><Link to={process.env.PUBLIC_URL + "/"}>info@2human.ai</Link> </p>
+                                    <p><Link to={process.env.PUBLIC_URL + "/"}>info@saracoti.com</Link> </p>
                                 </div>
                                 <div className="footer-social-inline">
                                     <a href="#"><i className="fab fa-twitter-square"></i></a>
@@ -42,7 +42,7 @@ const FooterTwo = () => {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <p className="copyright">&copy; {new Date().getFullYear()} <strong>2Human</strong></p>
+                        <p className="copyright">&copy; {new Date().getFullYear()} <strong>Saracoti</strong></p>
                     </div>
                 </div>
             </div>
