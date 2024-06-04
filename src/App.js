@@ -24,7 +24,6 @@ const PageOrderSuccess = lazy(() => import("./pages/PageOrderSuccess"));
 const PageOrderFailed = lazy(() => import("./pages/PageOrderFailed"));
 const PageConsultingAgreement = lazy(() => import("./pages/PageConsultingAgreement"));
 const PageSoftwareAsService = lazy(() => import("./pages/PageSoftwareAsService"));
-const PageCheckout = lazy(() => import("./pages/PageCheckout"));
 
 function App() {
   const { jwt } = useUserState();
@@ -70,7 +69,6 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/order-success/:id"}`} element={<PageOrderSuccess jwt={jwt} />} />
               <Route path={`${process.env.PUBLIC_URL + "/order-success"}`} element={<PageOrderSuccess jwt={jwt} />} />
               <Route path={`${process.env.PUBLIC_URL + "/order-failed"}`} element={<PageOrderFailed />} />
-              <Route path={`${process.env.PUBLIC_URL + "/checkout"}`} element={<PageCheckout jwt={jwt} />} />
             </Routes>
           </Suspense>
         </NavScrollTop>
