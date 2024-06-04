@@ -19,8 +19,7 @@ const UpdateCard = ({ jwt }) => {
   const [paymentRequest, setPaymentRequest] = useState(null);
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState('');
-  import * as Sentry from "@sentry/react";
-
+  
   useEffect(() => {
     (async () => {
       await fetchClientSecret(jwt);
@@ -52,7 +51,6 @@ const UpdateCard = ({ jwt }) => {
       const data = intent.data.data.attributes
       setClientSecret(data.client_secret);
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error fetching client secret:', error);
     }
   };
@@ -62,7 +60,6 @@ const UpdateCard = ({ jwt }) => {
       const response = await axios.get('/api/customers/cards', { headers: { Authorization: `Bearer ${token}` } });
       setCards(response.data.cards);
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error fetching customer cards:', error);
     }
   };
@@ -103,7 +100,6 @@ const UpdateCard = ({ jwt }) => {
       await axios.post('/api/customers/update-payment-method', { payment_method_id: paymentMethodId });
       await fetchCustomerCards(jwt);
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error updating customer payment method:', error);
     }
   };
@@ -117,7 +113,6 @@ const UpdateCard = ({ jwt }) => {
       await axios.delete(`/api/customers/cards/${cardId}`);
       await fetchCustomerCards(jwt);
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error deleting card:', error);
     }
   }

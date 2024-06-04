@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from 'react-bootstrap';
 import CustomInput from "./components/CustomInput";
 import PropTypes from 'prop-types';
-import * as Sentry from "@sentry/react";
 
 const StartupCustomizedForm = ({ elem, values, setFieldValue, asyncDebounceSaveUpdate, asyncSaveUpdate }) => {
     const [showQuestion, setShowQuestion] = useState(false);

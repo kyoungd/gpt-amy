@@ -6,7 +6,6 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import paperPlaneOutline from '@iconify/icons-eva/paper-plane-outline';
 import arrowBackOutline from '@iconify/icons-eva/arrow-back-outline';
-import * as Sentry from "@sentry/react";
 
 const ServiceDetail = ({ jwtToken }) => {
     const [settings, setSettings] = useState(null);
@@ -48,7 +47,6 @@ const ServiceDetail = ({ jwtToken }) => {
             });
             alert('Settings updated successfully!');
         } catch (error) {
-            Sentry.captureException(error);
             console.error('Error updating settings:', error);
             alert('Error updating settings. Please try again.');
         }

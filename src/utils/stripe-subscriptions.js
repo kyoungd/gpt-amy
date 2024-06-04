@@ -1,5 +1,4 @@
 import axios from 'axios';
-import * as Sentry from "@sentry/react";
 
 // export async function getPrices() {
 //   const { data } = await axios.get('/prices');
@@ -34,7 +33,6 @@ export async function createSubscription(token, subscriptionPriceId, setupPriceI
     return data.data;  
   }
   catch (error) {
-    Sentry.captureException(error);
     console.log(error);
     return null;
   }

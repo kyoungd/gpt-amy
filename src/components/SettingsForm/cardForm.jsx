@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { addCard, editCard, deleteCard } from '../../utils/stripe-subscriptions';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, Card, Col, Row } from 'react-bootstrap';
-import * as Sentry from "@sentry/react";
 
 const validateCardForm = (values) => {
   const errors = {};
@@ -71,7 +70,6 @@ const CardForm = ({ token, card, onCardUpdated }) => {
 
       onCardUpdated();
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error processing card:', error);
     } finally {
       setSubmitting(false);
@@ -86,7 +84,6 @@ const CardForm = ({ token, card, onCardUpdated }) => {
         onCardUpdated();
       }
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error deleting card:', error);
     }
   };

@@ -4,7 +4,6 @@ import CustomCheckbox from "./components/CustomCheckbox";
 import CustomInput from "./components/CustomInput";
 import CustomTextbox from "./components/CustomTextbox";
 import PropTypes from 'prop-types';
-import * as Sentry from "@sentry/react";
 
 const PropertyForm = ({data, toggleToViewModeFunc, asyncSaveChangeFunc }) => {
 
@@ -14,7 +13,6 @@ const PropertyForm = ({data, toggleToViewModeFunc, asyncSaveChangeFunc }) => {
       actions.resetForm();
       // Optionally, do something with the response, like showing a success message
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error saving changes:', error);
       // Handle the error, e.g., show an error message to the user
       // You can use actions.setSubmitting(false) to stop the form from being in the submitting state

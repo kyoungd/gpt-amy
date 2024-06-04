@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getCards, updatePaymentMethod } from '../../utils/stripe-subscriptions';
 import { ListGroup, Form, Button, ButtonGroup } from 'react-bootstrap';
-import * as Sentry from "@sentry/react";
 
 const ShowCards = ({ token }) => {
   const [cards, setCards] = useState([]);
@@ -15,7 +14,6 @@ const ShowCards = ({ token }) => {
       setCards(cardData.data.cards);
       setLoading(false);
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error fetching cards:', error);
       setLoading(false);
     }
@@ -52,7 +50,6 @@ const ShowCards = ({ token }) => {
       await updatePaymentMethod(token, paymentMethodId);
       setSelectedCard(paymentMethodId);
     } catch (error) {
-      Sentry.captureException(error);
       console.error('Error updating payment method:', error);
     }
   };

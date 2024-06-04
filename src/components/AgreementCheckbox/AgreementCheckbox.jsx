@@ -6,7 +6,6 @@ import SectionTitle from '../SectionTitles/SectionTitle';
 import Parallax from 'parallax-js';
 import { createSubscription } from '../../utils/stripe-subscriptions';
 import IconBoxData from '../../data/iconBox/icon-box.json';
-import * as Sentry from "@sentry/react";
 
 const subscribeNow = async (token, subscriptionPriceId, setupPriceId) => {
     try {
@@ -17,7 +16,6 @@ const subscribeNow = async (token, subscriptionPriceId, setupPriceId) => {
         window.open(data.attributes.url);
     }
     catch (error) {
-        Sentry.captureException(error);
         console.error(error);
         throw error;
     }

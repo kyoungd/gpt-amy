@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TableBasic from './TableBasic';
-import * as Sentry from "@sentry/react";
 
 class newsDisplay {
 
@@ -25,7 +24,6 @@ class newsDisplay {
             };
             results.push(item);
         } catch (e) {
-          Sentry.captureException(e);
           console.log('error: ', e, '  ', row);
         }
     }
