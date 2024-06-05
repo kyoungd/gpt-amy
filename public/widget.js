@@ -81,10 +81,10 @@ const enable_button = (oneButton) => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // const INIT_AI_URL = "https://talkee.ai/api/subscriptions/initialize-ai";
-    // const AI_URL = "https://talkee.ai/ai2/manage";
-    const INIT_AI_URL = "http://localhost:1337/api/subscriptions/initialize-ai";
-    const AI_URL = "http://localhost:6001/manage";
+    const INIT_AI_URL = "https://talkee.ai/api/subscriptions/initialize-ai";
+    const AI_URL = "https://talkee.ai/ai2/manage";
+    // const INIT_AI_URL = "http://localhost:1337/api/subscriptions/initialize-ai";
+    // const AI_URL = "http://localhost:6001/manage";
     let global_state = null;
 
     // Create elements
