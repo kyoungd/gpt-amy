@@ -1,6 +1,9 @@
 import {useEffect,  Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AOS from "aos";
+import { initGA } from './analytics';
+import RouteTracker from "./RouteTracker";
+
 import NavScrollTop from './components/NavScrollTop';
 import { useUserState } from './components/UserContext';
 
@@ -37,9 +40,15 @@ function App() {
     });
     AOS.refresh();
     
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    initGA();
+  }, []);
+
   return (
       <Router>
+        <RouteTracker />
         <NavScrollTop>
           <Suspense fallback={<div />}>
             <Routes>
