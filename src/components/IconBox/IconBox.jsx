@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from 'react';
 import ReactVivus from 'react-vivus';
-import PaymentPopup from "../Techniques/PaymentPopup";
-import {Link} from "react-router-dom";
+// import PaymentPopup from "../Techniques/PaymentPopup";
+// import {Link} from "react-router-dom";
 
 const IconBox = ({ data, isAuth, classOption }) => {
     const renderDescription = () => {
@@ -40,7 +40,8 @@ const IconBox = ({ data, isAuth, classOption }) => {
                 <div className="desc">
                     <h5 className="title">{data.price}</h5>
                 </div>
-                {isAuth && 
+                { isAuth && <p>.</p>}
+                {/* {isAuth && 
                     <div className="desc">
                         <PaymentPopup id={data.id} />
                     </div>
@@ -49,7 +50,7 @@ const IconBox = ({ data, isAuth, classOption }) => {
                     <div className="desc">
                         <Link to={process.env.PUBLIC_URL + '/login'} className="btn btn-light btn-hover-primary">Login and Subscribe</Link>
                     </div>
-                }
+                } */}
             </div>
         </div>
     );
