@@ -81,8 +81,11 @@ const enable_button = (oneButton) => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const INIT_AI_URL = "https://talkee.ai/api/subscriptions/initialize-ai";
-    const AI_URL = "https://talkee.ai/ai2/manage";
+    const AI_URL = "https://talkee.ai/wheel/manage";
+    const INIT_AI_URL = null;
+
+    // const INIT_AI_URL = "https://talkee.ai/api/subscriptions/initialize-ai";
+    // const AI_URL = "https://talkee.ai/ai2/manage";
     // const INIT_AI_URL = "http://localhost:1337/api/subscriptions/initialize-ai";
     // const AI_URL = "http://localhost:6001/manage";
     let global_state = null;
@@ -438,16 +441,22 @@ document.addEventListener('DOMContentLoaded', function() {
             'caller': {},
             'caller_domain': get_main_domain()
         }
-        http_post(INIT_AI_URL, json_body)
-        .then((data) => {
-            global_state = deep_copy(data.data.attributes);
+        if (INIT_AI_URL) {
+            http_post(INIT_AI_URL, json_body)
+            .then((data) => {
+                global_state = deep_copy(data.data.attributes);
+                talk_to_ai(global_state);
+                console.log(global_state);
+            })
+            .catch((error) => {
+                console.error(`Error: ${json_body} ${error}`);
+                widget.style.display = 'none'; // Hide the widget if the request fails
+            });    
+        }
+        else {
+            global_state = {};
             talk_to_ai(global_state);
-            console.log(global_state);
-        })
-        .catch((error) => {
-            console.error(`Error: ${json_body} ${error}`);
-            widget.style.display = 'none'; // Hide the widget if the request fails
-        });
+        }
     }
 
     // Example usage
