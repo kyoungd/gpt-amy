@@ -179,12 +179,11 @@ document.addEventListener('DOMContentLoaded', function() {
         .then((data) => {
             global_state = deep_copy(data);
             addMessage('AI', global_state.message)
+            enable_button(sendButton);
         })
         .catch((error) => {
             const error_message = `error: ${error}`;
             addMessage('AI', error_message);
-        })
-        .finally(() => {
             enable_button(sendButton);
         });
     }
