@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var message = document.createElement('p');
         message.textContent = user + ': ' + text;
         message.style.backgroundColor = user === 'Me' ? '#e0ffe0' : '#e0e0ff';
+        message.className = user === 'Me' ? 'my-message' : 'ai-message';
         chatContent.appendChild(message);
         chatContent.scrollTop = chatContent.scrollHeight;
     }
@@ -328,17 +329,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         .my-message {
             background-color: #DCF8C6;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 5px 10px; /* Reduced vertical padding */
+            border-radius: 20px; /* Rounded corners for user messages */
             margin-bottom: 10px;
             align-self: flex-end;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow for user messages */
+            line-height: 1.2; /* Reduced line height */
         }
         .ai-message {
             background-color: #E5E5EA;
-            padding: 10px;
+            padding: 5px 10px; /* Reduced vertical padding */
             border-radius: 8px;
             margin-bottom: 10px;
             align-self: flex-start;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow for AI messages */
+            line-height: 1.2; /* Reduced line height */
         }
         .chat-maximize-button {
             position: absolute;
