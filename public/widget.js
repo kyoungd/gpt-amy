@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function addMessage(user, text) {
         var message = document.createElement('p');
         message.textContent = user + ': ' + text;
-        message.style.backgroundColor = user === 'Me' ? '#e0ffe0' : '#e0e0ff';
+        message.style.backgroundColor = user === 'Me' ? '#E1F5FE' : '#FFEBEE'; // Light blue for user, light red for AI
         message.className = user === 'Me' ? 'my-message' : 'ai-message';
         chatContent.appendChild(message);
         chatContent.scrollTop = chatContent.scrollHeight;
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: space-between;
             width: 300px;
             min-height: 400px;
-            background-color: #FFF;
+            background-color: #FFFFFF;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -210,8 +210,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         .chat-header {
             position: relative;
-            background-color: #4E5C6E;
-            color: #FFFFFF;
+            background-color: #2C3E50; /* Dark blue-gray background color */
+            color: #ECF0F1; /* Light gray text color */
             padding: 10px;
             text-align: center;
         }
@@ -220,8 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
             top: 10px;
             right: 10px;
             border: none;
-            background: #4E5C6E;
-            color: #FFFFFF;
+            background: #2C3E50; /* Dark blue-gray background color */
+            color: #ECF0F1; /* Light gray text color */
             font-size: 16px;
             cursor: pointer;
             width: 30px;
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: background-color 0.3s;
         }
         .chat-close-button:hover {
-            background-color: #687C8A;
+            background-color: #34495E;
         }
         .chat-body {
             overflow-y: auto;
@@ -245,8 +245,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .chat-footer {
             display: flex;
             padding: 10px;
-            background-color: #F4F7F9;
-            border-top: 1px solid #E4E4E4;
+            background-color: #ECEFF1; /* Light gray background color */
+            border-top: 1px solid #CFD8DC; /* Light blue-gray border color */
         }
         .chat-content {
             flex-grow: 1;
@@ -255,24 +255,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         .chat-input {
             flex-grow: 1;
-            border: 1px solid #E4E4E4;
+            border: 1px solid #CFD8DC; /* Light blue-gray border color */
             border-radius: 4px;
             padding: 10px;
             margin-right: 10px;
         }
         .chat-send-button {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #1ABC9C; /* Teal background color */
+            color: #FFFFFF;
             padding: 10px 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
         .chat-send-button:hover {
-            background-color: #43A047;
+            background-color: #16A085;
         }
         .chat-toggle-button {
-            background: linear-gradient(135deg, #4B0082, #00FFFF);
+            background: linear-gradient(135deg, #3498DB, #2ECC71); /* Gradient blue to green */
             color: white;
             padding: 10px;
             border: none;
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .chat-toggle-button-text {
             position: relative;
             z-index: 2;
-            background: linear-gradient(135deg, #E0E0E0, #C0C0C0, #E0E0E0);
+            background: linear-gradient(135deg, #ECF0F1, #BDC3C7); /* Gradient light gray */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: bold;
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
         }
         .chat-toggle-button:hover {
-            background-color: #3B4C59;
+            background-color: #2980B9;
             transform: scale(1.1);
         }
         @keyframes rotate {
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
             100% { transform: rotate(360deg); }
         }
         .my-message {
-            background-color: #DCF8C6;
+            background-color: #E1F5FE; /* Light blue background color */
             padding: 5px 10px; /* Reduced vertical padding */
             border-radius: 20px; /* Rounded corners for user messages */
             margin-bottom: 10px;
@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
             line-height: 1.2; /* Reduced line height */
         }
         .ai-message {
-            background-color: #E5E5EA;
+            background-color: #FFEBEE; /* Light red background color */
             padding: 5px 10px; /* Reduced vertical padding */
             border-radius: 8px;
             margin-bottom: 10px;
@@ -350,8 +350,8 @@ document.addEventListener('DOMContentLoaded', function() {
             top: 10px;
             left: 10px;
             border: none;
-            background: #4E5C6E;
-            color: #FFFFFF;
+            background: #2C3E50; /* Dark blue-gray background color */
+            color: #ECF0F1; /* Light gray text color */
             font-size: 16px;
             cursor: pointer;
             width: 30px;
@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: background-color 0.3s;
         }
         .chat-maximize-button:hover {
-            background-color: #687C8A;
+            background-color: #34495E;
         }
         .expanded {
             width: 50vw;
