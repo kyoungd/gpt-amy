@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chatWindow.classList.toggle('expanded');
     };
 
-    chatHeader.textContent = 'Chatbox Popup';
+    chatHeader.textContent = 'TALK TO AMY';
     chatHeader.appendChild(maximizeButton);
     chatHeader.appendChild(closeButton);
     chatFooter.appendChild(inputArea);
