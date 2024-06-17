@@ -117,8 +117,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     closeButton.textContent = '×';
     closeButton.onclick = function() {
-        chatWindow.style.display = 'none';
-        toggleButton.style.display = 'block';
+        chatWindow.classList.remove('popup');
+        chatWindow.classList.add('popdown');
+        setTimeout(() => {
+            chatWindow.style.display = 'none';
+            toggleButton.style.display = 'block';
+        }, 300); // Duration of the animation
     };
 
     maximizeButton.textContent = '⛶';
@@ -142,6 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggleButton.onclick = function() {
         chatWindow.style.display = 'flex';
+        chatWindow.classList.remove('popdown');
+        chatWindow.classList.add('popup');
         toggleButton.style.display = 'none';
     };
 
@@ -207,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transform: translateZ(0);
+            transition: all 0.3s ease-in-out;
         }
         .chat-header {
             position: relative;
@@ -321,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         .chat-toggle-button:hover {
             background-color: #2980B9;
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
         @keyframes rotate {
             0% { transform: rotate(0deg); }
@@ -370,6 +377,32 @@ document.addEventListener('DOMContentLoaded', function() {
             height: 75vh;
             max-height: 75vh;
             transition: width 0.3s, height 0.3s;
+        }
+        @keyframes popup {
+            0% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes popdown {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+        }
+        .popup {
+            animation: popup 0.3s forwards;
+        }
+        .popdown {
+            animation: popdown 0.3s forwards;
         }
     `;
     document.head.appendChild(styleSheet);
