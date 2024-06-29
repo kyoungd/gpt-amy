@@ -18,7 +18,7 @@ const HomeTwo = () => {
     const sectionLearnMore = useRef(null);
     return (
         <React.Fragment>
-            <SEO title="Saracoti AI || Customer Service AI" />
+            <SEO title="Oyate AI || Customer Service AI" />
             <Header />
             <IntroTwo refSectionLearnMore={sectionLearnMore} />
             <HomeAboutTwo refSectionLearnMore={sectionLearnMore} />

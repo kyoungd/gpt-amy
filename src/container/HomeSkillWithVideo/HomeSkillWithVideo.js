@@ -17,7 +17,7 @@ const HomeSkillWithVideo = () => {
                     <div className="col-xl-5 col-lg-6 col-12" data-aos="fade-up">
                         <div className="skill-with-video-content">
                             <div className="section-title-two mb-8">
-                                <span className="sub-title">Saracoti AI</span>
+                                <span className="sub-title">Oyate AI</span>
                                 <h3 className="title">An advanced AI that exceeds your customer service needs.</h3>
                             </div>
 

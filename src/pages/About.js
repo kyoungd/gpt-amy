@@ -18,11 +18,11 @@ export default function AboutUs () {
 
     return (
         <React.Fragment>
-            <SEO title="SARACOTI || About" />
+            <SEO title="OYATE || About" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg.jpg"
-                title="A few steps to get started with SARACOTI AI."
+                title="A few steps to get started with OYATE AI."
                 content="Home"
                 contentTwo="Learn More"
             />

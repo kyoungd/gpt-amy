@@ -10,7 +10,7 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const ExpertTechniques = () => {
     return (
         <React.Fragment>
-            <SEO title="SARACOTI || Main" />
+            <SEO title="OYATE || Main" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"

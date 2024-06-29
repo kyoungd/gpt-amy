@@ -9,10 +9,10 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 import PropTypes from 'prop-types';
 
 const HomeGetStarted = ({jwt, showBlockName}) => {
-    const title = "Advantages of SARACOTI";
+    const title = "Advantages of OYATE";
     return (
         <React.Fragment>
-            <SEO title="SARACOTI || Get Started" />
+            <SEO title="OYATE || Get Started" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"

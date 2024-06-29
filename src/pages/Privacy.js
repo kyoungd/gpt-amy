@@ -10,11 +10,11 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const Service = () => {
     return (
         <React.Fragment>
-            <SEO title="SARACOTI || Privacy" />
+            <SEO title="OYATE || Privacy" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"
-                title="saracoti.com privacy policy"
+                title="oyate.com privacy policy"
                 content="Home"
                 contentTwo="Privacy"
             />

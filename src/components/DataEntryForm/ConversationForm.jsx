@@ -52,7 +52,7 @@ export default ConversationForm;
 //     },
 //     {
 //         "role": "assistant",
-//         "content": "Hi. You reached saracoti AI, and I am Amy.  How can I help you today?"
+//         "content": "Hi. You reached oyate AI, and I am Amy.  How can I help you today?"
 //     },
 //     {
 //         "role": "user",
@@ -64,7 +64,7 @@ export default ConversationForm;
 //     },
 //     {
 //         "role": "assistant",
-//         "content": "Hello! As an AI, I don't have feelings, but I'm here and ready to assist you. Feel free to ask me any question about Saracoti AI"
+//         "content": "Hello! As an AI, I don't have feelings, but I'm here and ready to assist you. Feel free to ask me any question about Oyate AI"
 //     },
 //     {
 //         "role": "user",
