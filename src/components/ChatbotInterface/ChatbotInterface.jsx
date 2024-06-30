@@ -7,7 +7,7 @@ import catOutline from '@iconify/icons-eva/github-outline';
 import GetNextMessageSafe from "./nextMessage";
 import axios from 'axios';
 
-const ChatbotInterface = ({ jwt }) => {
+const ChatbotInterface = ({ id }) => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [callObject, setCallObject] = useState(null);
@@ -16,24 +16,14 @@ const ChatbotInterface = ({ jwt }) => {
   const messagesEndRef = useRef(null);
   const [height, setHeight] = useState('auto');
   const [aiTraining, setAiTraining] = useState(false);
+  const [aiServerUrl, setAiServerUrl] = useState('');
 
   useEffect(() => {
     const getMessage = async () => {
       try {
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const url1 = `${process.env.REACT_APP_BACKEND_URL}/api/subscriptions/active`;
-        
-        const result1 = await axios.get(url1, {
-          headers: {
-            'Authorization': `Bearer ${jwt}`
-          }
-        });
-        
-        if (result1.status !== 200) {
-          throw new Error('No active subscription');
-        }
   
-        const external_id = result1.data.data[0].attributes.subscription_external_id;
+        const external_id = id;
         const url2 = `${process.env.REACT_APP_BACKEND_URL}/api/subscriptions/initialize-ai`;
         const json_body = {
           'subscription_external_id': external_id,
@@ -42,18 +32,15 @@ const ChatbotInterface = ({ jwt }) => {
           'caller_domain': ""
         };
   
-        const result2 = await axios.post(url2, json_body, {
-          headers: {
-            'Authorization': `Bearer ${jwt}`
-          }
-        });
+        const result2 = await axios.post(url2, json_body);
         
         if (result2.status !== 200) {
           throw new Error('Cannot initialize AI');
         }
   
         const first_object = result2.data.data.attributes;
-        const result3 = await GetNextMessageSafe(first_object);
+        setAiServerUrl(first_object.ai_server_url);
+        const result3 = await GetNextMessageSafe(first_object.ai_server_url, first_object);
         if (result3.success) {
           setCallObject(result3.callObject);
           setMessages((prevMessages) => [
@@ -86,40 +73,13 @@ const ChatbotInterface = ({ jwt }) => {
 
     setChatHistoryBoxHeight();
     window.addEventListener('resize', setChatHistoryBoxHeight);
+    setAiTraining(true);
 
     return () => {
       window.removeEventListener('resize', setChatHistoryBoxHeight);
     };
   }, []);
 
-  useEffect(() => {
-    const fetchAiTrainingStatus = async () => {
-      try {
-        const result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/subscriptions/is-ai-training`, {
-          headers: { Authorization: `Bearer ${jwt}` },
-        });
-        const is_ai_training = result.data.data.attributes.is_ai_training;
-        setAiTraining(is_ai_training);
-      } catch (error) {
-        console.error('Failed to fetch AI training status:', error);
-      }
-    };
-  
-    fetchAiTrainingStatus();  // Call it immediately to check the status initially.
-  
-    const interval = setInterval(() => {
-      if (aiTraining) {
-        fetchAiTrainingStatus().catch(error => {
-          console.error('Error during interval fetching:', error);
-        });
-      } else {
-        clearInterval(interval);
-      }
-    }, 5000);
-  
-    return () => clearInterval(interval);
-  }, [aiTraining, jwt]);
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userInput.trim()) return;
@@ -129,7 +89,7 @@ const ChatbotInterface = ({ jwt }) => {
       { name: "User", text: userInput },
     ]);
 
-    GetNextMessageSafe(callObject, userInput)
+    GetNextMessageSafe(aiServerUrl, callObject, userInput)
       .then((result) => {
         if (result.success) {
           setCallObject(result.callObject);
@@ -213,7 +173,7 @@ const ChatbotInterface = ({ jwt }) => {
 };
 
 ChatbotInterface.propTypes = {
-  jwt: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default ChatbotInterface;

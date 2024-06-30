@@ -27,6 +27,7 @@ const PageOrderSuccess = lazy(() => import("./pages/PageOrderSuccess"));
 const PageOrderFailed = lazy(() => import("./pages/PageOrderFailed"));
 const PageConsultingAgreement = lazy(() => import("./pages/PageConsultingAgreement"));
 const PageSoftwareAsService = lazy(() => import("./pages/PageSoftwareAsService"));
+const PageAi = lazy(() => import("./pages/PageAi"));
 
 function App() {
   const { jwt } = useUserState();
@@ -57,6 +58,7 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/home-three"}`} element={<HomeThree/>}/>
               <Route path={`${process.env.PUBLIC_URL + "/about"}`} element={<About />} />
               <Route path={`${process.env.PUBLIC_URL + "/service"}`} element={<Service/>} />
+              <Route path={`${process.env.PUBLIC_URL + "/ai/demo-tire-store"}`} element={<PageAi id="sub_1OsC08Ittz0L0oqPhlD01GMp" title="tire store" />} />
 
               <Route path={`${process.env.PUBLIC_URL + "/work-details/:id"}`} element={<WorkDetails/>} />
               <Route path={`${process.env.PUBLIC_URL + "/blog-grid"}`} element={<BlogGrid/>} />

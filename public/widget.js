@@ -78,9 +78,9 @@ const enable_button = (oneButton) => {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const AI_URL = "https://talkee.ai/wheel/manage";
-    const AI_URL_PING = "https://talkee.ai/wheel/ping";
-    const INIT_AI_URL = null;
+    var AI_URL = "https://talkee.ai/receptionist/manage";
+    const AI_URL_PING = "https://talkee.ai/receptionist/ping";
+    const INIT_AI_URL = "https://talkee.ai/api/subscriptions/initialize-ai";
 
     let global_state = null;
 
@@ -455,6 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 const data = await http_post(INIT_AI_URL, json_body);
                 global_state = deep_copy(data.data.attributes);
+                AI_URL = global_state.ai_server_url;
                 talk_to_ai(global_state);
             } catch (error) {
                 console.error(`Error: ${json_body} ${error}`);

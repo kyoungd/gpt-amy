@@ -7,14 +7,21 @@ import HeaderSearch from '../../components/HeaderSearch/HeaderSearch';
 import MobileMenu from "../../components/NavBar/MobileMenu"
 import MainSearch from "../../components/NavBar/MainSearch"
 import { useUserState } from '../../components/UserContext';
+import { Link } from 'react-router-dom';
 
-const LogoStyle = styled.p`
+const LogoStyle = styled(Link)`
     font-size: 24px;
     line-height: 25px;
     text-align: center;
     padding: 10px 5px;
     color: #fff;
     margin-bottom: 0; 
+    text-decoration: none;
+    display: inline-block;
+    
+    &:hover {
+      color: #fff;
+  }
 `;
 
 const Header = () => {
@@ -53,7 +60,7 @@ const Header = () => {
                     <div className="container position-relative">
                         <div className="row justify-content-between align-items-center">
                             <div className="col-xl-2 col-auto order-0">
-                                <LogoStyle><strong>OYATE</strong></LogoStyle>
+                                <LogoStyle to="/"><strong>OYATE</strong></LogoStyle>
                                 {/* <Logo 
                                     image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}
                                 /> */}

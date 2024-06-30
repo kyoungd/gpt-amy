@@ -11,6 +11,13 @@ const NavBar = () => {
                 <li>
                     <NavLink to={homeUrl}><span className="menu-text">Home</span></NavLink>
                 </li>
+                <li className="has-children">
+                    <NavLink><span className="menu-text">AI</span></NavLink>
+                    <span className="menu-toggle"><i className="far fa-angle-down"></i></span>
+                    <ul className="sub-menu">
+                        <li><NavLink to="/ai/demo-tire-store"><span className="menu-text">Tire Store AI</span></NavLink></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     )

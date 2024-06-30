@@ -7,18 +7,18 @@ import Footer from '../container/Footer/Footer.js';
 import ScrollToTop from '../components/ScrollToTop.jsx';
 import PropTypes from 'prop-types';
 
-const PageAi = ({ jwt }) => {
+const PageAi = ({ id, title }) => {
     return (
         <React.Fragment>
             <SEO title="OYATE || Test AI" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-two.jpg"
-                title="Test Your AI!"
-                content="Train AI"
-                contentTwo="Test Your AI"
+                title="Test AI!"
+                content="AI"
+                contentTwo={title}
             />
-            <ChatbotInterface jwt={jwt} />
+            <ChatbotInterface id={id} />
             <Footer />
             <ScrollToTop />
         </React.Fragment>
@@ -26,7 +26,8 @@ const PageAi = ({ jwt }) => {
 }
 
 PageAi.propTypes = {
-    jwt: PropTypes.string
+    id: PropTypes.string,
+    title: PropTypes.string,
 };
  
 export default PageAi;
