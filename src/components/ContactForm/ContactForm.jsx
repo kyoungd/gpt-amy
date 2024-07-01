@@ -1,41 +1,35 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import PropTypes from 'prop-types';
+import emailjs from 'emailjs-com';
 
-const ContactForm = ({ jwt }) => {
+const ContactForm = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     mode: "onBlur",
   });
-  // State for managing success and error messages
   const [feedbackMessage, setFeedbackMessage] = useState('');
   const [isError, setIsError] = useState(false);
 
   const onSubmit = async (data) => {
     try {
       console.log(data);
-      const url = `${process.env.REACT_APP_BACKEND_URL}/api/customer-requests`;
-      const values = { 'data': data };
-      let headers = {};
-      if (jwt)
-        headers['Authorization'] = `Bearer ${jwt}`;
-      headers['Content-Type'] = 'application/json';
-      const response = await axios.post(url, values, headers);
-      console.log(response.data);
-      // Check if the response status code is 200
-      if (response.status === 200) {
-        alert('Your request has been submitted successfully.');
+      const result = await emailjs.send(
+        process.env.REACT_APP_EMAIL_SERVICE_ID,
+        process.env.REACT_APP_EMAIL_TEMPLATE_ID,
+        data,
+        process.env.REACT_APP_EMAIL_USER_ID
+      );
+      console.log(result.text);
+      if (result.status === 200) {
+        setFeedbackMessage('Your request has been submitted successfully.');
         setIsError(false);
         reset(); // Reset form fields after successful submission
       } else {
-        // Handle any other response status code as an error
         setFeedbackMessage('An unexpected error occurred. Please try again.');
         setIsError(true);
       }
     } catch (error) {
-      console.error('Error updating data:', error);
-      // Set error message from error object, if available
-      setFeedbackMessage(error.response?.data?.message || 'An error occurred while submitting your request.');
+      console.error('Error sending email:', error);
+      setFeedbackMessage(error.text || 'An error occurred while submitting your request.');
       setIsError(true);
     }
   };
@@ -98,7 +92,6 @@ const ContactForm = ({ jwt }) => {
             ></textarea>
             {errors?.contact_description && <p>{errors.contact_description?.message}</p>}
           </div>
-          {/* Feedback message display */}
           {feedbackMessage && (
             <div className={`col-12 ${isError ? 'text-danger' : 'text-success'}`}>
               {feedbackMessage}
@@ -111,14 +104,6 @@ const ContactForm = ({ jwt }) => {
       </form>
     </div>
   );                
-};
-
-ContactForm.propTypes = {
-  jwt: PropTypes.string
-};
-
-ContactForm.defaultProps = {
-  jwt: null
 };
 
 export default ContactForm;
