@@ -12,6 +12,7 @@ const ContactForm = () => {
   const onSubmit = async (data) => {
     try {
       console.log(data);
+      data['contact_source'] = "oyate.ai";
       const result = await emailjs.send(
         process.env.REACT_APP_EMAIL_SERVICE_ID,
         process.env.REACT_APP_EMAIL_TEMPLATE_ID,
