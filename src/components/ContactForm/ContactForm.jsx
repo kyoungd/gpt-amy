@@ -20,15 +20,18 @@ const ContactForm = () => {
       );
       console.log(result.text);
       if (result.status === 200) {
+        alert('Your request has been submitted successfully.');
         setFeedbackMessage('Your request has been submitted successfully.');
         setIsError(false);
         reset(); // Reset form fields after successful submission
       } else {
+        alert('An unexpected error occurred. Please try again.');
         setFeedbackMessage('An unexpected error occurred. Please try again.');
         setIsError(true);
       }
     } catch (error) {
       console.error('Error sending email:', error);
+      alert(error.text || 'An error occurred while submitting your request.');
       setFeedbackMessage(error.text || 'An error occurred while submitting your request.');
       setIsError(true);
     }
