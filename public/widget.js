@@ -78,8 +78,8 @@ const enable_button = (oneButton) => {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var AI_URL = "https://talkee.ai/receptionist/manage";
-    const AI_URL_PING = "https://talkee.ai/receptionist/ping";
+    var AI_URL = "https://talkee.ai/ai3/receptionist";
+    const AI_URL_PING = "https://talkee.ai/ai3/ping";
     const INIT_AI_URL = "https://talkee.ai/api/subscriptions/initialize-ai";
 
     let global_state = null;

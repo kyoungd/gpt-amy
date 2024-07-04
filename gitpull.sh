@@ -8,4 +8,4 @@ sleep 5
 
 echo 'git pull done..  start the site..'
 npm run build
-serve -s build -l 3000
+serve -s build -l 3210
