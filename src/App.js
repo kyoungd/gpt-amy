@@ -32,6 +32,9 @@ const PageAi = lazy(() => import("./pages/PageAi"));
 function App() {
   const { jwt } = useUserState();
 
+  const tire_store_id = process.env.REACT_APP_TIRE_STORE_ID;
+  const trial_offer_id = process.env.REACT_APP_TRIAL_OFFER_ID;
+
   useEffect(() => {
     AOS.init({
         offset: 80,
@@ -58,7 +61,8 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/home-three"}`} element={<HomeThree/>}/>
               <Route path={`${process.env.PUBLIC_URL + "/about"}`} element={<About />} />
               <Route path={`${process.env.PUBLIC_URL + "/service"}`} element={<Service/>} />
-              <Route path={`${process.env.PUBLIC_URL + "/ai/demo-tire-store"}`} element={<PageAi id="sub_1OsC08Ittz0L0oqPhlD01GMp" title="tire store" />} />
+              <Route path={`${process.env.PUBLIC_URL + "/ai/demo-tire-store"}`} element={<PageAi id={tire_store_id} title="tire store" />} />
+              <Route path={`${process.env.PUBLIC_URL + "/ai/demo-trial-offer"}`} element={<PageAi id={trial_offer_id} title="trial offer" />} />
 
               <Route path={`${process.env.PUBLIC_URL + "/work-details/:id"}`} element={<WorkDetails/>} />
               <Route path={`${process.env.PUBLIC_URL + "/blog-grid"}`} element={<BlogGrid/>} />

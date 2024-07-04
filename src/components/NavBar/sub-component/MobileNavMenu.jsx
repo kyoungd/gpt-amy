@@ -16,6 +16,7 @@ const MobileNavMenu = () => {
                     <span className="menu-toggle"><i className="far fa-angle-down"></i></span>
                     <ul className="sub-menu">
                         <li><NavLink to="/ai/demo-tire-store"><span className="menu-text">Tire Store AI</span></NavLink></li>
+                        <li><NavLink to="/ai/demo-trial-offer"><span className="menu-text">Trial Offer AI</span></NavLink></li>
                     </ul>
                 </li>
             </ul>
