@@ -29,5 +29,9 @@ PageAi.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
 };
- 
+
+PageAi.defaultProps = {
+    title: "AI"
+};
+
 export default PageAi;
