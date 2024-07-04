@@ -18,7 +18,7 @@ const PageAi = ({ id, title }) => {
                 content="AI"
                 contentTwo={title}
             />
-            <ChatbotInterface id={id} />
+            <ChatbotInterface key={title} id={id} />
             <Footer />
             <ScrollToTop />
         </React.Fragment>
