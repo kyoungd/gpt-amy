@@ -13,7 +13,7 @@ const PageSoftwareAsService = () => {
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"
-                title="oyate.iai SAAS agreement"
+                title="oyate.ai SAAS agreement"
                 content="Home"
                 contentTwo="SAAS agreement"
             />

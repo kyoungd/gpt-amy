@@ -21,7 +21,7 @@ const Footer = () => {
                             <div className="footer-widget-content">
                                 <div className="content">
                                     <p><Link to={process.env.PUBLIC_URL + "/"}>(+1) 747-224-7144</Link></p>
-                                    <p><Link to={process.env.PUBLIC_URL + "/"}>info@oyate.iai</Link> </p>
+                                    <p><Link to={process.env.PUBLIC_URL + "/"}>info@oyate.ai</Link> </p>
                                 </div>
                                 <div className="footer-social-inline">
                                     <a href="#"><i className="fab fa-twitter-square"></i></a>
