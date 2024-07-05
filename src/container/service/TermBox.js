@@ -30,25 +30,25 @@ const TermBox = ({ classOption }) => {
 
                                 This Terms of Service Agreement (the &quot;Agreement&quot;) governs the provision of the Service (as defined
                                 below) by us to you. We reserve the right to change or revise the terms and conditions of this
-                                Agreement at any time, by posting any changes or a revised Agreement on this site (www.oyate.com)
+                                Agreement at any time, by posting any changes or a revised Agreement on this site (www.oyate.iai)
                                 (&quot;oyate Site&quot;). We will alert you that changes or revisions have been made by indicating on the top of
                                 this Agreement the date it was last revised. The changed or revised Agreement will be effective
                                 immediately after it is posted on this web site. Your use of the Service following the posting of any such
                                 changes or of a revised Agreement will constitute your acceptance of any such changes or revisions. We
-                                encourage you to review this Agreement whenever you visit www.oyate.com to make sure that you
+                                encourage you to review this Agreement whenever you visit www.oyate.iai to make sure that you
                                 understand the terms of the Service provided to you. If you do not agree to this Agreement (including
                                 any referenced policies or guidelines), please immediately terminate your use of the Service. If you
                                 would like to print this Agreement, please click the print button on your browser toolbar.
                                 I. THE SERVICE
 
-                                (a) Age Requirements for Use of Services. All services offered by www.oyate.com are for the sole use of
+                                (a) Age Requirements for Use of Services. All services offered by www.oyate.iai are for the sole use of
                                 licensed businesses and individuals over the age of 18.
                                 (b) oyate Projects. Advertised services are provided either on a “set cost” for basic services that do
                                 not require additional programming beyond the options provided and Consulting services for more
                                 complex or individualized projects such as Lead Generation, Client intake, Customer Service… which
                                 must be developed based on the needs and desires of each individual request as oyate™ has virtually
                                 unlimited capability.
-                                (c) Scope of service. &quot;oyate™ Site&quot; and www.oyate.com are to be used to provide legal contract
+                                (c) Scope of service. &quot;oyate™ Site&quot; and www.oyate.iai are to be used to provide legal contract
                                 services only. Violent, indecent, obscene and/or sexually explicit projects and/or language will not be
                                 tolerated and will not be programmed on this service.
                                 (d) Cost of services: Oyate will run ads, specials, promotions… from time to time and reserves the
@@ -82,11 +82,11 @@ const TermBox = ({ classOption }) => {
                                 your responsibility. In light of the foregoing, you acknowledge and agree that you will not be entitled to
                                 any refund for any Fees you pay for the Content if the Content is incompatible with your Device.
 
-                                (h) Customer Service. For customer service, please contact info@oyate.com or call (800) 201-0601.
+                                (h) Customer Service. For customer service, please contact info@oyate.iai or call (800) 201-0601.
                                 II. TERM AND TERMINATION
                                 (a) Term. The term of this Agreement (the &quot;Term&quot;) will begin on the date on which you first use
                                 oyate™ Site and shall continue until you request removal from the service via email to
-                                support@oyate.com to be removed from our system. We may terminate this Agreement at any time,
+                                support@oyate.iai to be removed from our system. We may terminate this Agreement at any time,
                                 for any reason; provided that we provide you with twenty‐four (24) hour written (or e‐mail) notice.
                                 Further, we may terminate this Agreement or any part of the Service immediately, without notice, in the
                                 event you breach any obligation hereunder.
@@ -124,7 +124,7 @@ const TermBox = ({ classOption }) => {
                                 attempt to gain unauthorized access to other computer systems or networks connected to the Service).
                                 (c) Resale of the Content. You will not resell the Content or the use of or access to the Service.
                                 (d) Report of Abuse. You will report any violations of the terms of this Agreement by other users of the
-                                Service of which you become aware by contacting us at support@oyate.com.
+                                Service of which you become aware by contacting us at support@oyate.iai.
                                 V. CONTENT USAGE RULES
                                 You acknowledge that the Content may contain security technology that limits your usage of the
                                 Content to some or all of the following usage rules, and you agree to use the Content in compliance with
@@ -159,7 +159,7 @@ const TermBox = ({ classOption }) => {
                                 that contains material that you own or control, you may file a notification of such infringement with our
                                 Designated Agent. Please refer to the &quot;Copyright Policy&quot; and &quot;Notice and Procedure for Notifying
                                 Designated Agent of Claims of Copyright Infringement&quot; set forth on The oyate™ Site at
-                                www.oyate.com.
+                                www.oyate.iai.
                                 VIII. YOUR PRIVACY
                                 We believe strongly in protecting user privacy and providing you with notice of our use of data, including
                                 personal identifying information, collected on The oyate™ Site. Unless required to provide the Service
@@ -243,24 +243,24 @@ const TermBox = ({ classOption }) => {
                                 on The oyate Site. Notices to us must be sent by either overnight courier or certified mail, return
                                 receipt requested.
                                 XIII. TRADEMARKS
-                                oyate™, its logo, and other oyate.com trademarks, service marks, graphics, and logos used in
+                                oyate™, its logo, and other oyate.iai trademarks, service marks, graphics, and logos used in
                                 connection with the Service and Content are trademarks or registered trademarks owned by us in the
                                 U.S. and/or other countries. Other trademarks, service marks, graphics, and logos used in connection
                                 with the Service and Content may be the trademarks of their respective owners. You are granted no
                                 right or license with respect to any of the aforesaid trademarks and any use of such trademarks.
                                 XIV. SMS ALERTS
-                                If you gave us your e‐mail address when you registered, we may use it to send you www.oyate.com
+                                If you gave us your e‐mail address when you registered, we may use it to send you www.oyate.iai
                                 newsletters, product updates, service‐related information, and other offers and information from us or
                                 our business partners, and you hereby consent to such e‐mails. We may also contact you by e‐mail to
                                 respond to any customer service inquiries you submit. We do not disclose your e‐mail address to
                                 business partners or to anyone other than employees and agents working for or on behalf of us, except
                                 as required by subpoenas, court orders, or legal requirements. We do not use your e‐mail address to
-                                correlate your identity to your Internet usage paths. If you do not want to receive www.oyate.com
+                                correlate your identity to your Internet usage paths. If you do not want to receive www.oyate.iai
                                 newsletters, offers, and product and service information, simply click the unsubscribe link at the bottom
                                 of the e-mail address where such information is being sent.
                                 XV. GENERAL
                                 (a) En��re Agreement. This Agreement comprises the entire agreement among you and u
-                                (www.oyate.com ) and supersedes any prior agreements pertaining to the subject matter contained
+                                (www.oyate.iai ) and supersedes any prior agreements pertaining to the subject matter contained
                                 herein.
                                 (b) Effect of Waiver. Failure by us to exercise or enforce any right or provision of this Agreement will not
                                 constitute a waiver of such right or provision. If any provision of this Agreement is found by a court of

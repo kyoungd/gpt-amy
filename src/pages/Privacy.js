@@ -14,7 +14,7 @@ const Service = () => {
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"
-                title="oyate.com privacy policy"
+                title="oyate.iai privacy policy"
                 content="Home"
                 contentTwo="Privacy"
             />

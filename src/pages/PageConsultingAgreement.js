@@ -13,7 +13,7 @@ const PageConsultingAgreement = () => {
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-three.jpg"
-                title="oyate.com software consulting agreement"
+                title="oyate.iai software consulting agreement"
                 content="Home"
                 contentTwo="Software Consulting Agreement"
             />

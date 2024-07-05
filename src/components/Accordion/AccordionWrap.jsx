@@ -22,7 +22,7 @@ const AccordionWrap = () => {
                 <AccordionItem id="two">
                     <AccordionTitle id="two">Need Live Support?</AccordionTitle>
                     <AccordionContent id="two">
-                        If you prefer, you can make an appointment with our engineer through email at support@oyate.com.
+                        If you prefer, you can make an appointment with our engineer through email at support@oyate.iai.
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem id="three">
