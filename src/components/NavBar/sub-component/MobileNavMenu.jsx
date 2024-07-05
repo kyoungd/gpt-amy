@@ -17,6 +17,7 @@ const MobileNavMenu = () => {
                     <ul className="sub-menu">
                         <li><NavLink to="/ai/demo-tire-store"><span className="menu-text">Tire Store AI</span></NavLink></li>
                         <li><NavLink to="/ai/demo-trial-offer"><span className="menu-text">Trial Offer AI</span></NavLink></li>
+                        <li><NavLink to="/ai/demo-car-part"><span className="menu-text">Car Parts AI</span></NavLink></li>
                     </ul>
                 </li>
             </ul>

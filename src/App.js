@@ -34,6 +34,7 @@ function App() {
 
   const tire_store_id = process.env.REACT_APP_TIRE_STORE_ID;
   const trial_offer_id = process.env.REACT_APP_TRIAL_OFFER_ID;
+  const car_part_id = process.env.REACT_APP_CAR_PART_ID;
 
   useEffect(() => {
     AOS.init({
@@ -63,6 +64,7 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/service"}`} element={<Service/>} />
               <Route path={`${process.env.PUBLIC_URL + "/ai/demo-tire-store"}`} element={<PageAi id={tire_store_id} title="tire store" />} />
               <Route path={`${process.env.PUBLIC_URL + "/ai/demo-trial-offer"}`} element={<PageAi id={trial_offer_id} title="trial offer" />} />
+              <Route path={`${process.env.PUBLIC_URL + "/ai/demo-car-part"}`} element={<PageAi id={car_part_id} title="car parts" />} />
 
               <Route path={`${process.env.PUBLIC_URL + "/work-details/:id"}`} element={<WorkDetails/>} />
               <Route path={`${process.env.PUBLIC_URL + "/blog-grid"}`} element={<BlogGrid/>} />

@@ -80,6 +80,13 @@ const ChatbotInterface = ({ id }) => {
     };
   }, []);
 
+  const renderMessageContent = (text) => {
+    if (text.includes('<a href=')) {
+      return <span dangerouslySetInnerHTML={{ __html: text }} />;
+    }
+    return text;
+  };
+    
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userInput.trim()) return;
@@ -141,14 +148,15 @@ const ChatbotInterface = ({ id }) => {
         )}
         <Row className="chat-history-box" style={{height}}>
           <Col>
-              <div className="messages-container">
+            <div className="messages-container">
               {messages.map((message, index) => (
-                  <ListGroup.Item key={index} className={message.name}>
-                  <Icon icon={message.name === 'AI' ? catOutline : personOutline} /> {' '} <strong>{message.name}:</strong> {message.text}
-                  </ListGroup.Item>
+                <ListGroup.Item key={index} className={message.name}>
+                  <Icon icon={message.name === 'AI' ? catOutline : personOutline} /> {' '}
+                  <strong>{message.name}:</strong> {renderMessageContent(message.text)}
+                </ListGroup.Item>
               ))}
               <div ref={messagesEndRef}></div>
-              </div>
+            </div>
           </Col>
         </Row>
         <Row className="user-input-section">
