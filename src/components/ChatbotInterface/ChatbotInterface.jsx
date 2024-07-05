@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { Button, Container, Row, Col, Form, ListGroup } from "react-bootstrap";
+import { Button, Container, Row, Col, Form, ListGroup, Modal } from "react-bootstrap";
 import { Icon } from '@iconify/react';
 import personOutline from '@iconify/icons-eva/person-outline';
 import catOutline from '@iconify/icons-eva/github-outline';
 import GetNextMessageSafe from "./nextMessage";
 import axios from 'axios';
+import VideoModal from '../VideoModal';
 
 const ChatbotInterface = ({ id }) => {
   const [messages, setMessages] = useState([]);
@@ -17,6 +18,9 @@ const ChatbotInterface = ({ id }) => {
   const [height, setHeight] = useState('auto');
   const [aiTraining, setAiTraining] = useState(false);
   const [aiServerUrl, setAiServerUrl] = useState('');
+
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
     const getMessage = async () => {
@@ -81,12 +85,47 @@ const ChatbotInterface = ({ id }) => {
   }, []);
 
   const renderMessageContent = (text) => {
-    if (text.includes('<a href=')) {
-      return <span dangerouslySetInnerHTML={{ __html: text }} />;
+    // YouTube video URL regex
+    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
+    
+    // Image URL regex
+    const imageRegex = /<a href="(https?:\/\/.*\.(?:png|jpg|jpeg|gif))"/i;
+
+    const htmlRegex = /<[^>]+>(.*?)<\/[^>]+>/;
+
+    const youtubeMatch = text.match(youtubeRegex);
+    const imageMatch = text.match(imageRegex);
+
+    if (youtubeMatch) {
+      const videoId = youtubeMatch[0].split(/v\/|v=|youtu\.be\//)[1].split(/[?&]/)[0];
+      return (
+        <span>
+          {text.replace(youtubeRegex, '')}
+          <VideoModal videoId={videoId} title="Watch Video" />
+        </span>
+      );
+    } else if (imageMatch) {
+      const htmlMatch = text.match(htmlRegex);
+      const linkText = htmlMatch[1];
+      const imageUrl = imageMatch[1];
+      return (
+        <span>
+          <Button 
+            variant="link" 
+            onClick={() => {
+              setImageUrl(imageUrl);
+              setShowImageModal(true);
+            }}
+          >
+            {linkText}
+          </Button>
+        </span>
+      );
     }
+
     return text;
   };
-    
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userInput.trim()) return;
@@ -176,6 +215,14 @@ const ChatbotInterface = ({ id }) => {
           </Col>
         </Row>
       </Container>
+      <Modal show={showImageModal} onHide={() => setShowImageModal(false)} size="lg" centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Image</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img src={imageUrl} alt="Full size" style={{maxWidth: '100%', maxHeight: '80vh'}} />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
