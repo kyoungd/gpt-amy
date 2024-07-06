@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { Button, Container, Row, Col, Form, ListGroup, Modal } from "react-bootstrap";
+import { Button, Container, Row, Col, Form, ListGroup } from "react-bootstrap";
 import { Icon } from '@iconify/react';
 import personOutline from '@iconify/icons-eva/person-outline';
 import catOutline from '@iconify/icons-eva/github-outline';
 import GetNextMessageSafe from "./nextMessage";
 import axios from 'axios';
 import VideoModal from '../VideoModal';
+import ImageModal from '../ImageModal';
 
 const ChatbotInterface = ({ id }) => {
   const [messages, setMessages] = useState([]);
@@ -18,9 +19,6 @@ const ChatbotInterface = ({ id }) => {
   const [height, setHeight] = useState('auto');
   const [aiTraining, setAiTraining] = useState(false);
   const [aiServerUrl, setAiServerUrl] = useState('');
-
-  const [showImageModal, setShowImageModal] = useState(false);
-  const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
     const getMessage = async () => {
@@ -59,7 +57,7 @@ const ChatbotInterface = ({ id }) => {
     };
   
     getMessage();
-  }, []); 
+  }, [id]); 
   
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -109,17 +107,7 @@ const ChatbotInterface = ({ id }) => {
       const linkText = htmlMatch[1];
       const imageUrl = imageMatch[1];
       return (
-        <span>
-          <Button 
-            variant="link" 
-            onClick={() => {
-              setImageUrl(imageUrl);
-              setShowImageModal(true);
-            }}
-          >
-            {linkText}
-          </Button>
-        </span>
+        <ImageModal imageUrl={imageUrl} linkText={linkText} />
       );
     }
 
@@ -206,23 +194,15 @@ const ChatbotInterface = ({ id }) => {
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 placeholder="Type your message..."
-                disabled = { isCompleted }
+                disabled={isCompleted}
               />
             </Form>
           </Col>
           <Col xs="auto" className="enter-button">
-            <Button onClick={handleSubmit} disabled = { isCompleted }>Enter</Button>
+            <Button onClick={handleSubmit} disabled={isCompleted}>Enter</Button>
           </Col>
         </Row>
       </Container>
-      <Modal show={showImageModal} onHide={() => setShowImageModal(false)} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Image</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <img src={imageUrl} alt="Full size" style={{maxWidth: '100%', maxHeight: '80vh'}} />
-        </Modal.Body>
-      </Modal>
     </div>
   );
 };
