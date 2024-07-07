@@ -95,7 +95,7 @@ const ChatbotInterface = ({ id }) => {
     const imageMatch = text.match(imageRegex);
 
     if (youtubeMatch) {
-      const videoId = youtubeMatch[0].split(/v\/|v=|youtu\.be\//)[1].split(/[?&]/)[0];
+      const videoId = youtubeMatch[0].match(/(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([\w-]{11})/)[1];
       return (
         <span>
           {text.replace(youtubeRegex, '')}
