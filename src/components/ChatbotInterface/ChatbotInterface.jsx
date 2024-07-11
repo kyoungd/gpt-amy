@@ -17,7 +17,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   const [errors, setErrors] = useState([]);
   const messagesEndRef = useRef(null);
   const [height, setHeight] = useState('auto');
-  const [aiTraining, setAiTraining] = useState(false);
+  // const [aiTraining, setAiTraining] = useState(false);
   const [aiServerUrl, setAiServerUrl] = useState('');
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
 
     setChatHistoryBoxHeight();
     window.addEventListener('resize', setChatHistoryBoxHeight);
-    setAiTraining(true);
+    // setAiTraining(true);
 
     return () => {
       window.removeEventListener('resize', setChatHistoryBoxHeight);
