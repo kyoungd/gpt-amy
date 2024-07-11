@@ -35,7 +35,7 @@ const PageAi = ({ id, title }) => {
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-two.jpg"
-                title="Test AI!"
+                title="Test AI"
                 content="AI"
                 contentTwo={title}
             />
