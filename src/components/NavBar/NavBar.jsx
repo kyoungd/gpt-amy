@@ -21,6 +21,9 @@ const NavBar = () => {
                         <li><NavLink to="/ai/demo-trial-offer"><span className="menu-text">Trial Offer AI</span></NavLink></li>
                     </ul>
                 </li>
+                <li>
+                    <NavLink to="/contact"><span className="menu-text">Contact</span></NavLink>
+                </li>
             </ul>
         </nav>
     )

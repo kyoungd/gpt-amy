@@ -18,6 +18,7 @@ const BlogClassic = lazy(() => import("./pages/BlogClassic"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
 const BlogCategories = lazy(() => import("./pages/BlogCategories"));
 const BlogTag = lazy(() => import("./pages/BlogTag"));
+const Contact = lazy(() => import("./pages/Contact"));
 const LoginRedirect = lazy(() => import("./pages/LoginRedirect"));
 const Test = lazy(() => import("./pages/Test"));
 const Privacy = lazy(() => import("./pages/Privacy"));
@@ -74,7 +75,7 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/tag/:slug"}`} element={<BlogTag/>} />
               <Route path={`${process.env.PUBLIC_URL + "/category/:slug"}`} element={<BlogCategories/>} />
               <Route path={`${process.env.PUBLIC_URL + "/blog-details/:id"}`}element={<BlogDetails/>} />
-              <Route path={`${process.env.PUBLIC_URL + "/contact"}`} element={<PageOrderSuccess jwt={jwt}/>} />
+              <Route path={`${process.env.PUBLIC_URL + "/contact"}`} element={<Contact />} />
               <Route path={`${process.env.PUBLIC_URL + "/dashboard"}`} element={<HomeOne />} />
               <Route path={`${process.env.PUBLIC_URL + "/connect/google/redirect"}`} element={<LoginRedirect providerName="google" />} />
               <Route path={`${process.env.PUBLIC_URL + "/connect/facebook/redirect"}`} element={<LoginRedirect providerName="facebook" />} />
