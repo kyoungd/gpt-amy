@@ -9,7 +9,7 @@ import axios from 'axios';
 import VideoModal from '../VideoModal';
 import ImageModal from '../ImageModal';
 
-const ChatbotInterface = ({ id }) => {
+const ChatbotInterface = ({ id, title, classOption }) => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [callObject, setCallObject] = useState(null);
@@ -149,16 +149,16 @@ const ChatbotInterface = ({ id }) => {
   };
 
   return (
-    <div id="bot-container" className={`section section-padding-t90 section-padding-bottom`}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1 style={{ textAlign: 'center', flexGrow: 1 }}>Test Your AI</h1>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <div id="bot-container" className={`${classOption}`}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <h3 style={{ textAlign: 'center', flexGrow: 1 }}>{title.toUpperCase()}</h3>
+    </div>
+      {/* <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h6 style={{ textAlign: 'center', flexGrow: 1 }}>
             {!aiTraining && <p>Test your personalized AI chatbot here.</p>}
             {aiTraining && <span style={{ color: 'red', marginLeft: '10px' }}>AI training in progress...</span>}
           </h6>
-      </div>
+      </div> */}
       <Container className="chatbot-interface">
         {errors.length > 0 && (
           <Row className="error-box">
@@ -209,6 +209,12 @@ const ChatbotInterface = ({ id }) => {
 
 ChatbotInterface.propTypes = {
   id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  classOption: PropTypes.string
+};
+
+ChatbotInterface.defaultProps = {
+    classOption: "section section-padding-t10 section-padding-bottom"
 };
 
 export default ChatbotInterface;

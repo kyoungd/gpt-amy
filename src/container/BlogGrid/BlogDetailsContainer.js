@@ -19,7 +19,7 @@ const BlogDetailsContainer = ({data}) => {
                     <div className="col-lg-8 col-12 order-lg-1 mb-10">
                         <div className="row row-cols-1 no-gutters">
                             
-                            <BlogDetails data={data} />
+                            <BlogDetails data={data} /> 
                             <div className="entry-author">
                                 <div className="author-info">
                                     <div className="author-avatar">

@@ -1,0 +1,148 @@
+[
+    {
+        "description": "direct conversastion",
+        "data": [
+            {
+                "role": "assistant",
+                "content": "Thank you for calling I Configuration. I am Amy, and I can help you with finding your tires. Do you know the tire size?  This is a demo AI, so no order will be placed."
+            },
+            {
+                "role": "user",
+                "content": "Hi Amy. How are you?"
+            },
+            {
+                "role": "assistant",
+                "content": "I'm doing well, thank you! Let's get started with finding the right tires for you. Do you know the tire size?"
+            },
+            {
+                "role": "user",
+                "content": "No. I do not know the tire size."
+            },
+            {
+                "role": "assistant",
+                "content": "No problem! Can you please tell me the make, model, and year of your vehicle?"
+            },
+            {
+                "role": "user",
+                "content": "I own a Lexus ES 300?"
+            },
+            {
+                "role": "assistant",
+                "content": "So, you have a Lexus ES 300. Can you please confirm the year of your Lexus ES 300?"
+            },
+            {
+                "role": "user",
+                "content": "Oh. It is 2005"
+            },
+            {
+                "role": "assistant",
+                "content": "Got it! So, to confirm, you have a 2005 Lexus ES 300. I've got that noted. Now, let me look up the tire size for you. Okay, I've got it. The tire size for your vehicle is 225/60R16. Is that correct?"
+            },
+            {
+                "role": "user",
+                "content": "Yes. That is correct."
+            },
+            {
+                "role": "assistant",
+                "content": "How many tires do you need?"
+            },
+            {
+                "role": "user",
+                "content": "I need a set."
+            },
+            {
+                "role": "assistant",
+                "content": "You need a set of 4 tires. Now, how would you like to purchase your tires? Would you like to choose by brand, price, or performance?"
+            },
+            {
+                "role": "user",
+                "content": "I want the least expensive one."
+            },
+            {
+                "role": "assistant",
+                "content": "We have the Dunlop Grandtrek AT25 for $136, which is our most affordable option. Would you like to go with that one?"
+            },
+            {
+                "role": "user",
+                "content": "I want something with a better performance."
+            },
+            {
+                "role": "assistant",
+                "content": "For a better performance, I would recommend the Dunlop SP Sport 5000 UHP for $156. It's a step up from the Grandtrek AT25 and offers improved handling and traction. Would you like to consider that option?"
+            },
+            {
+                "role": "user",
+                "content": "OK. That sounds good. Let's go with that."
+            },
+            {
+                "role": "assistant",
+                "content": "I'll summarize your order: you'd like to purchase a set of 4 Dunlop SP Sport 5000 UHP tires, size 225/60R16, for your 2005 Lexus ES 300, at a total cost of $624. Is that correct?"
+            },
+            {
+                "role": "user",
+                "content": "Yes."
+            },
+            {
+                "role": "assistant",
+                "content": "I'll go ahead and complete the order for you. I'll also check on tire availability in your area and let you know about any ongoing promotions or discounts. Your order is now complete, and I'll get your new tires ready for you. Thank you for choosing us, and have a great day!"
+            }
+        ]
+    },
+    {
+        "description": "direct part name",
+        "data": [
+            {"role": "assistant", "content": "Thank you for calling I Configuration. I am Amy, and I can help you with finding your tires. Do you know the tire size?  This is a demo AI, so no order will be placed."},
+            {"role": "user", "content": "Hi Amy. How are you?"},
+            {"role": "assistant", "content": "I'm doing well, thank you! Let's get started with finding the right tires for you. Do you know the tire size?"},
+            {"role": "user", "content": "Let's see. hold on. It is 225 60 R 16."},
+            {"role": "assistant", "content": "Just to confirm, your tire size is indeed 225/60R16, correct?"},
+            {"role": "user", "content": "Yes. That is correct."},
+            {"role": "assistant", "content": "How many tires do you need?"},
+            {"role": "user", "content": "I need a set."},
+            {"role": "assistant", "content": "You need a set of 4 tires. Would you like to purchase them based on brand, price, or performance?"},
+            {"role": "user", "content": "I want Dunlop Grandtrek AT25."},
+            {"role": "assistant", "content": "You've chosen the Dunlop Grandtrek AT25, which is a standard performance tire priced at $136. Is that correct?"},
+            {"role": "user", "content": "OK. That sounds good. Let's go with that."},
+            {"role": "assistant", "content": "I'll summarize your order: you'd like to purchase a set of 4 Dunlop Grandtrek AT25 tires, size 225/60R16, for a total of $544. Is that correct?"},
+            {"role": "user", "content": "Yes. I will take it."},
+            {"role": "assistant", "content": "I'll go ahead and complete the order. I'd like to let you know that we have these tires available in your area, and we're currently running a promotion for free installation. Would you like me to schedule an installation appointment for you?"},
+            {"role": "user", "content": "No."},
+            {"role": "assistant", "content": "Your order is complete. Thank you for choosing I Configuration, and we appreciate your business. Have a great day!"},
+            {"role": "user", "content": "Great. Bye."},
+            {"role": "assistant", "content": "Goodbye!"}
+        ]        
+    },
+    {
+        "description": "conversation with detours",
+        "data": [
+            {"role": "assistant", "content": "Thank you for calling I Configuration. I am Amy, and I can help you with finding your tires. Do you know the tire size?"},
+            {"role": "user", "content": "Hi Amy. How are you?"},
+            {"role": "assistant", "content": "I'm doing well, thank you! Let's get started with finding the right tires for you. Do you know the tire size?"},
+            {"role": "user", "content": "How are you feeling today?"},
+            {"role": "assistant", "content": "I'm feeling great, thanks for asking! But let's focus on finding your tires. Do you know the tire size?"},
+            {"role": "user", "content": "Let's see. hold on. It is 225 60 R 17."},
+            {"role": "assistant", "content": "Just to confirm, your tire size is 225/60R17, is that correct?"},
+            {"role": "user", "content": "Sorry. It is 225 60 R 16."},
+            {"role": "assistant", "content": "Just to confirm, your tire size is indeed 225/60R16, correct?"},
+            {"role": "user", "content": "Yes. That is correct."},
+            {"role": "assistant", "content": "How many tires do you need?"},
+            {"role": "user", "content": "I was just wondering. As an AI, do you like sports?"},
+            {"role": "assistant", "content": "Let's focus on finding your tires. As a salesperson, I don't have personal preferences or feelings, but I can help you with your tire needs. How many tires do you need?"},
+            {"role": "user", "content": "I need a set."},
+            {"role": "assistant", "content": "You need a set of 4 tires. Would you like to purchase them based on brand, price, or performance?"},
+            {"role": "user", "content": "I want Michelin Premier A/S."},
+            {"role": "assistant", "content": "I apologize, but we only carry Dunlop tires. Would you like to consider a Dunlop brand option? We have the Dunlop Grandtrek AT25, Dunlop SP Sport 5000 UHP, or Dunlop SP Sport Maxx GT ROF."},
+            {"role": "user", "content": "OK. I will take Dunlop SP Sport 5000 UHP."},
+            {"role": "assistant", "content": "The Dunlop SP Sport 5000 UHP is a great choice. Just to confirm, you'd like to purchase a set of 4 Dunlop SP Sport 5000 UHP tires in the size 225/60R16, correct?"},
+            {"role": "user", "content": "OK. That sounds good. Let's go with that."},
+            {"role": "assistant", "content": "I've confirmed your order. You've chosen a set of 4 Dunlop SP Sport 5000 UHP tires in the size 225/60R16. The total price would be $624. Would you like me to check for tire availability in your area or inform you about any ongoing promotions or discounts?"},
+            {"role": "user", "content": "Yes."},
+            {"role": "assistant", "content": "I've checked and we have the tires in stock. Additionally, we're currently running a promotion for a $20 discount on a set of 4 tires. So, your total price would be $604. Is that acceptable to you?"},
+            {"role": "user", "content": "Yes. Thanks."},
+            {"role": "assistant", "content": "You're welcome! I'm glad I could assist you. Your order is complete, and I've finalized the sale. Thank you for choosing I Configuration, and have a great day!"},
+            {"role": "user", "content": "Bye."},
+            {"role": "assistant", "content": "Goodbye!"}
+        ]       
+    }
+]
+
