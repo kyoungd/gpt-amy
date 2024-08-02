@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@deepgram/sdk": "^3.5.0",
     "@iconify/icons-eva": "^1.2.4",
     "aos": "^2.3.4",
     "axios": "^1.2.1",

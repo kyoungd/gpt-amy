@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { Button, Container, Row, Col, Form, ListGroup } from "react-bootstrap";
+import { Button, Container, Row, Col, Form, ListGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Icon } from '@iconify/react';
 import personOutline from '@iconify/icons-eva/person-outline';
 import catOutline from '@iconify/icons-eva/github-outline';
+import microphoneOutline from '@iconify/icons-eva/mic-outline';
+import microphoneOffOutline from '@iconify/icons-eva/mic-off-outline';
 import GetNextMessageSafe from "./nextMessage";
 import axios from 'axios';
 import VideoModal from '../VideoModal';
 import ImageModal from '../ImageModal';
+import { startAudio, stopAudio } from './AudioBot';
 
 const ChatbotInterface = ({ id, title, classOption }) => {
   const [messages, setMessages] = useState([]);
@@ -17,8 +20,9 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   const [errors, setErrors] = useState([]);
   const messagesEndRef = useRef(null);
   const [height, setHeight] = useState('auto');
-  // const [aiTraining, setAiTraining] = useState(false);
   const [aiServerUrl, setAiServerUrl] = useState('');
+  const [isAudioEnabled, setIsAudioEnabled] = useState(false);
+  const [isAudioInitializing, setIsAudioInitializing] = useState(false);
 
   useEffect(() => {
     const getMessage = async () => {
@@ -75,7 +79,6 @@ const ChatbotInterface = ({ id, title, classOption }) => {
 
     setChatHistoryBoxHeight();
     window.addEventListener('resize', setChatHistoryBoxHeight);
-    // setAiTraining(true);
 
     return () => {
       window.removeEventListener('resize', setChatHistoryBoxHeight);
@@ -83,12 +86,8 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   }, []);
 
   const renderMessageContent = (text) => {
-    // YouTube video URL regex
     const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
-    
-    // Image URL regex
     const imageRegex = /<a href="(https?:\/\/.*\.(?:png|jpg|jpeg|gif))"/i;
-
     const htmlRegex = /<[^>]+>(.*?)<\/[^>]+>/;
 
     const youtubeMatch = text.match(youtubeRegex);
@@ -114,52 +113,94 @@ const ChatbotInterface = ({ id, title, classOption }) => {
     return text;
   };
 
-  const handleSubmit = (e) => {
+  const handleTextSubmit = async (userText) => {
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { name: "User", text: userText },
+    ]);
+    setUserInput("");
+
+    try {
+      const result = await GetNextMessageSafe(aiServerUrl, callObject, userText);
+      if (result.success) {
+        setCallObject(result.callObject);
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { name: "AI", text: result.message },
+        ]);
+        if (callObject.id === 0) {
+          setIsCompleted(true);
+          console.log('off');
+        }
+        return result.message;
+      } else {
+        console.log('error: ', result.message);
+        setErrors((prevErrors) => [...prevErrors, result.message]);
+        return "AI is having some issues. Please try it again."
+      }
+    }
+    catch(error){
+        console.log('error: ', error);
+        setErrors((prevErrors) => [...prevErrors, error.message]);
+        return "AI is having some issues. Please try it again."
+    }
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!userInput.trim()) return;
 
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { name: "User", text: userInput },
-    ]);
-
-    GetNextMessageSafe(aiServerUrl, callObject, userInput)
-      .then((result) => {
-        if (result.success) {
-          setCallObject(result.callObject);
-          setMessages((prevMessages) => [
-            ...prevMessages,
-            { name: "AI", text: result.message },
-          ]);
-          if (callObject.id === 0) {
-            setIsCompleted(true);
-            console.log('off');
-          }
-        } else {
-          console.log('error: ', result.message);
-          setErrors((prevErrors) => [...prevErrors, result.message]);
-        }
-      })
-      .catch((error) => {
-        console.log('error: ', error);
-        setErrors((prevErrors) => [...prevErrors, error.message]);
-      });
-
-    setUserInput("");
+    await handleTextSubmit(userInput);
   };
+
+  const audioEnabled = () => {
+    console.log('microphone Enabled');
+    setTimeout(() => {
+      setIsAudioInitializing(false);
+    }, 1000); // 1000 milliseconds = 1 seconds
+  }
+
+  const audioSetupFailed = () => {
+    setIsAudioInitializing(false);
+    setIsAudioEnabled(false);
+  }
+
+  const toggleAudio = () => {
+    if (isAudioEnabled) {
+      stopAudio();
+      setIsAudioEnabled(false);
+    } else {
+      setIsAudioInitializing(true);
+      startAudio(handleTextSubmit, audioEnabled, audioSetupFailed);
+      setIsAudioEnabled(true);
+    }
+  };
+
+  const AudioButton = () => (
+    <OverlayTrigger
+      placement="left"
+      overlay={<Tooltip>{isAudioEnabled ? "Disable audio" : "Enable audio"}</Tooltip>}
+    >
+      <div
+        onClick={toggleAudio}
+        className={`audio-button ${isAudioEnabled ? 'audio-enabled' : ''} ${isAudioInitializing ? 'audio-initializing' : ''}`}
+      >
+        <Icon icon={isAudioEnabled ? microphoneOffOutline : microphoneOutline} style={{ fontSize: '1.5rem' }} />
+      </div>
+    </OverlayTrigger>
+  );
 
   return (
     <div id="bot-container" className={`${classOption}`}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <h3 style={{ textAlign: 'center', flexGrow: 1 }}>{title.toUpperCase()}</h3>
-    </div>
-      {/* <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h6 style={{ textAlign: 'center', flexGrow: 1 }}>
-            {!aiTraining && <p>Test your personalized AI chatbot here.</p>}
-            {aiTraining && <span style={{ color: 'red', marginLeft: '10px' }}>AI training in progress...</span>}
-          </h6>
-      </div> */}
       <Container className="chatbot-interface">
+        <Row className="header-row">
+          <Col>
+            <h3 style={{ textAlign: 'center' }}>{title.toUpperCase()}</h3>
+          </Col>
+          <Col xs="auto">
+            <AudioButton />
+          </Col>
+        </Row>
         {errors.length > 0 && (
           <Row className="error-box">
             <Col>
@@ -194,12 +235,12 @@ const ChatbotInterface = ({ id, title, classOption }) => {
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 placeholder="Type your message..."
-                disabled={isCompleted}
+                disabled={isCompleted || isAudioEnabled}
               />
             </Form>
           </Col>
           <Col xs="auto" className="enter-button">
-            <Button onClick={handleSubmit} disabled={isCompleted}>Enter</Button>
+            <Button onClick={handleSubmit} disabled={isCompleted || isAudioEnabled}>Enter</Button>
           </Col>
         </Row>
       </Container>

@@ -5,60 +5,59 @@ import axios from 'axios';
 const UserStateContext = React.createContext();
 const UserDispatchContext = React.createContext();
 
-function userReducer(state, action) {
+const initialState = {
+  isAuthenticated: false,
+  settings: {},
+  // add other initial state properties as needed
+};
+
+function userReducer(state = initialState, action) {
   try {
     switch (action.type) {
       case 'LOGIN_FAILURE':
         return { ...state };
+
       case 'LOGIN_SUCCESS':
-        localStorage.setItem('user', JSON.stringify(action.payload.user));
-        localStorage.setItem('jwt', action.payload.jwt);
+        // Ensure action.payload is an object
+        if (typeof action.payload !== 'object') {
+          throw new Error('Payload for LOGIN_SUCCESS must be an object');
+        }
         return { ...state, isAuthenticated: true, ...action.payload };
+
       case 'SIGN_OUT_SUCCESS':
-        localStorage.removeItem('user');
-        localStorage.removeItem('jwt', '');
         return { ...state, isAuthenticated: false };
+
       case 'SETTINGS':
+        // Ensure action.payload is an object
+        if (typeof action.payload !== 'object') {
+          throw new Error('Payload for SETTINGS must be an object');
+        }
         return { ...state, settings: action.payload };
+
       default:
         throw new Error(`Unhandled action type: ${action.type}`);
-    }  
-  }
-  catch (error) {
-    console.log(error);
+    }
+  } catch (error) {
+    console.error('Reducer error:', error);
+    // Optionally, set an error state here
+    return { ...state, error: error.message };
   }
 }
 
 function setStatusAfterSubscription() {
   let user = getCookieUser();
   user.is_subscription = 'true';
-  localStorage.setItem('user', JSON.stringify(user));
 }
 
 function getCookieUser() {
-  try {
-    return JSON.parse(localStorage.getItem('user'))
-  } catch {
-    return {};
-  }
+  return {};
 }
-
-// function getLocalStorageJsonArray(name) {
-//   try {
-//     const item = localStorage.getItem(name);
-//     if (typeof item === 'string')
-//       return JSON.parse(item)
-//     return item
-//   } catch {
-//     return [];
-//   }
-// }
 
 // eslint-disable-next-line react/prop-types
 function UserProvider({ children }) {
   const [state, dispatch] = React.useReducer(userReducer, {
-    isAuthenticated: !!localStorage.getItem('jwt'),
-    jwt: localStorage.getItem('jwt'),
+    isAuthenticated: false,
+    jwt: "",
     user: getCookieUser(),
     settings: {}
   });
@@ -108,7 +107,6 @@ function loginUser(dispatch, login, password, navigate, setIsLoading, setError) 
       // Handle success.
       console.log('User profile', response.data.user);
       console.log('User token', response.data.jwt);
-      // localStorage.setItem('id_token', response.data.jwt);
       setError(null);
       setIsLoading(false);
       // dispatch({ type: 'LOGIN_SUCCESS', payload: {user: response.data.user, jwt: response.data.jwt} });
@@ -137,10 +135,6 @@ function registerUser(dispatch, navigate, name, email, password, setIsLoading, s
         password
       })
       .then((response) => {
-        // Handle success.
-        // console.log('User profile', response.data.user);
-        // console.log('User token', response.data.jwt);
-        // localStorage.setItem('id_token', response.data.jwt);
         setError(null);
         setIsLoading(false);
         dispatch({ type: 'LOGIN_SUCCESS', payload: { user: response.data.user, jwt: response.data.jwt } });
@@ -161,7 +155,6 @@ function registerUser(dispatch, navigate, name, email, password, setIsLoading, s
 }
 
 function signOut(dispatch) {
-  // localStorage.removeItem('id_token');
   dispatch({ type: 'SIGN_OUT_SUCCESS' });
 }
 

@@ -33,8 +33,6 @@ export default function LoginRedirect(props) {
         loginSuccess(userDispatch, navigate, res.user, res.jwt);
         // Successfully logged with Strapi
         // Now saving the jwt to use it for future authenticated requests to Strapi
-        // localStorage.setItem('jwt', res.jwt);
-        // localStorage.setItem('username', res.user.username);
         // setText('You have been successfully logged in. You will be redirected in a few seconds...');
         // setTimeout(() => history.push('/'), 3000); // Redirect to home page after 3 sec
       })

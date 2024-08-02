@@ -12,7 +12,6 @@ async function getFavorites(jwt) {
 }
 
 async function postFavorites(jwt, favorites) {
-  // const token = localStorage.getItem('id_token');
   const url = process.env.REACT_APP_FAVORITE_SERVICE || 'http://localhost:1337/api/favorites';
   const result = await axios.post(url, favorites, {
     headers: {

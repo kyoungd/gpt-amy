@@ -6,7 +6,7 @@ import HeaderSearch from '../../components/HeaderSearch/HeaderSearch';
 // import BtnLink from '../../components/Btn/BtnLink';
 import MobileMenu from "../../components/NavBar/MobileMenu"
 import MainSearch from "../../components/NavBar/MainSearch"
-import { useUserState } from '../../components/UserContext';
+// import { useUserState } from '../../components/UserContext';
 import { Link } from 'react-router-dom';
 
 const LogoStyle = styled(Link)`
@@ -25,8 +25,6 @@ const LogoStyle = styled(Link)`
 `;
 
 const Header = () => {
-    const { user } = useUserState();
-    console.log('user: ', user);
 
     const [ofcanvasShow, setOffcanvasShow] = useState(false);
     const onCanvasHandler = () => {

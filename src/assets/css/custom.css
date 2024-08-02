@@ -205,3 +205,50 @@
     margin-top: 20px;
   }
 }
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.audio-button {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.audio-button:hover {
+  background-color: #e0e0e0;
+}
+
+.audio-button.audio-enabled {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.audio-button.audio-enabled:hover {
+  background-color: #45a049;
+}
+
+.audio-button .iconify {
+  font-size: 1.5rem;
+  color: black;
+}
+
+@keyframes blink {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.1; }
+  100% { opacity: 0.4; }
+}
+
+.audio-button.audio-initializing {
+  animation: blink 1s infinite;
+}

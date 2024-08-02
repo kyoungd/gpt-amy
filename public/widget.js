@@ -69,6 +69,8 @@ const get_main_domain = () => {
 }
 
 const deep_copy = (obj) => {
+    if (!obj)
+        return {};
     return JSON.parse(JSON.stringify(obj));
 }
 
