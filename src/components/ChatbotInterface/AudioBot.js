@@ -1,12 +1,19 @@
+
 import { createClient, LiveTranscriptionEvents } from '@deepgram/sdk';
 import { analyzeProsody, endsWithFiller } from './ProsodicFeature';
 
-let connection;
-let mediaStream;
-let audioContext;
-let workletNode;
-let handleTextSubmit;
+// Variables for managing async calls and audio setup
+let asyncCallToAIId; // Unique identifier for async AI calls
+let asyncCallToAIFunc; // Function to make async AI calls
+let deepgramChannel; // Deepgram websocket channel
+let mediaStream; // Stream from user's audio input device
+let audioContext; // Audio context for processing audio
+let workletNode; // Audio worklet node for processing audio
+let handleTextSubmitFunc; // Function to handle text submission
+let isAudioMediaEnabled = false; // Flag to indicate if audio is enabled
+let setAudioButtonOffFunc; // Function to toggle audio button off
 
+// Function to set up audio capture and processing
 async function setupAudio() {
     // Check browser support
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -77,8 +84,8 @@ async function setupAudio() {
 
         workletNode.port.onmessage = (event) => {
             if (event.data.type === 'audio') {
-                if (connection) {
-                    connection.send(event.data.buffer);
+                if (deepgramChannel) {
+                    deepgramChannel.send(event.data.buffer);
                 }
             }
         };
@@ -114,7 +121,9 @@ async function setupAudio() {
     }
 }
 
+// Function to stop audio capture and processing
 export function stopAudio() {
+    isAudioMediaEnabled = false;
     if (mediaStream) {
         mediaStream.getTracks().forEach(track => track.stop());
     }
@@ -124,13 +133,32 @@ export function stopAudio() {
     if (workletNode) {
         workletNode.disconnect();
     }
-    if (connection) {
-        connection.send(JSON.stringify({ type: 'CloseStream' }));
-        connection = null;
+    if (deepgramChannel) {
+        deepgramChannel.send(JSON.stringify({ type: 'CloseStream' }));
+        deepgramChannel = null;
     }
     console.log("Audio stopped");
 }
 
+function generateUniqueId() {
+    return Date.now().toString(36) + Math.random().toString(36).substring(2, 15);
+}
+
+let lastText = ""; // Stores the last processed text
+// Function to check if the text has changed
+function isTextChanged(newText, isReset = false) {
+    if (isReset) {
+        lastText = "";
+        return false;
+    }
+    if (newText && newText.trim() && newText.trim() !== lastText) {
+        lastText = newText.trim();
+        return true;
+    }
+    return false;
+}
+
+// Function to set up Deepgram for speech recognition
 async function setupDeepgram(callAfterAudioSetupFunc) {
     try {
         // const response = await fetch('/api/deepgram-key');
@@ -139,7 +167,7 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
 
         const deepgramApiKey = process.env.REACT_APP_DEEPGRAM_API_KEY;
         const deepgram = createClient(deepgramApiKey);
-        connection = deepgram.listen.live({
+        deepgramChannel = deepgram.listen.live({
             model: "nova-2",
             smart_format: true,
             encoding: "linear16",
@@ -151,15 +179,13 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
         });
 
         let audioBuffer = [];
+        let client_message = "";
 
-        connection.on(LiveTranscriptionEvents.Open, () => {
+        deepgramChannel.on(LiveTranscriptionEvents.Open, () => {
             console.log('Connected to Deepgram');
             callAfterAudioSetupFunc();
 
-            let client_message = "";
-            let last_transcript = "";
-
-            connection.on(LiveTranscriptionEvents.Transcript, (transcription) => {
+            deepgramChannel.on(LiveTranscriptionEvents.Transcript, (transcription) => {
                 const transcript = transcription.channel.alternatives[0].transcript;
                 const speech_final = transcription.speech_final;
 
@@ -167,26 +193,26 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
                 if (transcription.audio) {
                     audioBuffer = audioBuffer.concat(Array.from(new Float32Array(transcription.audio)));
                 }
-
-                if (transcript && transcript.trim().length > 0 && transcript !== last_transcript) {
-                    console.log("LiveTranscriptionEvents.Transcript: ", transcript);
-                    last_transcript = transcript;
-                    client_message = client_message + ' ' + transcript;
-                }
                 
+                if (isTextChanged(transcript, false))
+                    asyncCallToAIId = generateUniqueId();
                 if (speech_final) {
                     if (transcript?.trim().length > 0) {
                         console.log("speech_final: client_message:", client_message);
                         if (currentAudio && isStopCommand(client_message))
                             killAudio(true);
-                        if (currentAudio && isSkipCommand(transcript.trim())) {
+                        else if (currentAudio && isSkipCommand(transcript.trim())) {
                             killAudio(false);
+                        }
+                        else {
+                            console.log("LiveTranscriptionEvents.Transcript: ", transcript);
+                            client_message = client_message + ' ' + transcript;
                         }
                     }
                 }
             });
 
-            connection.on(LiveTranscriptionEvents.UtteranceEnd, async () => {
+            deepgramChannel.on(LiveTranscriptionEvents.UtteranceEnd, async () => {
                 console.log('end of speech detected.');
                 if (isAudioKilled) {
                     isAudioKilled = false;
@@ -195,9 +221,12 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
                     const prosodyIndicatesEnd = analyzeProsody(audioBuffer, 48000); // Assuming 48kHz sample rate
 
                     if (prosodyIndicatesEnd && !endsWithFiller(client_message)) {
-                        await getAndPlayAIResponse(client_message);
-                        client_message = "";
-                        audioBuffer = []; // Clear the audio buffer for the next utterance
+                        const callId = await submitTextToAI(client_message, asyncCallToAIId);
+                        if (asyncCallToAIId === callId) {
+                            client_message = "";
+                            audioBuffer = []; // Clear the audio buffer for the next utterance
+                            isTextChanged("", true);
+                        }
                     } else {
                         console.log("Prosody does not indicate end of turn. Waiting for more input.");
                     }
@@ -205,16 +234,20 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
 
             });
 
-            connection.on(LiveTranscriptionEvents.SpeechStarted, () => {
+            deepgramChannel.on(LiveTranscriptionEvents.SpeechStarted, () => {
                 console.log('start of speech detected.');
             });
 
-            connection.on(LiveTranscriptionEvents.Error, (error) => {
+            deepgramChannel.on(LiveTranscriptionEvents.Error, (error) => {
                 console.error('Deepgram Error:', error);
             });
 
-            connection.on(LiveTranscriptionEvents.Close, () => {
+            deepgramChannel.on(LiveTranscriptionEvents.Close, () => {
                 console.log('Disconnected from Deepgram');
+                if (isAudioMediaEnabled) {
+                    isAudioMediaEnabled = false;
+                    setAudioButtonOffFunc();
+                }
             });
         });
 
@@ -223,41 +256,53 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
     }
 }
 
-async function getAndPlayAIResponse(transcript) {
+// Function to submit transcribed text to AI and handle the response
+async function submitTextToAI(transcript, callId) {
     try {
         console.log('SUBMIT getAndPlayAIResponse: ', transcript);
 
-        const ai_message = await handleTextSubmit(transcript);
+        const result = await asyncCallToAIFunc(transcript);
+        if (callId !== asyncCallToAIId)
+            return callId;
+
         // First, get the AI response
+        const ai_message = result.message;
+        if (!ai_message && ai_message.length === 0)
+            return callId;
+        
+        console.log('aiData.message: ', ai_message);
+        const url = process.env.REACT_APP_TTS_URL;
+        // Use our new TTS API route
+        const ttsResponse = await fetch(`${url}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text: ai_message }),
+        });
 
-        if (ai_message) {
-            console.log('aiData.message: ', ai_message);
-            // Use our new TTS API route
-            const ttsResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/sound-files`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: ai_message }),
-            });
-
-            if (!ttsResponse.ok) {
-                throw new Error(`HTTP error! status: ${ttsResponse.status}`);
-            }
-
-            const audioBlob = await ttsResponse.blob();
-            const audioUrl = URL.createObjectURL(audioBlob);
-            playAudio(audioUrl);
-
+        if (!ttsResponse.ok) {
+            throw new Error(`HTTP error! status: ${ttsResponse.status}`);
         }
+
+        const audioBlob = await ttsResponse.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+
+        if (callId !== asyncCallToAIId)
+            return callId;
+        playAudio(audioUrl);
+        await handleTextSubmitFunc(transcript, result);
+        return callId;
     } catch (error) {
         console.error('Error getting or playing AI response:', error);
+        return callId;
     }
 }
 
-let currentAudio = null;
-let isAudioKilled = false;
+let currentAudio = null; // Stores the currently playing audio
+let isAudioKilled = false; // Flag to indicate if audio playback was stopped
 
+// Function to play audio from a URL
 function playAudio(audioUrl) {
     // Play the audio
     if (currentAudio) {
@@ -273,6 +318,7 @@ function playAudio(audioUrl) {
     });
 }
 
+// Function to check if the input is a stop command
 function isStopCommand(input) {
     const stopPattern = /\b(stop|hold on|wait|one minute|a minute|shut up|quit|enough|be quiet|silence)\b/i;
 
@@ -286,12 +332,14 @@ function isStopCommand(input) {
     return stopPattern.test(cleanedInput) && isShortSentence;
 }
 
+// Function to check if the input is a skip command
 function isSkipCommand(input) {
     // Check if the input is a short sentence (roughly 5 words or less)
     const words = input.trim().split(/\s+/);
     return words.length > 5;
 }
 
+// Function to stop audio playback
 function killAudio(isAudioKillEnabled) {
     if (currentAudio) {
         currentAudio.pause();
@@ -301,9 +349,13 @@ function killAudio(isAudioKillEnabled) {
     }
 }
 
-export async function startAudio(handleSubmit, callAfterAudioSetupFunc, audioSetupFailedFunc) {
+// Main function to start audio capture and processing
+export async function startAudio(handleSubmit, callAfterAudioSetupFunc, audioSetupFailedFunc, toggleAudioButtonFunc, asyncCall2AI) {
     try {
-        handleTextSubmit = handleSubmit;
+        isAudioMediaEnabled = true;
+        handleTextSubmitFunc = handleSubmit;
+        asyncCallToAIFunc = asyncCall2AI;
+        setAudioButtonOffFunc = toggleAudioButtonFunc;
         await setupAudio(AudioDestinationNode);
         await setupDeepgram(callAfterAudioSetupFunc);    
     }

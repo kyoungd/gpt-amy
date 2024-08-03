@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Button, Container, Row, Col, Form, ListGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -113,7 +114,20 @@ const ChatbotInterface = ({ id, title, classOption }) => {
     return text;
   };
 
-  const handleTextSubmit = async (userText) => {
+  // Use a ref to always get the latest callObject
+  const callObjectRef = useRef(callObject);
+
+  // Update the ref whenever callObject changes
+  useEffect(() => {
+    callObjectRef.current = callObject;
+  }, [callObject]);
+
+  const directCallToAI = async (userText) => {
+    const result = await GetNextMessageSafe(aiServerUrl, callObjectRef.current, userText);
+    return result;
+  }
+
+  const handleTextSubmit = async (userText, result = null) => {
     setMessages((prevMessages) => [
       ...prevMessages,
       { name: "User", text: userText },
@@ -121,14 +135,26 @@ const ChatbotInterface = ({ id, title, classOption }) => {
     setUserInput("");
 
     try {
-      const result = await GetNextMessageSafe(aiServerUrl, callObject, userText);
+      if (!result)
+        result = await GetNextMessageSafe(aiServerUrl, callObjectRef.current, userText);
       if (result.success) {
-        setCallObject(result.callObject);
+
+        if (result.callObject) {
+          const newCallObject = _.cloneDeep(result.callObject);
+          console.log('Deep cloned callObject:', newCallObject);
+  
+          setCallObject(newCallObject);
+          console.log('Updated state callObject:', newCallObject);
+        } else {
+          console.error('result.callObject is null or undefined');
+        }
+      
+        //  setCallObject(result.callObject);
         setMessages((prevMessages) => [
           ...prevMessages,
           { name: "AI", text: result.message },
         ]);
-        if (callObject.id === 0) {
+        if (result.callObject?.id === 0) {
           setIsCompleted(true);
           console.log('off');
         }
@@ -149,7 +175,6 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!userInput.trim()) return;
-
     await handleTextSubmit(userInput);
   };
 
@@ -171,7 +196,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
       setIsAudioEnabled(false);
     } else {
       setIsAudioInitializing(true);
-      startAudio(handleTextSubmit, audioEnabled, audioSetupFailed);
+      startAudio(handleTextSubmit, audioEnabled, audioSetupFailed, toggleAudio, directCallToAI);
       setIsAudioEnabled(true);
     }
   };

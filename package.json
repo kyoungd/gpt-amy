@@ -14,6 +14,7 @@
     "framer-motion": "^7.6.19",
     "imagesloaded": "^5.0.0",
     "isotope-layout": "^3.0.6",
+    "lodash": "^4.17.21",
     "parallax-js": "^3.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
