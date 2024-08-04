@@ -1,164 +1,30 @@
 import { createClient, LiveTranscriptionEvents } from '@deepgram/sdk';
 import { analyzeProsody, endsWithFiller } from './ProsodicFeature';
+import { setupAudio, closeAudio } from './SetupAudioMedia';
+import { isStopCommand, isSkipCommand, generateUniqueId, isTextChanged, getAudioBlob } from './AudioUtil';
 
 // Variables for managing async calls and audio setup
 let asyncCallToAIId; // Unique identifier for async AI calls
 let asyncCallToAIFunc; // Function to make async AI calls
 let deepgramChannel; // Deepgram websocket channel
-let mediaStream; // Stream from user's audio input device
-let inputAudioContext; // Audio context for processing input audio
 let outputAudioContext; // Audio context for processing output audio
-let workletNode; // Audio worklet node for processing audio
 let handleTextSubmitFunc; // Function to handle text submission
 let isAudioMediaEnabled = false; // Flag to indicate if audio is enabled
 let setAudioButtonOffFunc; // Function to toggle audio button off
 
-// Function to set up audio capture and processing
-async function setupAudio() {
-    // Check browser support
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        alert("audio device is not accessible.");
-        throw new Error("audio device are not accessible. getUserMedia is not supported in this browser");
-    }
-
-    try {
-        // Request audio with specific constraints
-        mediaStream = await navigator.mediaDevices.getUserMedia({
-            audio: {
-                echoCancellation: true,
-                noiseSuppression: true,
-                autoGainControl: true
-            }
-        });
-
-        inputAudioContext = new (window.AudioContext || window.webkitAudioContext)();
-        outputAudioContext = new (window.AudioContext || window.webkitAudioContext)();
-
-        try {
-            // Define AudioProcessor directly in the code
-            const audioProcessorCode = `
-                class AudioProcessor extends AudioWorkletProcessor {
-                    process(inputs, outputs, parameters) {
-                        const input = inputs[0];
-                        const channel = input[0];
-                        
-                        if (channel && channel.length > 0) {
-                            // Convert Float32Array to Int16Array
-                            const int16Data = new Int16Array(channel.length);
-                            for (let i = 0; i < channel.length; i++) {
-                                int16Data[i] = Math.max(-32768, Math.min(32767, Math.floor(channel[i] * 32768)));
-                            }
-                            
-                            this.port.postMessage({
-                                type: 'audio',
-                                buffer: int16Data.buffer
-                            }, [int16Data.buffer]);
-                        }
-                        
-                        return true;
-                    }
-                }
-
-                registerProcessor('audio-processor', AudioProcessor);
-            `;
-
-            // Create a Blob containing the AudioProcessor code
-            const blob = new Blob([audioProcessorCode], { type: 'application/javascript' });
-            const workletUrl = URL.createObjectURL(blob);
-
-            // Load the AudioWorklet module
-            await inputAudioContext.audioWorklet.addModule(workletUrl);
-
-            // Clean up the Blob URL
-            URL.revokeObjectURL(workletUrl);
-
-        } catch (moduleError) {
-            console.error("Error loading audio worklet module:", moduleError);
-            throw new Error("Failed to load audio processor. Please try again.");
-        }
-
-        const source = inputAudioContext.createMediaStreamSource(mediaStream);
-
-        workletNode = new AudioWorkletNode(inputAudioContext, 'audio-processor');
-        source.connect(workletNode);
-        workletNode.connect(inputAudioContext.destination);
-
-        workletNode.port.onmessage = (event) => {
-            if (event.data.type === 'audio') {
-                if (deepgramChannel) {
-                    deepgramChannel.send(event.data.buffer);
-                }
-            }
-        };
-
-        console.log("Audio setup completed");
-
-        // Return important objects if needed elsewhere
-        return { mediaStream, inputAudioContext, outputAudioContext, workletNode };
-
-    } catch (error) {
-        console.error("Error setting up audio:", error.name, error.message);
-        if (error.constraint) {
-            console.error("Constraint that failed:", error.constraint);
-        }
-        
-        // Provide more user-friendly error messages
-        switch(error.name) {
-            case 'NotAllowedError':
-                alert("Microphone access was denied. Please allow microphone access and try again.");
-                break;
-            case 'NotFoundError':
-                alert("No microphone was found. Please check your audio input devices and try again.");
-                break;
-            case 'NotReadableError':
-                alert("There was an issue accessing your microphone. Please check your audio settings and try again.");
-                break;
-            default:
-                alert("An error occurred while setting up audio. Please try again.");
-        }
-
-        throw error; // Re-throw the error for further handling if needed
-    }
-}
-
 // Function to stop audio capture and processing
 export function stopAudio() {
     isAudioMediaEnabled = false;
-    if (mediaStream) {
-        mediaStream.getTracks().forEach(track => track.stop());
-    }
-    if (inputAudioContext) {
-        inputAudioContext.close();
-    }
-    if (outputAudioContext) {
-        outputAudioContext.close();
-    }
-    if (workletNode) {
-        workletNode.disconnect();
-    }
+    closeAudio();
+    closeDeepgram();
+}
+
+function closeDeepgram() {    
     if (deepgramChannel) {
         deepgramChannel.send(JSON.stringify({ type: 'CloseStream' }));
         deepgramChannel = null;
     }
     console.log("Audio stopped");
-}
-
-function generateUniqueId() {
-    return Date.now().toString(36) + Math.random().toString(36).substring(2, 15);
-}
-
-let lastText = ""; // Stores the last processed text
-// Function to check if the text has changed
-function isTextChanged(newText, isReset = false) {
-    if (isReset) {
-        lastText = "";
-        return false;
-    }
-    if (newText && newText.trim() && newText.trim() !== lastText) {
-        lastText = newText.trim();
-        return true;
-    }
-    return false;
 }
 
 // Function to set up Deepgram for speech recognition
@@ -255,27 +121,6 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
     }
 }
 
-async function getAudioBlob(ai_message) {
-    const url = process.env.REACT_APP_TTS_URL;
-    // Use our new TTS API route
-    const ttsResponse = await fetch(`${url}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: ai_message }),
-    });
-
-    if (!ttsResponse.ok) {
-        throw new Error(`HTTP error! status: ${ttsResponse.status}`);
-    }
-
-    const audioBlob = await ttsResponse.blob();
-    const audioUrl = URL.createObjectURL(audioBlob);
-
-    return audioUrl;
-}
-
 // Function to submit transcribed text to AI and handle the response
 async function submitTextToAI(transcript, callId) {
     try {
@@ -324,27 +169,6 @@ function playAudio(audioUrl) {
     });
 }
 
-// Function to check if the input is a stop command
-function isStopCommand(input) {
-    const stopPattern = /\b(stop|hold on|wait|one minute|a minute|shut up|quit|enough|be quiet|silence)\b/i;
-
-    // Check if the input is a short sentence (roughly 5 words or less)
-    const words = input.trim().split(/\s+/);
-    const isShortSentence = words.length <= 5;
-
-    // Remove punctuation for the stop word check
-    const cleanedInput = input.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "");
-
-    return stopPattern.test(cleanedInput) && isShortSentence;
-}
-
-// Function to check if the input is a skip command
-function isSkipCommand(input) {
-    // Check if the input is a short sentence (roughly 5 words or less)
-    const words = input.trim().split(/\s+/);
-    return words.length > 5;
-}
-
 // Function to stop audio playback
 function killAudio() {
     if (currentAudio) {
@@ -361,8 +185,8 @@ export async function startAudio(handleSubmit, callAfterAudioSetupFunc, audioSet
         handleTextSubmitFunc = handleSubmit;
         asyncCallToAIFunc = asyncCall2AI;
         setAudioButtonOffFunc = toggleAudioButtonFunc;
-        await setupAudio();
-        await setupDeepgram(callAfterAudioSetupFunc);    
+        await setupDeepgram(callAfterAudioSetupFunc);
+        outputAudioContext = await setupAudio(deepgramChannel);
         // greet the user.
         const audioUrl = await getAudioBlob("Hi. Amy here. Welcome to voice chat.");
         playAudio(audioUrl);

@@ -84,7 +84,7 @@ export async function setupAudio(deepgramChannel) {
         console.log("Audio setup completed");
 
         // Return important objects if needed elsewhere
-        return { mediaStream, inputAudioContext, outputAudioContext, workletNode };
+        return outputAudioContext;
 
     } catch (error) {
         console.error("Error setting up audio:", error.name, error.message);
@@ -126,8 +126,4 @@ export function closeAudio() {
         workletNode.disconnect();
     }
     console.log("Audio stopped");
-}
-
-export function outAudioContext() {
-    return outputAudioContext;
 }
