@@ -1,4 +1,3 @@
-
 import { createClient, LiveTranscriptionEvents } from '@deepgram/sdk';
 import { analyzeProsody, endsWithFiller } from './ProsodicFeature';
 
@@ -7,7 +6,8 @@ let asyncCallToAIId; // Unique identifier for async AI calls
 let asyncCallToAIFunc; // Function to make async AI calls
 let deepgramChannel; // Deepgram websocket channel
 let mediaStream; // Stream from user's audio input device
-let audioContext; // Audio context for processing audio
+let inputAudioContext; // Audio context for processing input audio
+let outputAudioContext; // Audio context for processing output audio
 let workletNode; // Audio worklet node for processing audio
 let handleTextSubmitFunc; // Function to handle text submission
 let isAudioMediaEnabled = false; // Flag to indicate if audio is enabled
@@ -23,7 +23,7 @@ async function setupAudio() {
 
     try {
         // Request audio with specific constraints
-        const mediaStream = await navigator.mediaDevices.getUserMedia({
+        mediaStream = await navigator.mediaDevices.getUserMedia({
             audio: {
                 echoCancellation: true,
                 noiseSuppression: true,
@@ -31,7 +31,8 @@ async function setupAudio() {
             }
         });
 
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        inputAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+        outputAudioContext = new (window.AudioContext || window.webkitAudioContext)();
 
         try {
             // Define AudioProcessor directly in the code
@@ -66,7 +67,7 @@ async function setupAudio() {
             const workletUrl = URL.createObjectURL(blob);
 
             // Load the AudioWorklet module
-            await audioContext.audioWorklet.addModule(workletUrl);
+            await inputAudioContext.audioWorklet.addModule(workletUrl);
 
             // Clean up the Blob URL
             URL.revokeObjectURL(workletUrl);
@@ -76,11 +77,11 @@ async function setupAudio() {
             throw new Error("Failed to load audio processor. Please try again.");
         }
 
-        const source = audioContext.createMediaStreamSource(mediaStream);
+        const source = inputAudioContext.createMediaStreamSource(mediaStream);
 
-        const workletNode = new AudioWorkletNode(audioContext, 'audio-processor');
+        workletNode = new AudioWorkletNode(inputAudioContext, 'audio-processor');
         source.connect(workletNode);
-        workletNode.connect(audioContext.destination);
+        workletNode.connect(inputAudioContext.destination);
 
         workletNode.port.onmessage = (event) => {
             if (event.data.type === 'audio') {
@@ -92,9 +93,8 @@ async function setupAudio() {
 
         console.log("Audio setup completed");
 
-
         // Return important objects if needed elsewhere
-        return { mediaStream, audioContext, workletNode };
+        return { mediaStream, inputAudioContext, outputAudioContext, workletNode };
 
     } catch (error) {
         console.error("Error setting up audio:", error.name, error.message);
@@ -127,8 +127,11 @@ export function stopAudio() {
     if (mediaStream) {
         mediaStream.getTracks().forEach(track => track.stop());
     }
-    if (audioContext) {
-        audioContext.close();
+    if (inputAudioContext) {
+        inputAudioContext.close();
+    }
+    if (outputAudioContext) {
+        outputAudioContext.close();
     }
     if (workletNode) {
         workletNode.disconnect();
@@ -161,10 +164,6 @@ function isTextChanged(newText, isReset = false) {
 // Function to set up Deepgram for speech recognition
 async function setupDeepgram(callAfterAudioSetupFunc) {
     try {
-        // const response = await fetch('/api/deepgram-key');
-        // const data = await response.json();
-        // const deepgramApiKey = data.key;
-
         const deepgramApiKey = process.env.REACT_APP_DEEPGRAM_API_KEY;
         const deepgram = createClient(deepgramApiKey);
         deepgramChannel = deepgram.listen.live({
@@ -194,15 +193,18 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
                     audioBuffer = audioBuffer.concat(Array.from(new Float32Array(transcription.audio)));
                 }
                 
-                if (isTextChanged(transcript, false))
+                if (isTextChanged(transcript, false)) {
                     asyncCallToAIId = generateUniqueId();
+                    if (isAudioPlaying)
+                        killAudio();
+                }
                 if (speech_final) {
                     if (transcript?.trim().length > 0) {
                         console.log("speech_final: client_message:", client_message);
                         if (currentAudio && isStopCommand(client_message))
-                            killAudio(true);
+                            killAudio();
                         else if (currentAudio && isSkipCommand(transcript.trim())) {
-                            killAudio(false);
+                            killAudio();
                         }
                         else {
                             console.log("LiveTranscriptionEvents.Transcript: ", transcript);
@@ -214,9 +216,7 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
 
             deepgramChannel.on(LiveTranscriptionEvents.UtteranceEnd, async () => {
                 console.log('end of speech detected.');
-                if (isAudioKilled) {
-                    isAudioKilled = false;
-                } else if (client_message?.trim().length > 0) {
+                if (client_message?.trim().length > 0) {
                     // Perform prosody analysis
                     const prosodyIndicatesEnd = analyzeProsody(audioBuffer, 48000); // Assuming 48kHz sample rate
 
@@ -231,7 +231,6 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
                         console.log("Prosody does not indicate end of turn. Waiting for more input.");
                     }
                 }
-
             });
 
             deepgramChannel.on(LiveTranscriptionEvents.SpeechStarted, () => {
@@ -256,6 +255,27 @@ async function setupDeepgram(callAfterAudioSetupFunc) {
     }
 }
 
+async function getAudioBlob(ai_message) {
+    const url = process.env.REACT_APP_TTS_URL;
+    // Use our new TTS API route
+    const ttsResponse = await fetch(`${url}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: ai_message }),
+    });
+
+    if (!ttsResponse.ok) {
+        throw new Error(`HTTP error! status: ${ttsResponse.status}`);
+    }
+
+    const audioBlob = await ttsResponse.blob();
+    const audioUrl = URL.createObjectURL(audioBlob);
+
+    return audioUrl;
+}
+
 // Function to submit transcribed text to AI and handle the response
 async function submitTextToAI(transcript, callId) {
     try {
@@ -270,23 +290,7 @@ async function submitTextToAI(transcript, callId) {
         if (!ai_message && ai_message.length === 0)
             return callId;
         
-        console.log('aiData.message: ', ai_message);
-        const url = process.env.REACT_APP_TTS_URL;
-        // Use our new TTS API route
-        const ttsResponse = await fetch(`${url}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ text: ai_message }),
-        });
-
-        if (!ttsResponse.ok) {
-            throw new Error(`HTTP error! status: ${ttsResponse.status}`);
-        }
-
-        const audioBlob = await ttsResponse.blob();
-        const audioUrl = URL.createObjectURL(audioBlob);
+        const audioUrl = await getAudioBlob(ai_message);
 
         if (callId !== asyncCallToAIId)
             return callId;
@@ -300,21 +304,23 @@ async function submitTextToAI(transcript, callId) {
 }
 
 let currentAudio = null; // Stores the currently playing audio
-let isAudioKilled = false; // Flag to indicate if audio playback was stopped
+let isAudioPlaying = false;
 
 // Function to play audio from a URL
 function playAudio(audioUrl) {
-    // Play the audio
+    isAudioPlaying = true;
     if (currentAudio) {
-        killAudio(false);
+        killAudio();
     }
     currentAudio = new Audio(audioUrl);
+    const source = outputAudioContext.createMediaElementSource(currentAudio);
+    source.connect(outputAudioContext.destination);
     currentAudio.play();
 
     currentAudio.addEventListener('ended', function () {
         currentAudio = null;
         console.log('Audio playback finished');
-        // You can add any code here to execute when the audio finishes
+        isAudioPlaying = false;
     });
 }
 
@@ -340,12 +346,11 @@ function isSkipCommand(input) {
 }
 
 // Function to stop audio playback
-function killAudio(isAudioKillEnabled) {
+function killAudio() {
     if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
         currentAudio = null;
-        isAudioKilled = isAudioKillEnabled;
     }
 }
 
@@ -356,12 +361,24 @@ export async function startAudio(handleSubmit, callAfterAudioSetupFunc, audioSet
         handleTextSubmitFunc = handleSubmit;
         asyncCallToAIFunc = asyncCall2AI;
         setAudioButtonOffFunc = toggleAudioButtonFunc;
-        await setupAudio(AudioDestinationNode);
+        await setupAudio();
         await setupDeepgram(callAfterAudioSetupFunc);    
+        // greet the user.
+        const audioUrl = await getAudioBlob("Hi. Amy here. Welcome to voice chat.");
+        playAudio(audioUrl);
     }
-    catch {
+    catch (error) {
+        console.error("Error starting audio:", error);
         audioSetupFailedFunc();
     }
 }
 
-
+// OVERVIEW OF THE AUDIOBOT.JS
+// This program handles audio with AI integration using Deepgram for real-time Speech-to-Text (STT).
+// Speech data is sent as text to the AI, which responds in text. This text is then converted to audio and played.
+// This approach is necessary because user permission to access audio media cannot be automated. 
+// Therefore, all audio-related work must be done on the client side, where the user can give explicit permission.
+// The program uses prosodic analysis and filler word analysis to differentiate between conversation pauses and turns.
+// If a conversation pause is misinterpreted as a turn due to LiveTranscriptionEvents.UtteranceEnd firing prematurely
+// and the user continues speaking before the AI responds, a new AI response request is issued, ignoring previous ones.
+// If the user starts speaking while the AI is talking, the AI stops talking and listens to the user.
