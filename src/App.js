@@ -53,6 +53,8 @@ function App() {
     initGA();
   }, []);
 
+  console.log('--- AI-URL:', process.env.REACT_APP_AI_URL);
+
   return (
       <Router>
         <RouteTracker />

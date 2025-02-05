@@ -31,7 +31,8 @@ const ChatbotInterface = ({ id, title, classOption }) => {
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   
         const external_id = id;
-        const url2 = `${process.env.REACT_APP_BACKEND_URL}/api/subscriptions/initialize-ai`;
+        const url2 = `${process.env.REACT_APP_AI_URL}/first-object`;
+        console.log('--- url2:', url2);
         const json_body = {
           'subscription_external_id': external_id,
           'timezone': timezone,
@@ -45,7 +46,24 @@ const ChatbotInterface = ({ id, title, classOption }) => {
           throw new Error('Cannot initialize AI');
         }
   
-        const first_object = result2.data.data.attributes;
+        const first_object = result2.data;
+        let ai_url_path = "";
+        switch (id) {
+          case process.env.REACT_APP_TIRE_STORE_ID:
+            ai_url_path = 'tirestore';
+            break;
+          case process.env.REACT_APP_TRIAL_OFFER_ID:
+            ai_url_path = 'trialoffer';
+            break;
+          case process.env.REACT_APP_CAR_PART_ID:
+            ai_url_path = 'carpart';
+            break;
+          case process.env.REACT_APP_APPOINTMENT_ID:
+            ai_url_path = 'appointment';
+            break;
+        }
+        const ai_url = `${process.env.REACT_APP_AI_URL}/${ai_url_path}`;
+        first_object.ai_server_url = ai_url;
         setAiServerUrl(first_object.ai_server_url);
         const result3 = await GetNextMessageSafe(first_object.ai_server_url, first_object);
         if (result3.success) {

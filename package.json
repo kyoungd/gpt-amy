@@ -41,6 +41,7 @@
     "vivus": "^0.4.6"
   },
   "scripts": {
+    "clean": "rimraf node_modules/.cache",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
