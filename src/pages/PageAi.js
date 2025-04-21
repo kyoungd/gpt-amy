@@ -11,6 +11,7 @@ import dataApointment from '../data/demo/appointment.json';
 import dataCarPart from "../data/demo/carpart.json";
 import dataTireStore from "../data/demo/tirestore.json";
 import dataTrialOffer from "../data/demo/trialoffer.json";
+import dataCompliance from "../data/demo/compliance.json";
 
 function getData(title) {
     switch (title) {
@@ -22,6 +23,8 @@ function getData(title) {
             return dataTireStore;
         case 'trial offer':
             return dataTrialOffer;
+        case 'compliance':
+            return dataCompliance;
         default:
             return [];
     }

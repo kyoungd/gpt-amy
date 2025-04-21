@@ -4,7 +4,7 @@ async function GetNextMessageSafe(aiServerUrl, gstate, user_question = null) {
   try {
     console.log('callling backend...');
 
-    // const url = process.env.REACT_APP_AI_URL;
+    // const url = process.env.REACT_APP_AI_BASE_URL;
     const url = aiServerUrl;
 
     const call_object = user_question === null ? gstate : { 'data': gstate, 'message': user_question };

@@ -37,6 +37,7 @@ function App() {
   const trial_offer_id = process.env.REACT_APP_TRIAL_OFFER_ID;
   const car_part_id = process.env.REACT_APP_CAR_PART_ID;
   const appointment_id = process.env.REACT_APP_APPOINTMENT_ID;
+  const compliance_id = process.env.REACT_APP_COMPLIANCE_ID;
 
   useEffect(() => {
     AOS.init({
@@ -53,7 +54,7 @@ function App() {
     initGA();
   }, []);
 
-  console.log('--- AI-URL:', process.env.REACT_APP_AI_URL);
+  console.log('--- AI-URL:', process.env.REACT_APP_AI_BASE_URL);
 
   return (
       <Router>
@@ -70,6 +71,7 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/ai/demo-tire-store"}`} element={<PageAi id={tire_store_id} title="tire store" />} />
               <Route path={`${process.env.PUBLIC_URL + "/ai/demo-trial-offer"}`} element={<PageAi id={trial_offer_id} title="trial offer" />} />
               <Route path={`${process.env.PUBLIC_URL + "/ai/demo-car-part"}`} element={<PageAi id={car_part_id} title="car parts" />} />
+              <Route path={`${process.env.PUBLIC_URL + "/ai/demo-compliance"}`} element={<PageAi id={compliance_id} title="compliance" />} />
 
               <Route path={`${process.env.PUBLIC_URL + "/work-details/:id"}`} element={<WorkDetails/>} />
               <Route path={`${process.env.PUBLIC_URL + "/blog-grid"}`} element={<BlogGrid/>} />
