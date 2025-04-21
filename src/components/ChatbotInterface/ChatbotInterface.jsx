@@ -32,11 +32,11 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   
 
         const external_id = id;
-        const url2 = `${process.env.REACT_APP_AI_BASE_URL}/first-object`;
+        const url2 = `${process.env.REACT_APP_AI_URL}/first-object`;
         console.log('--- url2:', url2);
-        console.log('Base URL:', process.env.REACT_APP_AI_BASE_URL);
+        console.log('Base URL:', process.env.REACT_APP_AI_URL);
         console.log('Constructed URL:', url2);
-        
+
         const json_body = {
           'subscription_external_id': external_id,
           'timezone': timezone,
@@ -69,7 +69,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
             ai_url_path = 'compliance';
             break;
         }
-        const ai_url = `${process.env.REACT_APP_AI_BASE_URL}/${ai_url_path}`;
+        const ai_url = `${process.env.REACT_APP_AI_URL}/${ai_url_path}`;
         first_object.ai_server_url = ai_url;
         setAiServerUrl(first_object.ai_server_url);
         const result3 = await GetNextMessageSafe(first_object.ai_server_url, first_object);
