@@ -135,6 +135,8 @@
   border-radius: 0.25rem;
   scrollbar-width: thin;
   scrollbar-color: #d9d9d9 #f1f1f1;
+  min-height: 300px;
+  max-height: 80vh;
 }
 
 .chat-history-box::-webkit-scrollbar {

@@ -98,9 +98,22 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   useEffect(() => {
     const setChatHistoryBoxHeight = () => {
       const chatHistoryBox = document.getElementById('bot-container');
-      const parentHeight = chatHistoryBox.offsetHeight;
-      
-      setHeight(parentHeight + 'px');
+      if (!chatHistoryBox) return;
+
+      // Calculate appropriate height based on viewport and container dimensions
+      const viewportHeight = window.innerHeight;
+      const containerTop = chatHistoryBox.getBoundingClientRect().top;
+      const headerHeight = document.querySelector('.header-row')?.offsetHeight || 0;
+      const inputSectionHeight = document.querySelector('.user-input-section')?.offsetHeight || 0;
+      const errorBoxHeight = document.querySelector('.error-box')?.offsetHeight || 0;
+
+      // Calculate available height (subtract headers, footers, margins, etc.)
+      const availableHeight = viewportHeight - containerTop - headerHeight - inputSectionHeight - errorBoxHeight - 40; // 40px for margins/padding
+
+      // Set a minimum height to ensure the chat box is always usable
+      const finalHeight = Math.max(availableHeight, 300);
+
+      setHeight(finalHeight + 'px');
     };
 
     setChatHistoryBoxHeight();
@@ -109,7 +122,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
     return () => {
       window.removeEventListener('resize', setChatHistoryBoxHeight);
     };
-  }, []);
+  }, [errors, messages.length]); // Re-calculate when errors or messages change since they affect available space
 
   const renderMessageContent = (text) => {
     const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
