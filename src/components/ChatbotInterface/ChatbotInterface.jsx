@@ -20,7 +20,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [errors, setErrors] = useState([]);
   const messagesEndRef = useRef(null);
-  const [height, setHeight] = useState('auto');
+  // Height is now controlled by CSS
   const [aiServerUrl, setAiServerUrl] = useState('');
   const [isAudioEnabled, setIsAudioEnabled] = useState(false);
   const [isAudioInitializing, setIsAudioInitializing] = useState(false);
@@ -95,34 +95,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
     }
   }, [messages]);
 
-  useEffect(() => {
-    const setChatHistoryBoxHeight = () => {
-      const chatHistoryBox = document.getElementById('bot-container');
-      if (!chatHistoryBox) return;
-
-      // Calculate appropriate height based on viewport and container dimensions
-      const viewportHeight = window.innerHeight;
-      const containerTop = chatHistoryBox.getBoundingClientRect().top;
-      const headerHeight = document.querySelector('.header-row')?.offsetHeight || 0;
-      const inputSectionHeight = document.querySelector('.user-input-section')?.offsetHeight || 0;
-      const errorBoxHeight = document.querySelector('.error-box')?.offsetHeight || 0;
-
-      // Calculate available height (subtract headers, footers, margins, etc.)
-      const availableHeight = viewportHeight - containerTop - headerHeight - inputSectionHeight - errorBoxHeight - 40; // 40px for margins/padding
-
-      // Set a minimum height to ensure the chat box is always usable
-      const finalHeight = Math.max(availableHeight, 300);
-
-      setHeight(finalHeight + 'px');
-    };
-
-    setChatHistoryBoxHeight();
-    window.addEventListener('resize', setChatHistoryBoxHeight);
-
-    return () => {
-      window.removeEventListener('resize', setChatHistoryBoxHeight);
-    };
-  }, [errors, messages.length]); // Re-calculate when errors or messages change since they affect available space
+  // Height is now controlled by CSS with responsive media queries
 
   const renderMessageContent = (text) => {
     const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
@@ -277,7 +250,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
             </Col>
           </Row>
         )}
-        <Row className="chat-history-box" style={{height}}>
+        <Row className="chat-history-box">
           <Col>
             <div className="messages-container">
               {messages.map((message, index) => (
