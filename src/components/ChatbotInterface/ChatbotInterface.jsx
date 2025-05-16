@@ -91,7 +91,12 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   
   useEffect(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      // Get the container element
+      const container = document.querySelector('.chat-history-box');
+      if (container) {
+        // Scroll only the container, not the whole page
+        container.scrollTop = container.scrollHeight;
+      }
     }
   }, [messages]);
 
@@ -185,8 +190,21 @@ const ChatbotInterface = ({ id, title, classOption }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    e.stopPropagation(); // Stop event propagation
     if (!userInput.trim()) return;
+
+    // Save current scroll position
+    const scrollPosition = window.scrollY;
+
     await handleTextSubmit(userInput);
+
+    // Restore scroll position after a short delay
+    setTimeout(() => {
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: 'auto'
+      });
+    }, 50);
   };
 
   const audioEnabled = () => {

@@ -74,6 +74,7 @@
 .chatbot-interface {
   width: 100%;
   margin: 0 1rem auto;
+  position: relative;
 }
 
 .messages-container {
