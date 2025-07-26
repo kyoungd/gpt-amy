@@ -131,7 +131,66 @@ const ChatbotInterface = ({ id, title, classOption }) => {
       );
     }
 
-    return text;
+    // Format markdown-style text
+    return formatMarkdownText(text);
+  };
+
+  const formatMarkdownText = (text) => {
+    // Split text into lines
+    const lines = text.split('\n');
+    const elements = [];
+    
+    lines.forEach((line, index) => {
+      if (line.trim() === '') {
+        elements.push(<br key={`br-${index}`} />);
+        return;
+      }
+      
+      // Handle bold headers (**text:**)
+      if (line.match(/^\*\*.*:\*\*$/)) {
+        const headerText = line.replace(/^\*\*/, '').replace(/:\*\*$/, '');
+        elements.push(
+          <div key={index} className="font-semibold text-gray-900 mt-3 mb-2 first:mt-0">
+            {headerText}:
+          </div>
+        );
+      }
+      // Handle bullet points (- **text:** description)
+      else if (line.match(/^- \*\*.*\*\*/)) {
+        const match = line.match(/^- \*\*(.*?)\*\*(.*)$/);
+        if (match) {
+          elements.push(
+            <div key={index} className="flex items-start ml-4 mb-2">
+              <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <div>
+                <span className="font-medium text-gray-800">{match[1]}:</span>
+                <span className="text-gray-700">{match[2]}</span>
+              </div>
+            </div>
+          );
+        }
+      }
+      // Handle regular bullet points (- text)
+      else if (line.match(/^- /)) {
+        const bulletText = line.replace(/^- /, '');
+        elements.push(
+          <div key={index} className="flex items-start ml-4 mb-1">
+            <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+            <span className="text-gray-700">{bulletText}</span>
+          </div>
+        );
+      }
+      // Handle regular text
+      else {
+        elements.push(
+          <div key={index} className="text-gray-700 mb-1">
+            {line}
+          </div>
+        );
+      }
+    });
+    
+    return <div className="space-y-1">{elements}</div>;
   };
 
   // Use a ref to always get the latest callObject
@@ -237,19 +296,19 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   const AudioButton = () => (
     <div
       onClick={toggleAudio}
-      className={`audio-button cursor-pointer p-2 rounded-full hover:bg-gray-100 transition-colors ${isAudioEnabled ? 'audio-enabled bg-blue-100' : ''} ${isAudioInitializing ? 'audio-initializing animate-pulse' : ''}`}
+      className={`audio-button cursor-pointer p-2 rounded-full hover:bg-gray-50 transition-colors duration-200 ${isAudioEnabled ? 'bg-blue-50 text-blue-600' : 'text-gray-500'} ${isAudioInitializing ? 'animate-pulse' : ''}`}
       title={isAudioEnabled ? "Disable audio" : "Enable audio"}
     >
-      <Icon icon={isAudioEnabled ? microphoneOffOutline : microphoneOutline} style={{ fontSize: '1.5rem' }} />
+      <Icon icon={isAudioEnabled ? microphoneOffOutline : microphoneOutline} style={{ fontSize: '1.25rem' }} />
     </div>
   );
 
   return (
     <div id="bot-container" className={`${classOption}`}>
-      <div className="chatbot-interface bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="header-row flex justify-between items-center p-4 bg-gray-50 border-b">
+      <div className="chatbot-interface bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+        <div className="header-row flex justify-between items-center px-6 py-4 bg-white border-b border-gray-100">
           <div className="flex-1">
-            <h3 className="text-center text-xl font-bold text-gray-800">{title.toUpperCase()}</h3>
+            <h3 className="text-center text-lg font-medium text-gray-900">{title}</h3>
           </div>
           <div className="flex-shrink-0">
             <AudioButton />
@@ -266,34 +325,34 @@ const ChatbotInterface = ({ id, title, classOption }) => {
             </div>
           </div>
         )}
-        <div className="chat-history-box h-96 overflow-y-auto p-4 bg-gray-50">
-          <div className="messages-container space-y-3">
+        <div className="chat-history-box h-96 overflow-y-auto px-6 py-4 bg-white">
+          <div className="messages-container space-y-4">
             {messages.map((message, index) => (
-              <div key={index} className={`message-item p-3 rounded-lg ${message.name === 'AI' ? 'bg-blue-100' : 'bg-white'} border`}>
-                <div className="flex items-start space-x-2">
-                  <Icon icon={message.name === 'AI' ? catOutline : personOutline} className="mt-1 flex-shrink-0" />
-                  <div>
-                    <strong className="font-semibold">{message.name}:</strong>
-                    <span className="ml-2">{renderMessageContent(message.text)}</span>
-                  </div>
+              <div key={index} className={`message-item flex ${message.name === 'User' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`px-4 py-3 rounded-2xl text-sm leading-relaxed ${message.name === 'AI' ? 'bg-gray-100 text-gray-800 max-w-[75%]' : 'bg-blue-500 text-white max-w-md'}`}>
+                  {message.name === 'AI' ? (
+                    renderMessageContent(message.text)
+                  ) : (
+                    <div className="whitespace-pre-wrap">{message.text}</div>
+                  )}
                 </div>
               </div>
             ))}
             <div ref={messagesEndRef}></div>
           </div>
         </div>
-        <div className="user-input-section p-4 bg-gray-50 border-t">
-          <form onSubmit={handleSubmit} className="flex space-x-2">
+        <div className="user-input-section px-6 py-4 bg-white border-t border-gray-100">
+          <form onSubmit={handleSubmit} className="flex items-end space-x-3">
               <Input
                 type="text"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
-                placeholder="Type your message..."
+                placeholder="Type a message..."
                 disabled={isCompleted || isAudioEnabled}
-                className="flex-1"
+                className="flex-1 px-4 py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm"
               />
-              <Button type="submit" disabled={isCompleted || isAudioEnabled}>
-                Enter
+              <Button type="submit" disabled={isCompleted || isAudioEnabled} className="px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm font-medium transition-colors duration-200 flex-shrink-0">
+                Send
               </Button>
           </form>
         </div>
