@@ -18,3 +18,7 @@ HTTP GET - https://test.com/api/account/general
 HTTP POSt - https://test.com/api/account/general
 
 I am using react.js with react-bootstrap 5. Create a form that I can use to Edit company_name and introduction_message
+
+
+unset REACT_APP_AI_URL
+

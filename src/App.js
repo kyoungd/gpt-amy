@@ -38,6 +38,7 @@ function App() {
   const car_part_id = process.env.REACT_APP_CAR_PART_ID;
   const appointment_id = process.env.REACT_APP_APPOINTMENT_ID;
   const compliance_id = process.env.REACT_APP_COMPLIANCE_ID;
+  const starrco_id = process.env.REACT_APP_STARRCO_ID;
 
   useEffect(() => {
     AOS.init({
@@ -55,6 +56,14 @@ function App() {
   }, []);
 
   console.log('--- AI-URL:', process.env.REACT_APP_AI_URL);
+  console.log('--- BACKEND_URL:', process.env.REACT_APP_BACKEND_URL);
+  console.log('--- NODE_ENV:', process.env.NODE_ENV);
+  console.log('--- All REACT_APP vars:', Object.keys(process.env).filter(key => key.startsWith('REACT_APP_')));
+  console.log('--- Checking for potential .env files in load order:');
+  console.log('--- 1. .env.development.local (highest priority)');
+  console.log('--- 2. .env.local');
+  console.log('--- 3. .env.development');
+  console.log('--- 4. .env (lowest priority)');
 
   return (
       <Router>
@@ -72,6 +81,7 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL + "/ai/demo-trial-offer"}`} element={<PageAi id={trial_offer_id} title="trial offer" />} />
               <Route path={`${process.env.PUBLIC_URL + "/ai/demo-car-part"}`} element={<PageAi id={car_part_id} title="car parts" />} />
               <Route path={`${process.env.PUBLIC_URL + "/ai/demo-compliance"}`} element={<PageAi id={compliance_id} title="compliance" />} />
+              <Route path={`${process.env.PUBLIC_URL + "/ai/demo-starrco"}`} element={<PageAi id={starrco_id} title="starrco" />} />
 
               <Route path={`${process.env.PUBLIC_URL + "/work-details/:id"}`} element={<WorkDetails/>} />
               <Route path={`${process.env.PUBLIC_URL + "/blog-grid"}`} element={<BlogGrid/>} />

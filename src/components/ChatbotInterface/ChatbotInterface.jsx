@@ -68,6 +68,9 @@ const ChatbotInterface = ({ id, title, classOption }) => {
           case process.env.REACT_APP_COMPLIANCE_ID:
             ai_url_path = 'compliance';
             break;
+          case process.env.REACT_APP_STARRCO_ID:
+            ai_url_path = 'starrco';
+            break;
         }
         const ai_url = `${process.env.REACT_APP_AI_URL}/${ai_url_path}`;
         first_object.ai_server_url = ai_url;

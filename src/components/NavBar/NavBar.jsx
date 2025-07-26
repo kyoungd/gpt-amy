@@ -20,6 +20,7 @@ const NavBar = () => {
                         <li><NavLink to="/ai/demo-tire-store"><span className="menu-text">Tire Store AI</span></NavLink></li>
                         <li><NavLink to="/ai/demo-trial-offer"><span className="menu-text">Trial Offer AI</span></NavLink></li>
                         <li><NavLink to="/ai/demo-compliance"><span className="menu-text">Compliance AI</span></NavLink></li>
+                        <li><NavLink to="/ai/demo-starrco"><span className="menu-text">Starcco AI</span></NavLink></li>
                     </ul>
                 </li>
                 <li>

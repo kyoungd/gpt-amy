@@ -12,6 +12,7 @@ import dataCarPart from "../data/demo/carpart.json";
 import dataTireStore from "../data/demo/tirestore.json";
 import dataTrialOffer from "../data/demo/trialoffer.json";
 import dataCompliance from "../data/demo/compliance.json";
+import dataStarrco from "../data/demo/starrco.json";
 
 function getData(title) {
     switch (title) {
@@ -25,6 +26,8 @@ function getData(title) {
             return dataTrialOffer;
         case 'compliance':
             return dataCompliance;
+        case 'starrco':
+            return dataStarrco; // Assuming no data available for Starrco, adjust as necessary
         default:
             return [];
     }
