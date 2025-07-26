@@ -8,6 +8,7 @@ import personOutline from '@iconify/icons-eva/person-outline';
 import catOutline from '@iconify/icons-eva/github-outline';
 import microphoneOutline from '@iconify/icons-eva/mic-outline';
 import microphoneOffOutline from '@iconify/icons-eva/mic-off-outline';
+import paperPlaneOutline from '@iconify/icons-eva/paper-plane-outline';
 import GetNextMessageSafe from "./nextMessage";
 import axios from 'axios';
 import VideoModal from '../VideoModal';
@@ -305,7 +306,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
 
   return (
     <div id="bot-container" className={`${classOption}`}>
-      <div className="chatbot-interface bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+      <div className="chatbot-interface bg-white rounded-xl shadow-sm overflow-hidden">
         <div className="header-row flex justify-between items-center px-6 py-4 bg-white border-b border-gray-100">
           <div className="flex-1">
             <h3 className="text-center text-lg font-medium text-gray-900">{title}</h3>
@@ -342,18 +343,25 @@ const ChatbotInterface = ({ id, title, classOption }) => {
           </div>
         </div>
         <div className="user-input-section px-6 py-4 bg-white border-t border-gray-100">
-          <form onSubmit={handleSubmit} className="flex items-end space-x-3">
+          <form onSubmit={handleSubmit} className="relative">
+            <div className="flex items-center bg-gray-50 border border-gray-200 rounded-full px-4 py-2 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all duration-200">
               <Input
                 type="text"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 placeholder="Type a message..."
                 disabled={isCompleted || isAudioEnabled}
-                className="flex-1 px-4 py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm"
+                className="flex-1 bg-transparent border-none outline-none focus:ring-0 focus:border-none text-sm placeholder-gray-500 px-2 py-2"
+                style={{ boxShadow: 'none' }}
               />
-              <Button type="submit" disabled={isCompleted || isAudioEnabled} className="px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm font-medium transition-colors duration-200 flex-shrink-0">
-                Send
-              </Button>
+              <button
+                type="submit"
+                disabled={isCompleted || isAudioEnabled || !userInput.trim()}
+                className="ml-2 p-2 rounded-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white transition-colors duration-200 flex-shrink-0"
+              >
+                <Icon icon={paperPlaneOutline} style={{ fontSize: '1rem' }} />
+              </button>
+            </div>
           </form>
         </div>
       </div>
