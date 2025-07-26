@@ -73,8 +73,10 @@
 
 .chatbot-interface {
   width: 100%;
-  margin: 0 1rem auto;
+  max-width: 100%;
+  margin: 0 auto;
   position: relative;
+  padding: 0 15px;
 }
 
 .messages-container {
@@ -83,12 +85,15 @@
 }
 
 .user-input-section {
-  /* margin-bottom: 20px; */
   align-items: center;
+  margin: 0;
+  width: 100%;
 }
 
 .form-column {
   padding: 0 !important;
+  flex: 1;
+  min-width: 0;
 }
 
 /* .form-column input{
@@ -98,8 +103,9 @@
 } */
 
 .enter-button {
-  margin-left: 1em;
+  margin-left: 10px;
   padding: 0 !important;
+  flex-shrink: 0;
 }
 
 .enter-button button {
@@ -136,7 +142,10 @@
   border-radius: 0.25rem;
   scrollbar-width: thin;
   scrollbar-color: #d9d9d9 #f1f1f1;
-  height: 400px; /* Fixed height to prevent layout shifts */
+  height: 400px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Responsive heights for the chat box */
@@ -215,6 +224,14 @@
   .enter-button button{
     width: 100% !important;
   }
+  
+  .chatbot-interface {
+    padding: 0 10px;
+  }
+  
+  .form-column {
+    margin-bottom: 10px;
+  }
 }
 
 .startup-form-element {
@@ -244,6 +261,9 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .audio-button {
@@ -284,4 +304,31 @@
 
 .audio-button.audio-initializing {
   animation: blink 1s infinite;
+}
+
+/* Ensure proper container constraints for chatbot */
+#bot-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+#bot-container .container {
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Fix Bootstrap row overflow issues */
+#bot-container .row {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+#bot-container .col,
+#bot-container [class*="col-"] {
+  padding-left: 5px;
+  padding-right: 5px;
 }
