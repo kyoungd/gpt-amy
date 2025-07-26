@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from 'react-bootstrap';
+import { Button } from '../ui/button';
 import CustomInput from "./components/CustomInput";
 import PropTypes from 'prop-types';
 

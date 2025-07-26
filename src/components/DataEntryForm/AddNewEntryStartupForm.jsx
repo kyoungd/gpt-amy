@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { Button } from '../ui/button';
 
 function NewQuestionAnswer({ asyncSaveUpdate, showDialog, setShowDialog }) {
     // other state variables...
@@ -19,31 +17,43 @@ function NewQuestionAnswer({ asyncSaveUpdate, showDialog, setShowDialog }) {
         setShowDialog(false);
     }
 
+    if (!showDialog) return null;
+
     return (
-        <React.Fragment>
-            <Modal show={showDialog} onHide={handleCancel}>
-                <Modal.Header>
-                    <Modal.Title>Add New Question/Answer</Modal.Title>
-                    <Button variant="secondary" onClick={handleCancel}>X</Button>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <Form.Group controlId="question">
-                            <Form.Label>Question</Form.Label>
-                            <Form.Control type="text" value={question} onChange={e => setQuestion(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group controlId="answer">
-                            <Form.Label>Answer</Form.Label>
-                            <Form.Control type="text" value={answer} onChange={e => setAnswer(e.target.value)} />
-                        </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+                <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-lg font-semibold">Add New Question/Answer</h2>
+                    <Button variant="ghost" size="sm" onClick={handleCancel}>×</Button>
+                </div>
+                <div className="space-y-4">
+                    <div>
+                        <label htmlFor="question" className="block text-sm font-medium mb-1">Question</label>
+                        <input 
+                            id="question"
+                            type="text" 
+                            className="w-full p-2 border border-gray-300 rounded-md"
+                            value={question} 
+                            onChange={e => setQuestion(e.target.value)} 
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="answer" className="block text-sm font-medium mb-1">Answer</label>
+                        <input 
+                            id="answer"
+                            type="text" 
+                            className="w-full p-2 border border-gray-300 rounded-md"
+                            value={answer} 
+                            onChange={e => setAnswer(e.target.value)} 
+                        />
+                    </div>
+                </div>
+                <div className="flex justify-end space-x-2 mt-6">
                     <Button variant="secondary" onClick={handleCancel}>Cancel</Button>
-                    <Button variant="primary" onClick={handleSave}>Save</Button>
-                </Modal.Footer>
-            </Modal>
-        </React.Fragment>
+                    <Button variant="default" onClick={handleSave}>Save</Button>
+                </div>
+            </div>
+        </div>
     );
 }
 

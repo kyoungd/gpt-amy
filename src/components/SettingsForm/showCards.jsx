@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getCards, updatePaymentMethod } from '../../utils/stripe-subscriptions';
-import { ListGroup, Form, Button, ButtonGroup } from 'react-bootstrap';
+import { Button } from '../ui/button';
 
 const ShowCards = ({ token }) => {
   const [cards, setCards] = useState([]);
@@ -60,42 +60,43 @@ const ShowCards = ({ token }) => {
 
   return (
     <div className="my-4">
-      <div className="d-flex justify-content-between">
-        <h3>Your Credit Cards</h3>
-        <Button variant="primary" onClick={() => AddCreditCard(token)}>
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-lg font-semibold">Your Credit Cards</h3>
+        <Button variant="default" onClick={() => AddCreditCard(token)}>
           Add Card
         </Button>
       </div>
-      <ListGroup>
+      <div className="space-y-2">
         {cards.map((card, index) => (
-          <ListGroup.Item
+          <div
             key={card.id}
-            className={`d-flex align-items-center justify-content-between ${index < cards.length - 1 ? 'border-bottom' : ''}`}
+            className={`flex items-center justify-between p-4 border rounded-lg ${index < cards.length - 1 ? 'border-b' : ''}`}
           >
-            <div className="d-flex align-items-center">
-              <Form.Check
+            <div className="flex items-center space-x-3">
+              <input
                 type="radio"
                 name="cards"
+                id={`card-${card.id}`}
                 value={card.id}
                 checked={selectedCard === card.id}
                 onChange={() => handleCardChange(card.id)}
-                className="me-3"
+                className="mr-3"
               />
-              <span>
+              <label htmlFor={`card-${card.id}`}>
                 {card.card.brand} **** **** **** {card.card.last4} - Exp: {card.card.exp_month}/{card.card.exp_year}
-              </span>
+              </label>
             </div>
-            <ButtonGroup>
-              <Button variant="outline-secondary" onClick={() => EditCreditCard(token, card)}>
+            <div className="flex space-x-2">
+              <Button variant="outline" onClick={() => EditCreditCard(token, card)}>
                 Edit
               </Button>
-              <Button variant="outline-danger" onClick={() => DeleteCreditCard(token, card)}>
+              <Button variant="destructive" onClick={() => DeleteCreditCard(token, card)}>
                 Delete
               </Button>
-            </ButtonGroup>
-          </ListGroup.Item>
+            </div>
+          </div>
         ))}
-      </ListGroup>
+      </div>
     </div>
   );
 };

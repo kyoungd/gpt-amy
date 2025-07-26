@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Table, Button, Modal} from 'react-bootstrap';
+import { Button } from '../ui/button';
 import PropTypes from 'prop-types';
 import { deleteSubscription } from '../../utils/stripe-subscriptions';
 
@@ -19,34 +19,34 @@ const Subscriptions = ({ jwt, subscriptionsData}) => {
       };
     
     return (<>
-        <Table striped bordered hover>
-            <thead>
+        <table className="w-full border-collapse border border-gray-300">
+            <thead className="bg-gray-50">
                 <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Renewal Date</th>
-                    <th>Action</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Name</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Description</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Price</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Renewal Date</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Action</th>
                 </tr>
             </thead>
             <tbody> {
                 subscriptionsData.map((subscription) => (<tr key={
                     subscription.attributes.id
-                }>
-                    <td> {
+                } className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-2"> {
                         subscription.attributes.name
                     }</td>
-                    <td> {
+                    <td className="border border-gray-300 px-4 py-2"> {
                         subscription.attributes.description
                     }</td>
-                    <td> {
+                    <td className="border border-gray-300 px-4 py-2"> {
                         subscription.attributes.price
                     }</td>
-                    <td> {
+                    <td className="border border-gray-300 px-4 py-2"> {
                         new Date(subscription.attributes.renewal_date).toLocaleDateString()
                     }</td>
-                    <td>
-                        <Button variant="danger"
+                    <td className="border border-gray-300 px-4 py-2">
+                        <Button variant="destructive"
                             onClick={
                                 () => {
                                     setSelectedSubscription(subscription);
@@ -58,34 +58,36 @@ const Subscriptions = ({ jwt, subscriptionsData}) => {
                     </td>
                 </tr>))
             } </tbody>
-        </Table>
+        </table>
 
-        <Modal show={showModal}
-            onHide={
-                () => setShowModal(false)
-        }>
-            <Modal.Header closeButton>
-                <Modal.Title>Cancel Subscription</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                Are you sure you want to cancel the {
-                selectedSubscription.attributes.name
-            }
-                subscription?
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary"
-                    onClick={
-                        () => setShowModal(false)
-                }>
-                    Close
-                </Button>
-                <Button variant="danger"
-                    onClick={ cancelSubscription }>
-                    Confirm
-                </Button>
-            </Modal.Footer>
-        </Modal>
+        {showModal && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="text-lg font-semibold">Cancel Subscription</h2>
+                        <Button variant="ghost" size="sm" onClick={() => setShowModal(false)}>×</Button>
+                    </div>
+                    <div className="mb-6">
+                        Are you sure you want to cancel the {
+                        selectedSubscription.attributes.name
+                    }
+                        subscription?
+                    </div>
+                    <div className="flex justify-end space-x-2">
+                        <Button variant="secondary"
+                            onClick={
+                                () => setShowModal(false)
+                        }>
+                            Close
+                        </Button>
+                        <Button variant="destructive"
+                            onClick={ cancelSubscription }>
+                            Confirm
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        )}
     </>);
 };
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Badge, Card } from 'react-bootstrap';
 import SEO from '../components/SEO.jsx';
 import ChatbotInterface from '../components/ChatbotInterface/ChatbotInterface.jsx';
 import Header from "../partials/header/Header.jsx";
@@ -200,67 +199,65 @@ const PageAi = ({ id, title }) => {
                         }}></div>
                     </div>
                     
-                    <Container>
-                        <Row className="justify-content-center">
-                            <Col lg={8}>
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="flex justify-center">
+                            <div className="lg:w-2/3">
                                 <h1 style={pageStyles.heroTitle}>
                                     {titleFormatted} AI Assistant
                                 </h1>
                                 <p style={pageStyles.heroSubtitle}>
                                     Experience the power of AI-driven conversations tailored for {title} scenarios
                                 </p>
-                                <Row className="justify-content-center mt-4">
-                                    <Col md={4}>
-                                        <Card style={pageStyles.statsCard}>
-                                            <Card.Body>
-                                                <h3>{demoCount}</h3>
+                                <div className="flex justify-center mt-8 gap-4">
+                                    <div className="md:w-1/3">
+                                        <div style={pageStyles.statsCard}>
+                                            <div className="p-6">
+                                                <h3 className="text-2xl font-bold">{demoCount}</h3>
                                                 <p>Demo Scenarios</p>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col md={4}>
-                                        <Card style={pageStyles.statsCard}>
-                                            <Card.Body>
-                                                <h3>AI</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="md:w-1/3">
+                                        <div style={pageStyles.statsCard}>
+                                            <div className="p-6">
+                                                <h3 className="text-2xl font-bold">AI</h3>
                                                 <p>Powered Assistant</p>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                </Row>
-                            </Col>
-                        </Row>
-                    </Container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Main Content */}
                 <div style={pageStyles.mainContent}>
-                    <Container>
-                        <Row>
-                            <Col lg={12}>
-                                {/* Demo Section */}
-                                {data && data.length > 0 && (
-                                    <div style={pageStyles.demoSection}>
-                                        <h2 style={pageStyles.sectionTitle}>
-                                            <Badge bg="primary" className="me-2">Demo</Badge>
-                                            Sample Conversations
-                                        </h2>
-                                        <ChatbotDemo chatData={data} classOption="" />
-                                    </div>
-                                )}
-
-                                {/* Chat Interface Section */}
-                                <div style={pageStyles.chatSection}>
-                                    <div style={{ padding: '2rem' }}>
-                                        <h2 style={pageStyles.sectionTitle}>
-                                            <Badge bg="success" className="me-2">Live</Badge>
-                                            Interactive Chat
-                                        </h2>
-                                    </div>
-                                    <ChatbotInterface key={title} title={title} id={id} />
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="w-full">
+                            {/* Demo Section */}
+                            {data && data.length > 0 && (
+                                <div style={pageStyles.demoSection}>
+                                    <h2 style={pageStyles.sectionTitle}>
+                                        <span className="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2">Demo</span>
+                                        Sample Conversations
+                                    </h2>
+                                    <ChatbotDemo chatData={data} classOption="" />
                                 </div>
-                            </Col>
-                        </Row>
-                    </Container>
+                            )}
+
+                            {/* Chat Interface Section */}
+                            <div style={pageStyles.chatSection}>
+                                <div style={{ padding: '2rem' }}>
+                                    <h2 style={pageStyles.sectionTitle}>
+                                        <span className="inline-block bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2">Live</span>
+                                        Interactive Chat
+                                    </h2>
+                                </div>
+                                <ChatbotInterface key={title} title={title} id={id} />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

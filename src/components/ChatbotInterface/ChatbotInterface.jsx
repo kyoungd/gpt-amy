@@ -1,7 +1,8 @@
 import _ from "lodash";
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { Button, Container, Row, Col, Form, ListGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import { Icon } from '@iconify/react';
 import personOutline from '@iconify/icons-eva/person-outline';
 import catOutline from '@iconify/icons-eva/github-outline';
@@ -234,73 +235,71 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   };
 
   const AudioButton = () => (
-    <OverlayTrigger
-      placement="left"
-      overlay={<Tooltip>{isAudioEnabled ? "Disable audio" : "Enable audio"}</Tooltip>}
+    <div
+      onClick={toggleAudio}
+      className={`audio-button cursor-pointer p-2 rounded-full hover:bg-gray-100 transition-colors ${isAudioEnabled ? 'audio-enabled bg-blue-100' : ''} ${isAudioInitializing ? 'audio-initializing animate-pulse' : ''}`}
+      title={isAudioEnabled ? "Disable audio" : "Enable audio"}
     >
-      <div
-        onClick={toggleAudio}
-        className={`audio-button ${isAudioEnabled ? 'audio-enabled' : ''} ${isAudioInitializing ? 'audio-initializing' : ''}`}
-      >
-        <Icon icon={isAudioEnabled ? microphoneOffOutline : microphoneOutline} style={{ fontSize: '1.5rem' }} />
-      </div>
-    </OverlayTrigger>
+      <Icon icon={isAudioEnabled ? microphoneOffOutline : microphoneOutline} style={{ fontSize: '1.5rem' }} />
+    </div>
   );
 
   return (
     <div id="bot-container" className={`${classOption}`}>
-      <Container className="chatbot-interface">
-        <Row className="header-row">
-          <Col>
-            <h3 style={{ textAlign: 'center' }}>{title.toUpperCase()}</h3>
-          </Col>
-          <Col xs="auto">
+      <div className="chatbot-interface max-w-4xl mx-auto p-4">
+        <div className="header-row flex justify-between items-center mb-4">
+          <div className="flex-1">
+            <h3 className="text-center text-xl font-bold">{title.toUpperCase()}</h3>
+          </div>
+          <div className="flex-shrink-0">
             <AudioButton />
-          </Col>
-        </Row>
+          </div>
+        </div>
         {errors.length > 0 && (
-          <Row className="error-box">
-            <Col>
-              <div className="error-container">
-                {errors.map((error, index) => (
-                  <div key={index} className="error-message">
-                    {error}
-                  </div>
-                ))}
-              </div>
-            </Col>
-          </Row>
-        )}
-        <Row className="chat-history-box">
-          <Col>
-            <div className="messages-container">
-              {messages.map((message, index) => (
-                <ListGroup.Item key={index} className={message.name}>
-                  <Icon icon={message.name === 'AI' ? catOutline : personOutline} /> {' '}
-                  <strong>{message.name}:</strong> {renderMessageContent(message.text)}
-                </ListGroup.Item>
+          <div className="error-box mb-4">
+            <div className="error-container bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+              {errors.map((error, index) => (
+                <div key={index} className="error-message">
+                  {error}
+                </div>
               ))}
-              <div ref={messagesEndRef}></div>
             </div>
-          </Col>
-        </Row>
-        <Row className="user-input-section">
-          <Col className="form-column">
-            <Form onSubmit={handleSubmit}>
-              <Form.Control
+          </div>
+        )}
+        <div className="chat-history-box mb-4 h-96 overflow-y-auto border rounded-lg p-4 bg-gray-50">
+          <div className="messages-container space-y-3">
+            {messages.map((message, index) => (
+              <div key={index} className={`message-item p-3 rounded-lg ${message.name === 'AI' ? 'bg-blue-100' : 'bg-white'} border`}>
+                <div className="flex items-start space-x-2">
+                  <Icon icon={message.name === 'AI' ? catOutline : personOutline} className="mt-1 flex-shrink-0" />
+                  <div>
+                    <strong className="font-semibold">{message.name}:</strong>
+                    <span className="ml-2">{renderMessageContent(message.text)}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div ref={messagesEndRef}></div>
+          </div>
+        </div>
+        <div className="user-input-section flex space-x-2">
+          <div className="flex-1">
+            <form onSubmit={handleSubmit} className="flex space-x-2">
+              <Input
                 type="text"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 placeholder="Type your message..."
                 disabled={isCompleted || isAudioEnabled}
+                className="flex-1"
               />
-            </Form>
-          </Col>
-          <Col xs="auto" className="enter-button">
-            <Button onClick={handleSubmit} disabled={isCompleted || isAudioEnabled}>Enter</Button>
-          </Col>
-        </Row>
-      </Container>
+              <Button type="submit" disabled={isCompleted || isAudioEnabled}>
+                Enter
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

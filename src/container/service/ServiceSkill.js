@@ -1,5 +1,4 @@
 import {useState, useEffect, useRef} from "react";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import SectionTitleTwo from '../../components/SectionTitles/SectionTitleTwo';
 import Tilt from 'react-parallax-tilt';
 import Parallax from 'parallax-js';
@@ -36,28 +35,40 @@ const ServiceSkill = () => {
                                 <div className="progress-charts">
                                     <h6 className="heading ">Reduce Cost</h6>
                                     <div className="single-progress">
-                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-1" now="81" label={<span>81%</span>} />
+                                        <div className="relative w-full bg-gray-200 rounded-full h-2 gradient-1" data-aos="fade-right" data-aos-delay="100" data-aos-duration="450">
+                                            <div className="bg-blue-600 h-2 rounded-full" style={{width: '81%'}}></div>
+                                            <span className="absolute right-0 -top-6 text-sm font-medium">81%</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div className="progress-charts ">
                                     <h6 className="heading ">Customer Service</h6>
                                     <div className="single-progress">
-                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-2" now="72" label={<span>72%</span>} />
+                                        <div className="relative w-full bg-gray-200 rounded-full h-2 gradient-2" data-aos="fade-right" data-aos-delay="100" data-aos-duration="450">
+                                            <div className="bg-green-600 h-2 rounded-full" style={{width: '72%'}}></div>
+                                            <span className="absolute right-0 -top-6 text-sm font-medium">72%</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div className="progress-charts ">
                                     <h6 className="heading ">Sales and Marketing</h6>
                                     <div className="single-progress">
-                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-3" now="81" label={<span>81%</span>} />
+                                        <div className="relative w-full bg-gray-200 rounded-full h-2 gradient-3" data-aos="fade-right" data-aos-delay="100" data-aos-duration="450">
+                                            <div className="bg-purple-600 h-2 rounded-full" style={{width: '81%'}}></div>
+                                            <span className="absolute right-0 -top-6 text-sm font-medium">81%</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div className="progress-charts ">
                                     <h6 className="heading ">Better Efficiency</h6>
                                     <div className="single-progress">
-                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-4" now="81" label={<span>81%</span>} />
+                                        <div className="relative w-full bg-gray-200 rounded-full h-2 gradient-4" data-aos="fade-right" data-aos-delay="100" data-aos-duration="450">
+                                            <div className="bg-orange-600 h-2 rounded-full" style={{width: '81%'}}></div>
+                                            <span className="absolute right-0 -top-6 text-sm font-medium">81%</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

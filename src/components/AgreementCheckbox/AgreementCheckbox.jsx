@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from "prop-types";
-import { Form, Button } from 'react-bootstrap';
+import { Button } from '../ui/button';
 import { useNavigate } from 'react-router-dom';
 import SectionTitle from '../SectionTitles/SectionTitle';
 import Parallax from 'parallax-js';
@@ -63,91 +63,99 @@ const AgreementCheckbox = ({ token, id, classOption }) => {
 
                 <div className="row icon-box-shape-animation">
                     <div className="p-3 preformatted-text" >
-                        <Form.Group className="mb-3">
-                            <Form.Check
-                            className="standout-checkbox"
-                            type="checkbox"
-                            label={
-                                <span>
-                                {' '}Review the{' '}
-                                <a
-                                    href="/terms"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    terms and conditions
-                                </a>{' '}
-                                and mark the checkbox below to indicate your acceptance of them.
-                                </span>
-                            }
-                            checked={termsAccepted}
-                            onChange={(e) => setTermsAccepted(e.target.checked)}
-                            />
+                        <div className="mb-3">
+                            <div className="standout-checkbox">
+                                <input
+                                    type="checkbox"
+                                    id="terms-checkbox"
+                                    checked={termsAccepted}
+                                    onChange={(e) => setTermsAccepted(e.target.checked)}
+                                />
+                                <label htmlFor="terms-checkbox">
+                                    <span>
+                                    {' '}Review the{' '}
+                                    <a
+                                        href="/terms"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{ textDecoration: 'underline' }}
+                                    >
+                                        terms and conditions
+                                    </a>{' '}
+                                    and mark the checkbox below to indicate your acceptance of them.
+                                    </span>
+                                </label>
+                            </div>
 
-                            <Form.Check
-                            className="standout-checkbox"
-                            type="checkbox"
-                            label={
-                                <span>
-                                {' '}Review the{' '}
-                                <a
-                                    href="/privacy"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    privacy policy
-                                </a>{' '}
-                                and mark the checkbox below to indicate your acceptance of them.
-                                </span>
-                            }
-                            checked={privacyAccepted}
-                            onChange={(e) => setPrivacyAccepted(e.target.checked)}
-                            />
+                            <div className="standout-checkbox">
+                                <input
+                                    type="checkbox"
+                                    id="privacy-checkbox"
+                                    checked={privacyAccepted}
+                                    onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                                />
+                                <label htmlFor="privacy-checkbox">
+                                    <span>
+                                    {' '}Review the{' '}
+                                    <a
+                                        href="/privacy"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{ textDecoration: 'underline' }}
+                                    >
+                                        privacy policy
+                                    </a>{' '}
+                                    and mark the checkbox below to indicate your acceptance of them.
+                                    </span>
+                                </label>
+                            </div>
 
-                            <Form.Check
-                            className="standout-checkbox"
-                            type="checkbox"
-                            label={
-                                <span>
-                                {' '}Review the{' '}
-                                <a
-                                    href="/saas"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    software as a service policy
-                                </a>{' '}
-                                and mark the checkbox below to indicate your acceptance of them.
-                                </span>
-                            }
-                            checked={saasAccepted}
-                            onChange={(e) => setSaasAccepted(e.target.checked)}
-                            />
+                            <div className="standout-checkbox">
+                                <input
+                                    type="checkbox"
+                                    id="saas-checkbox"
+                                    checked={saasAccepted}
+                                    onChange={(e) => setSaasAccepted(e.target.checked)}
+                                />
+                                <label htmlFor="saas-checkbox">
+                                    <span>
+                                    {' '}Review the{' '}
+                                    <a
+                                        href="/saas"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{ textDecoration: 'underline' }}
+                                    >
+                                        software as a service policy
+                                    </a>{' '}
+                                    and mark the checkbox below to indicate your acceptance of them.
+                                    </span>
+                                </label>
+                            </div>
 
-                            <Form.Check
-                            className="standout-checkbox"
-                            type="checkbox"
-                            label={
-                                <span>
-                                {' '}Review the{' '}
-                                <a
-                                    href="/consulting"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    software consulting policy
-                                </a>{' '}
-                                and mark the checkbox below to indicate your acceptance of them.
-                                </span>
-                            }
-                            checked={consultingAccepted}
-                            onChange={(e) => setConsultingAccepted(e.target.checked)}
-                            />
-                        </Form.Group>
+                            <div className="standout-checkbox">
+                                <input
+                                    type="checkbox"
+                                    id="consulting-checkbox"
+                                    checked={consultingAccepted}
+                                    onChange={(e) => setConsultingAccepted(e.target.checked)}
+                                />
+                                <label htmlFor="consulting-checkbox">
+                                    <span>
+                                    {' '}Review the{' '}
+                                    <a
+                                        href="/consulting"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{ textDecoration: 'underline' }}
+                                    >
+                                        software consulting policy
+                                    </a>{' '}
+                                    and mark the checkbox below to indicate your acceptance of them.
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
 
                         <div className="text-center mt-6">
                             <Button
@@ -158,7 +166,7 @@ const AgreementCheckbox = ({ token, id, classOption }) => {
                             Cancel
                             </Button>
                             <Button
-                                variant={termsAccepted && privacyAccepted && saasAccepted && consultingAccepted ? 'primary' : 'light'}
+                                variant={termsAccepted && privacyAccepted && saasAccepted && consultingAccepted ? 'default' : 'outline'}
                                 disabled={!termsAccepted || !privacyAccepted || !saasAccepted || !consultingAccepted}
                                 onClick={async () => {
                                     try {

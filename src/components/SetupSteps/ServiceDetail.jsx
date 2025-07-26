@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Icon } from '@iconify/react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Button } from '../ui/button';
 import paperPlaneOutline from '@iconify/icons-eva/paper-plane-outline';
 import arrowBackOutline from '@iconify/icons-eva/arrow-back-outline';
 
@@ -58,98 +58,104 @@ const ServiceDetail = ({ jwtToken }) => {
     };
 
     const dataForm = () => (
-        <Form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-4">
 
-            <Form.Group controlId="product_type">
-                <Form.Label>Product Type</Form.Label>
-                <Form.Control
+            <div>
+                <label htmlFor="product_type" className="block text-sm font-medium mb-1">Product Type</label>
+                <input
                     type="text"
+                    id="product_type"
                     name="product_type"
+                    className="w-full p-2 border border-gray-300 rounded-md bg-gray-100"
                     value={settings.product_type}
                     onChange={handleInputChange}
                     readOnly
                     disabled
                 />
-            </Form.Group>
+            </div>
 
-            <Row>
-                <Col>
-                    <Form.Group controlId="contact_name">
-                        <Form.Label>Contact Name</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="contact_name"
-                            value={settings.contact_name}
-                            onChange={handleInputChange}
-                        />
-                    </Form.Group>
-                </Col>
-                <Col>
-                    <Form.Group controlId="contact_phone">
-                        <Form.Label>Contact Phone</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="contact_phone"
-                            value={settings.contact_phone}
-                            onChange={handleInputChange}
-                        />
-                    </Form.Group>
-                </Col>
-            </Row>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label htmlFor="contact_name" className="block text-sm font-medium mb-1">Contact Name</label>
+                    <input
+                        type="text"
+                        id="contact_name"
+                        name="contact_name"
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                        value={settings.contact_name}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="contact_phone" className="block text-sm font-medium mb-1">Contact Phone</label>
+                    <input
+                        type="text"
+                        id="contact_phone"
+                        name="contact_phone"
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                        value={settings.contact_phone}
+                        onChange={handleInputChange}
+                    />
+                </div>
+            </div>
 
-            <Row>
-                <Col>
-                    <Form.Group controlId="contact_email">
-                        <Form.Label>Contact Email</Form.Label>
-                        <Form.Control
-                            type="email"
-                            name="contact_email"
-                            value={settings.contact_email}
-                            onChange={handleInputChange}
-                        />
-                    </Form.Group>
-                </Col>
-                <Col>
-                    <Form.Group controlId="twilio_phone">
-                        <Form.Label>Service Phone (We will create one)</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="twilio_phone"
-                            value={settings.twilio_phone}
-                            onChange={handleInputChange}
-                            readonly
-                            disabled
-                            />
-                    </Form.Group>
-                </Col>
-            </Row>
-            <Form.Group controlId="shared_storage_link">
-                <Form.Label>Shared Storage Link (Upload your contents to this cloud folder)</Form.Label>
-                <Form.Control
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label htmlFor="contact_email" className="block text-sm font-medium mb-1">Contact Email</label>
+                    <input
+                        type="email"
+                        id="contact_email"
+                        name="contact_email"
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                        value={settings.contact_email}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="twilio_phone" className="block text-sm font-medium mb-1">Service Phone (We will create one)</label>
+                    <input
+                        type="text"
+                        id="twilio_phone"
+                        name="twilio_phone"
+                        className="w-full p-2 border border-gray-300 rounded-md bg-gray-100"
+                        value={settings.twilio_phone}
+                        onChange={handleInputChange}
+                        readOnly
+                        disabled
+                    />
+                </div>
+            </div>
+            <div>
+                <label htmlFor="shared_storage_link" className="block text-sm font-medium mb-1">Shared Storage Link (Upload your contents to this cloud folder)</label>
+                <input
                     type="text"
+                    id="shared_storage_link"
                     name="shared_storage_link"
+                    className="w-full p-2 border border-gray-300 rounded-md bg-gray-100"
                     value={settings.shared_storage_link}
                     onChange={handleInputChange}
-                    readonly
+                    readOnly
                     disabled
                 />
-            </Form.Group>
+            </div>
 
-            <Form.Group controlId="introduction_message">
-                <Form.Label>Introduction Message</Form.Label>
-                <Form.Control
-                    as="textarea"
+            <div>
+                <label htmlFor="introduction_message" className="block text-sm font-medium mb-1">Introduction Message</label>
+                <textarea
+                    id="introduction_message"
                     name="introduction_message"
+                    className="w-full p-2 border border-gray-300 rounded-md"
+                    rows="4"
                     value={settings.introduction_message}
                     onChange={handleInputChange}
                 />
-            </Form.Group>
+            </div>
 
-            <Form.Group controlId="is_content_upload_complete">
-                <Form.Check
+            <div className="flex items-center space-x-2">
+                <input
                     type="checkbox"
+                    id="is_content_upload_complete"
                     name="is_content_upload_complete"
-                    label="Content Upload - Check this box when you are done uploading your content."
                     checked={settings.is_content_upload_complete}
                     onChange={(e) => {
                         setSettings((prevSettings) => ({
@@ -158,13 +164,14 @@ const ServiceDetail = ({ jwtToken }) => {
                         }));
                     }}
                 />
-            </Form.Group>
+                <label htmlFor="is_content_upload_complete" className="text-sm">Content Upload - Check this box when you are done uploading your content.</label>
+            </div>
 
-            <Form.Group controlId="is_create_template_file">
-                <Form.Check
+            <div className="flex items-center space-x-2">
+                <input
                     type="checkbox"
+                    id="is_create_template_file"
                     name="is_create_template_file"
-                    label="Create Template File - We will create one for you."
                     checked={settings.is_create_template_file}
                     onChange={(e) => {
                         setSettings((prevSettings) => ({
@@ -172,16 +179,17 @@ const ServiceDetail = ({ jwtToken }) => {
                             is_create_template_file: e.target.checked,
                         }));
                     }}
-                    readonly
+                    readOnly
                     disabled
                 />
-            </Form.Group>
+                <label htmlFor="is_create_template_file" className="text-sm text-gray-600">Create Template File - We will create one for you.</label>
+            </div>
 
-            <Form.Group controlId="is_update_phone_server">
-                <Form.Check
+            <div className="flex items-center space-x-2">
+                <input
                     type="checkbox"
+                    id="is_update_phone_server"
                     name="is_update_phone_server"
-                    label="Phone Server - We will create one for you."
                     checked={settings.is_update_phone_server}
                     onChange={(e) => {
                         setSettings((prevSettings) => ({
@@ -189,16 +197,17 @@ const ServiceDetail = ({ jwtToken }) => {
                             is_update_phone_server: e.target.checked,
                         }));
                     }}
-                    readonly
+                    readOnly
                     disabled
                 />
-            </Form.Group>
+                <label htmlFor="is_update_phone_server" className="text-sm text-gray-600">Phone Server - We will create one for you.</label>
+            </div>
 
-            <Form.Group controlId="is_live">
-                <Form.Check
+            <div className="flex items-center space-x-2">
+                <input
                     type="checkbox"
+                    id="is_live"
                     name="is_live"
-                    label="Live Mode - This will be checked when your AI is live."
                     checked={settings.is_live}
                     onChange={(e) => {
                         setSettings((prevSettings) => ({
@@ -206,44 +215,41 @@ const ServiceDetail = ({ jwtToken }) => {
                             is_live: e.target.checked,
                         }));
                     }}
-                    readonly
+                    readOnly
                     disabled
                 />
-            </Form.Group>
+                <label htmlFor="is_live" className="text-sm text-gray-600">Live Mode - This will be checked when your AI is live.</label>
+            </div>
 
-            <div className="container">
-                <div className="row justify-content-center py-3">
-                    <div className="col-12 col-md-6 d-flex justify-content-between">
-                        <Button variant="secondary" className="me-2" onClick={handleBack}>
-                            <Icon icon={arrowBackOutline} />{' '}
-                            Back
-                        </Button>
-                        <Button variant="primary" type="submit">
-                            <Icon icon={paperPlaneOutline} />{' '}
-                            Save
-                        </Button>
-                    </div>
+            <div className="flex justify-center py-3">
+                <div className="flex justify-between space-x-4 w-full max-w-md">
+                    <Button variant="secondary" onClick={handleBack}>
+                        <Icon icon={arrowBackOutline} />{' '}
+                        Back
+                    </Button>
+                    <Button variant="default" type="submit">
+                        <Icon icon={paperPlaneOutline} />{' '}
+                        Save
+                    </Button>
                 </div>
             </div>
 
-        </Form>
+        </form>
     );
 
     return (
         <div className="section section-padding-top section-padding-bottom-150">
-            <div className="container">
-                <div className="col-md-12 col-12 mb-6">
-                    <Container>
-                        <h2>SERVICE SUBSCRIPTIONS</h2>
-                        <p>
-                            List of all setvice setup steps.
+            <div className="container mx-auto px-4">
+                <div className="w-full mb-6">
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-2xl font-bold mb-2">SERVICE SUBSCRIPTIONS</h2>
+                        <p className="mb-6">
+                            List of all service setup steps.
                         </p>
-                        <Row>
-                            <Col>
-                                {settings && dataForm()}
-                            </Col>
-                        </Row>
-                    </Container>
+                        <div>
+                            {settings && dataForm()}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

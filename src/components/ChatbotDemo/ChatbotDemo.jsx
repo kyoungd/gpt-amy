@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { ListGroup } from 'react-bootstrap';
 import ChatModal from '../ChatModal.jsx';
 
 const ChatbotDemo = ({ chatData, classOption }) => {
@@ -62,15 +61,19 @@ const ChatbotDemo = ({ chatData, classOption }) => {
             <div style={styles.outerContainer}>
                 <div style={styles.container}>
                     <span style={styles.columnName}>Sample Demo:</span>
-                    <ListGroup horizontal style={styles.listGroup}>
+                    <div style={styles.listGroup}>
                         {chatData.map((chat, index) => (
-                            <ListGroup.Item key={index} style={styles.listItem}>
-                                <a style={styles.link} onClick={() => handleShow(chat)}>
+                            <div key={index} style={styles.listItem}>
+                                <button 
+                                    style={styles.link} 
+                                    onClick={() => handleShow(chat)}
+                                    className="bg-transparent border-none p-0 hover:underline"
+                                >
                                     {chat.description}
-                                </a>
-                            </ListGroup.Item>
+                                </button>
+                            </div>
                         ))}
-                    </ListGroup>
+                    </div>
                 </div>
             </div>
 

@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal } from 'react-bootstrap';
 import { Icon } from '@iconify/react';
 import personOutline from '@iconify/icons-eva/person-outline';
 import catOutline from '@iconify/icons-eva/github-outline';
 
 const ChatModal = ({ title, chatList, show, handleClose }) => {
+  if (!show) return null;
+
   return (
-    <Modal 
-      show={show} 
-      onHide={handleClose} 
-      size="lg" 
-      centered
-      dialogClassName="modal-70w"
-    >
-      <Modal.Header closeButton style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
-        <Modal.Title style={{ flex: '1', textAlign: 'center' }}>{title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body style={{ maxHeight: 'calc(70vh - 120px)', overflowY: 'auto' }}>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg w-full max-w-4xl mx-4 max-h-[70vh] flex flex-col">
+        <div className="flex justify-between items-center p-4 border-b">
+          <h2 className="text-lg font-semibold flex-1 text-center">{title}</h2>
+          <button 
+            onClick={handleClose}
+            className="text-gray-500 hover:text-gray-700 text-xl font-bold ml-4"
+          >
+            ×
+          </button>
+        </div>
+        <div className="p-4 overflow-y-auto flex-1" style={{ maxHeight: 'calc(70vh - 120px)' }}>
         {chatList.map((chat, index) => {
           console.log('Chat role:', chat.role);
           return chat.role !== "system" && (
@@ -60,8 +62,9 @@ const ChatModal = ({ title, chatList, show, handleClose }) => {
             </div>
           );
         })}
-      </Modal.Body>
-    </Modal>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
+import { Button } from './ui/button';
 
 function MicrophoneCheck({ setIsMicrophoneOK }) {
   const [hasMicAccess, setHasMicAccess] = React.useState(null);
