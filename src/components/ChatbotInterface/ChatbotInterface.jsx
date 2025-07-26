@@ -246,10 +246,10 @@ const ChatbotInterface = ({ id, title, classOption }) => {
 
   return (
     <div id="bot-container" className={`${classOption}`}>
-      <div className="chatbot-interface max-w-4xl mx-auto p-4">
-        <div className="header-row flex justify-between items-center mb-4">
+      <div className="chatbot-interface bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="header-row flex justify-between items-center p-4 bg-gray-50 border-b">
           <div className="flex-1">
-            <h3 className="text-center text-xl font-bold">{title.toUpperCase()}</h3>
+            <h3 className="text-center text-xl font-bold text-gray-800">{title.toUpperCase()}</h3>
           </div>
           <div className="flex-shrink-0">
             <AudioButton />
@@ -266,7 +266,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
             </div>
           </div>
         )}
-        <div className="chat-history-box mb-4 h-96 overflow-y-auto border rounded-lg p-4 bg-gray-50">
+        <div className="chat-history-box h-96 overflow-y-auto p-4 bg-gray-50">
           <div className="messages-container space-y-3">
             {messages.map((message, index) => (
               <div key={index} className={`message-item p-3 rounded-lg ${message.name === 'AI' ? 'bg-blue-100' : 'bg-white'} border`}>
@@ -282,9 +282,8 @@ const ChatbotInterface = ({ id, title, classOption }) => {
             <div ref={messagesEndRef}></div>
           </div>
         </div>
-        <div className="user-input-section flex space-x-2">
-          <div className="flex-1">
-            <form onSubmit={handleSubmit} className="flex space-x-2">
+        <div className="user-input-section p-4 bg-gray-50 border-t">
+          <form onSubmit={handleSubmit} className="flex space-x-2">
               <Input
                 type="text"
                 value={userInput}
@@ -296,8 +295,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
               <Button type="submit" disabled={isCompleted || isAudioEnabled}>
                 Enter
               </Button>
-            </form>
-          </div>
+          </form>
         </div>
       </div>
     </div>
