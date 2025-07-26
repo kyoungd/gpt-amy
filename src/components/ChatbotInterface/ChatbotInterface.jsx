@@ -309,7 +309,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
       <div className="chatbot-interface bg-white rounded-xl shadow-sm overflow-hidden">
         <div className="header-row flex justify-between items-center px-6 py-4 bg-white border-b border-gray-100">
           <div className="flex-1">
-            <h3 className="text-center text-lg font-medium text-gray-900">{title}</h3>
+            <h3 className="text-center text-lg font-medium text-gray-900">{title.toUpperCase()}</h3>
           </div>
           <div className="flex-shrink-0">
             <AudioButton />
