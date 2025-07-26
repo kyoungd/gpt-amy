@@ -1,19 +1,23 @@
 import {useState} from "react";
 import SectionTitleTwo from '../SectionTitles/SectionTitleTwo';
 import CountUp from 'react-countup';
-import VisibilitySensor from "react-visibility-sensor";
+import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 const InstallationBlocks = ({services}) => {
     const [didViewCountUp, setDidViewCountUp] = useState(false);
+    const { ref, inView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true,
+        onChange: (inView) => {
+            if (inView) {
+                setDidViewCountUp(true);
+            }
+        }
+    });
 
     const navigate = useNavigate();
-    const onVisibilityChange = isVisible => {
-        if (isVisible) {
-        setDidViewCountUp(true);
-        }
-    };
 
     const handleClick = (service) => {
         navigate(`/installations/${service.id}`, { state: { serviceData: service } });
@@ -37,16 +41,10 @@ const InstallationBlocks = ({services}) => {
                         onClick={() => handleClick(service)}
                       >
                         <div className="about-funfact service-panel">
-                          <div className="number">
-                            <VisibilitySensor
-                              onChange={onVisibilityChange}
-                              offset={{ top: 10 }}
-                              delayedCall
-                            >
-                              <CountUp
-                                end={didViewCountUp ? service.attributes.score : 0}
-                              />
-                            </VisibilitySensor>
+                          <div className="number" ref={ref}>
+                            <CountUp
+                              end={didViewCountUp ? service.attributes.score : 0}
+                            />
                             % complete
                           </div>
                           <h6 className="text">{service.attributes.name}</h6>
