@@ -297,7 +297,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   const AudioButton = () => (
     <div
       onClick={toggleAudio}
-      className={`audio-button cursor-pointer p-2 rounded-full hover:bg-gray-50 transition-colors duration-200 ${isAudioEnabled ? 'bg-blue-50 text-blue-600' : 'text-gray-500'} ${isAudioInitializing ? 'animate-pulse' : ''}`}
+      className={`audio-button cursor-pointer p-2 rounded-full hover:bg-gray-400 transition-colors duration-200 ${isAudioEnabled ? 'bg-blue-600 text-white' : 'text-gray-200'} ${isAudioInitializing ? 'animate-pulse' : ''}`}
       title={isAudioEnabled ? "Disable audio" : "Enable audio"}
     >
       <Icon icon={isAudioEnabled ? microphoneOffOutline : microphoneOutline} style={{ fontSize: '1.25rem' }} />
@@ -307,9 +307,9 @@ const ChatbotInterface = ({ id, title, classOption }) => {
   return (
     <div id="bot-container" className={`${classOption}`}>
       <div className="chatbot-interface bg-white rounded-xl shadow-sm overflow-hidden">
-        <div className="header-row flex justify-between items-center px-6 py-4 bg-white border-b border-gray-100">
+        <div className="header-row flex justify-between items-center px-6 py-4 bg-gray-600 border-b border-gray-100">
           <div className="flex-1">
-            <h3 className="text-center text-lg font-medium text-gray-900">{title.toUpperCase()}</h3>
+            <h3 className="text-center text-lg font-medium text-white">{title.toUpperCase()}</h3>
           </div>
           <div className="flex-shrink-0">
             <AudioButton />
