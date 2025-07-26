@@ -352,7 +352,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
                 placeholder="Type a message..."
                 disabled={isCompleted || isAudioEnabled}
                 className="flex-1 bg-transparent border-none outline-none focus:ring-0 focus:border-none text-sm placeholder-gray-500 px-2 py-2"
-                style={{ boxShadow: 'none' }}
+                style={{ boxShadow: 'none', backgroundColor: 'transparent' }}
               />
               <button
                 type="submit"
