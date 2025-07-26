@@ -1,13 +1,21 @@
 .App {
     text-align: center;
-    padding: 5rem 1rem;
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
   }
   
   .error {
-    color: #fc8181;
-    font-size: 0.75rem;
+    color: #e53e3e;
+    font-size: 0.875rem;
     text-align: left;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(229, 62, 62, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(229, 62, 62, 0.2);
   }
   
   .checkbox {
@@ -34,38 +42,52 @@
   
   form {
     width: 95%;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
   
   form label {
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
     display: block;
     text-align: left;
-    margin: 1rem 0 0.2rem;
+    margin: 1.5rem 0 0.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
   
   input,
   select {
     width: 100%;
-    padding: 0.65rem 0.5rem;
+    padding: 1rem;
     font-size: 1rem;
-    color: white;
-    border: 2px solid #4a5568;
-    background-color: #2d3748;
-    border-radius: 10px;
+    color: #2c3e50;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
     outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
   
   input:focus,
   select:focus {
-    border-color: #4299e1;
+    border-color: rgba(102, 126, 234, 0.6);
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
   }
   
   input::placeholder,
   select::placeholder {
-    color: #a0aec0;
+    color: #718096;
+    opacity: 0.7;
   }
   
   input[type="checkbox"] {
@@ -76,24 +98,39 @@
   
   button {
     display: block;
-    margin: 1rem 0;
-    padding: 0.35rem 0.5rem;
-    background-color: #4299e1;
-    color: #1a202c;
+    margin: 2rem 0 1rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
     border: none;
-    border-radius: 3px;
+    border-radius: 15px;
     width: 100%;
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
   }
   
   input.input-error,
   select.input-error {
-    border-color: #fc8181;
+    border-color: #e53e3e;
+    background: rgba(229, 62, 62, 0.05);
+    box-shadow: 0 4px 15px rgba(229, 62, 62, 0.2);
   }
   
   button:disabled {
-    opacity: 0.35;
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    background: #a0aec0;
   }
   
