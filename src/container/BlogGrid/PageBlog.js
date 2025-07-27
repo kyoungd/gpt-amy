@@ -7,10 +7,10 @@ const PageBlog = () => {
         <div className="section section-padding fix">
             <div className="container">
 
-                <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 mb-n6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 -mb-6 space-y-6">
                     {BlogClassicData && BlogClassicData.map((single, key) => {
                             return(
-                                <div key={key} className="col mb-6" data-aos="fade-up">
+                                <div key={key} className="mb-6" data-aos="fade-up">
                                     <BlogItem data={single} key={key} />
                                 </div>
                             ); 

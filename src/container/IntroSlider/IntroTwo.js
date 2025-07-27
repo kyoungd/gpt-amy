@@ -16,9 +16,9 @@ const IntroTwo = ({ refSectionLearnMore }) => {
             className="intro-section section bg-video"
         >
             <div className="container">
-                <div className="row row-cols-lg-1 row-cols-1">
+                <div className="grid grid-cols-1">
 
-                    <div className="col align-self-center">
+                    <div className="self-center">
                         <div className="intro-content-two text-center mt-xl-8 mt-lg-8 mt-md-8 mt-sm-8 mt-xs-8">
                             <h2 className="title">Designing awesome customer service </h2>
                             <div className="desc">

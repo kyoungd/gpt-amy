@@ -20,8 +20,8 @@ const Faq = () => {
     return (
         <div className="faq-section section section-padding-top bg-primary-blue">
             <div className="container">
-                <div className="row row-cols-lg-2 row-cols-1 mb-n6">
-                    <div className="col mb-6" data-aos="fade-up">
+                <div className="grid grid-cols-1 lg:grid-cols-2 -mb-6 space-y-6">
+                    <div className="mb-6" data-aos="fade-up">
                         <div className="faq-content">
                             <SectionTitleTwo 
                                 subTitle="ORDER CANCELLED"
@@ -33,7 +33,7 @@ const Faq = () => {
                         </div>
                     </div>
 
-                    <div className="col mb-6 ps-xl-12" data-aos="fade-up" data-aos-delay="300">
+                    <div className="mb-6 xl:pl-12" data-aos="fade-up" data-aos-delay="300">
                         <div className="about-image-area faq-image-area">
                             <div className="about-image right-n50">
                                 <Tilt scale={scale} transitionSpeed={4000}>

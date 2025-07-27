@@ -17,7 +17,7 @@ const BlogDetailsContainer = ({data}) => {
                 <div className="row mb-n10">
 
                     <div className="col-lg-8 col-12 order-lg-1 mb-10">
-                        <div className="row row-cols-1 no-gutters">
+                        <div className="grid grid-cols-1 gap-0">
                             
                             <BlogDetails data={data} /> 
                             <div className="entry-author">

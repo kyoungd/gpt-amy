@@ -29,11 +29,11 @@ const ServiceIconBoxTwo = ({ classOption }) => {
                     subTitle="We produce beautifully crafted AI that helps your startups launch"
                 />
 
-                <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 mb-n6 icon-box-shape-animation">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 -mb-6 space-y-6 icon-box-shape-animation">
 
                     {IconBoxData && IconBoxData.map((single, key) => {
                         return(
-                            <div key={key} className="col mb-6" data-aos="fade-up" data-aos-delay="300">
+                            <div key={key} className="mb-6" data-aos="fade-up" data-aos-delay="300">
                                 <IconBox classOption="box-border" data={single} isAuth={isAuthenticated} />
                             </div>
                         ); 

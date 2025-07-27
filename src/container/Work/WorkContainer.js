@@ -13,11 +13,11 @@ const WorkContainer = () => {
                     title="Crafting effective digital marketing, web development, <br> video content and communication design"
                 />
 
-                <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 mb-n6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mb-6 space-y-6">
 
                     {WorkData && WorkData.map((single, key) => {
                             return(
-                                <div key={key} className="col mb-6" data-aos="fade-up" data-aos-delay="300">
+                                <div key={key} className="mb-6" data-aos="fade-up" data-aos-delay="300">
                                     <WorkItemTwo classOption="box-border" data={single} key={key} />
                                 </div>
                             ); 

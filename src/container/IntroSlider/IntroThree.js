@@ -13,8 +13,8 @@ const IntroThree = ({ refSectionLearnMore }) => {
     return (
         <div className="intro-section section overlay" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/hero-image/hero-4.jpg)` }}>
             <div className="container">
-                <div className="row row-cols-lg-1 row-cols-1">
-                    <div className="col align-self-center">
+                <div className="grid grid-cols-1">
+                    <div className="self-center">
                         <div className="intro-content-two headline-active text-center mt-xl-8 mt-lg-8 mt-md-8 mt-sm-8 mt-xs-8">
                             <h2 className="title ah-headline">
                                 Designing {" "}

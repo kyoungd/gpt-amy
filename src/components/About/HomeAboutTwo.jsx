@@ -21,23 +21,23 @@ const HomeAboutTwo = ({ refSectionLearnMore }) => {
         <div className="section section-padding-top section-padding-bottom-150" ref={refSectionLearnMore} >
             <div className="container">
 
-                <div className="row">
+                <div className="flex flex-wrap">
 
-                    <div className="col-xl-6 col-lg-6 col-12" data-aos="fade-up">
+                    <div className="w-full lg:w-1/2" data-aos="fade-up">
                         <div className="about-content-area mt-0 mb-md-10 mb-10">
                             <SectionTitleTwo 
                                 subTitle="Advanced AI for customer service"
                                 title="Easy to setup, fully customized, and reliable AI."
                             />
 
-                            <div className="row mb-n6">
-                                <div className="col-md-5 col-sm-6 col-12 mb-6">
+                            <div className="flex flex-wrap mb-n6">
+                                <div className="w-full sm:w-1/2 md:w-5/12 mb-6">
                                     <div className="about-funfact">
                                         <h6 className="text">Happy Clients</h6>
                                         <p>Enhance customer satisfaction with our AI, which delivers quick and accurate responses to all inquiries.</p>
                                     </div>
                                 </div>
-                                <div className="col-md-5 col-sm-6 col-12 mb-6">
+                                <div className="w-full sm:w-1/2 md:w-5/12 mb-6">
                                     <div className="about-funfact">
                                         <h6 className="text">Natural interaction</h6>
                                         <p>Our cutting-edge AI uses natural language processing to listen and respond to customer inquiries, ensuring a seamless and intuitive interaction experience.</p>
@@ -47,7 +47,7 @@ const HomeAboutTwo = ({ refSectionLearnMore }) => {
                         </div>
                     </div>
 
-                    <div className="col-xl-6 col-lg-6 col-12" data-aos="fade-up" data-aos-delay="300">
+                    <div className="w-full lg:w-1/2" data-aos="fade-up" data-aos-delay="300">
                         <div className="about-image-area about-shape-animation right-0 me-0">
                             <div className="about-image js-tilt">
                                 <Tilt scale={scale} transitionSpeed={4000}>

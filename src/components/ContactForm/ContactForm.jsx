@@ -43,8 +43,8 @@ const ContactForm = () => {
   return (
     <div className="contact-form" data-aos="fade-up" data-aos-delay="300">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="row mb-n6">
-          <div className="col-md-6 col-12 mb-6">
+        <div className="flex flex-wrap mb-n6">
+          <div className="w-full md:w-1/2 mb-6">
             <input
               type="text"
               placeholder="Your Name *"
@@ -55,7 +55,7 @@ const ContactForm = () => {
             />
             {errors?.contact_name && <p>{errors.contact_name?.message}</p>}
           </div>
-          <div className="col-md-6 col-12 mb-6">
+          <div className="w-full md:w-1/2 mb-6">
             <input
               type="email"
               placeholder="Email *"
@@ -70,7 +70,7 @@ const ContactForm = () => {
             />
             {errors?.contact_email && <p>{errors.contact_email?.message}</p>}
           </div>
-          <div className="col-md-12 col-12 mb-6">
+          <div className="w-full mb-6">
             <input
               type="text"
               placeholder="Phone *"
@@ -85,7 +85,7 @@ const ContactForm = () => {
             />
             {errors?.contact_phone && <p>{errors.contact_phone?.message}</p>}
           </div>
-          <div className="col-12 mb-6">
+          <div className="w-full mb-6">
             <textarea
               placeholder="Description *"
               name="contact_description"
@@ -97,11 +97,11 @@ const ContactForm = () => {
             {errors?.contact_description && <p>{errors.contact_description?.message}</p>}
           </div>
           {feedbackMessage && (
-            <div className={`col-12 ${isError ? 'text-danger' : 'text-success'}`}>
+            <div className={`w-full ${isError ? 'text-danger' : 'text-success'}`}>
               {feedbackMessage}
             </div>
           )}
-          <div className="col-12 mb-6">
+          <div className="w-full mb-6">
             <button type="submit" className="btn btn-primary btn-hover-secondary">Submit</button>
           </div>
         </div>

@@ -56,14 +56,14 @@ const Header = () => {
       }`}>
                 <div className="header-inner">
                     <div className="container position-relative">
-                        <div className="row justify-content-between align-items-center">
-                            <div className="col-xl-2 col-auto order-0">
+                        <div className="flex justify-between items-center">
+                            <div className="xl:w-2/12 w-auto order-0">
                                 <LogoStyle to="/"><strong>OYATE</strong></LogoStyle>
                                 {/* <Logo 
                                     image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}
                                 /> */}
                             </div>
-                            <div className="col-auto col-xl d-flex align-items-center justify-content-xl-center justify-content-end order-2 order-xl-1">
+                            <div className="w-auto xl:flex-1 flex items-center xl:justify-center justify-end order-2 xl:order-1">
                                 <div className="menu-column-area d-none d-xl-block position-static">
                                     <NavBar />
                                 </div>

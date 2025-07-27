@@ -5,7 +5,7 @@ import ShowCards from './showCards';
 function SettingsForm ({ jwt }) {
     return (
         <div className="contact-form" data-aos="fade-up" data-aos-delay="300">
-            <div className="row mb-n6">
+            <div className="flex flex-wrap -mb-6 space-y-6">
                 <ShowCards token={jwt} />
             </div>
         </div>

@@ -16,7 +16,7 @@ WorkFilter.propTypes = {
 }
 
 WorkFilter.defaultProps = {
-    classOption: "text-lg-end text-start mb-lg-13 mb-md-13 mb-6"
+    classOption: "lg:text-right text-left lg:mb-13 md:mb-13 mb-6"
 };
 
 export default WorkFilter;

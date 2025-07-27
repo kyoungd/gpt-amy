@@ -11,11 +11,11 @@ const FunfactTwo = () => {
                 </div>
                 <div className="row">
                     <div className="col-lg-12 mx-auto">
-                        <div className="row row-cols-lg-4 row-cols-md-2 row-cols-sm-2 row-cols-1 mb-n6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 -mb-6 space-y-6">
 
                         {CounterUpData && CounterUpData.map((single, key) => {
                             return(
-                                <div key={key} className="col mb-6" data-aos="fade-up" data-aos-delay="300">
+                                <div key={key} className="mb-6" data-aos="fade-up" data-aos-delay="300">
                                     <CounterUpItem data={single} key={key} />
                                 </div>
                             ); 

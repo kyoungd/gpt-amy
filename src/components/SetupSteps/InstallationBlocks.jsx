@@ -33,7 +33,7 @@ const InstallationBlocks = ({services}) => {
                     subTitle="Installation Status"
                     title="List of your subscribed services"
                   />
-                  <div className="row mb-n6">
+                  <div className="flex flex-wrap -mb-6 space-y-6">
                     {services.map((service, index) => (
                       <div
                         className="col-md-4 col-sm-6 col-12 mb-6"

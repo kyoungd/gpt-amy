@@ -24,8 +24,8 @@ const ContactInformationTwo = () => {
         <div className="section section-padding contact-section">
 
             <div className="container">
-                <div className="row row-cols-lg-2 row-cols-1 align-items-center">
-                    <div className="col" data-aos="fade-up">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div data-aos="fade-up">
                         <div className="contact-Information me-xl-7">
                             <SectionTitleTwo 
                                 subTitle="Innovative &amp; cutting-edge technology"
@@ -41,7 +41,7 @@ const ContactInformationTwo = () => {
                             })}
                         </div>
                     </div>
-                    <div className="col mt-lg-0 mt-md-10 mt-8" data-aos="fade-up">
+                    <div className="lg:mt-0 md:mt-10 mt-8" data-aos="fade-up">
                         <div className="contact-form-area box-shadow">
                             <SectionTitle
                                 titleOption="section-title text-center mb-7"

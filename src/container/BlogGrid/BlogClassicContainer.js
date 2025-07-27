@@ -20,11 +20,11 @@ const BlogClassicContainer = () => {
                 <div className="row mb-n10">
 
                     <div className="col-lg-8 col-12 order-lg-1 mb-10">
-                        <div className="row row-cols-1 no-gutters">
+                        <div className="grid grid-cols-1 gap-0">
 
                         {BlogClassicData && BlogClassicData.slice(0, 3).map((single, key) => {
                             return(
-                                <div key={key} className="col mb-6" data-aos="fade-up">
+                                <div key={key} className="mb-6" data-aos="fade-up">
                                     <BlogClassic data={single} key={key} />
                                 </div>
                             ); 

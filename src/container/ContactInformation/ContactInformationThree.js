@@ -23,8 +23,8 @@ const ContactInformationThree = () => {
         <div className="section section-padding contact-section overlay-two" style={{backgroundImage: `url(${process.env.PUBLIC_URL}/images/bg/contact-bg-2.jpg)`}}>
 
             <div className="container">
-                <div className="row row-cols-lg-2 row-cols-1 align-items-center">
-                    <div className="col" data-aos="fade-up">
+                <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
+                    <div data-aos="fade-up">
                         <div className="contact-Information me-xl-7">
                             <SectionTitleTwo 
                                 classOption="color-light"
@@ -41,7 +41,7 @@ const ContactInformationThree = () => {
                             })}
                         </div>
                     </div>
-                    <div className="col mt-lg-0 mt-md-10 mt-8" data-aos="fade-up" data-aos-delay="300">
+                    <div className="mt-8 md:mt-10 lg:mt-0" data-aos="fade-up" data-aos-delay="300">
                         <div className="contact-form-area">
                             <SectionTitle
                                 titleOption="section-title text-center mb-7"

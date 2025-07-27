@@ -29,10 +29,10 @@ const HomeAbout = ({ refSectionLearnMore }) => {
                     subTitle="Leap ahead of the competition with our AI solutions"
                 />
 
-                <div className="row">
+                <div className="flex flex-wrap">
 
                     
-                    <div className="col-xl-7 col-lg-6 col-12" data-aos="fade-up">
+                    <div className="w-full lg:w-1/2 xl:w-7/12" data-aos="fade-up">
                         <div className="about-image-area">
                             <div className="about-image">
                                 <Tilt scale={scale} transitionSpeed={4000}>
@@ -52,7 +52,7 @@ const HomeAbout = ({ refSectionLearnMore }) => {
                         </div>
                     </div>
 
-                    <div className="col-xl-5 col-lg-6 col-12" data-aos="fade-up" data-aos-delay="300">
+                    <div className="w-full lg:w-1/2 xl:w-5/12" data-aos="fade-up" data-aos-delay="300">
                         <div className="about-content-area">
                             <SectionTitleTwo 
                                 subTitle="Every day brings new challenges"
