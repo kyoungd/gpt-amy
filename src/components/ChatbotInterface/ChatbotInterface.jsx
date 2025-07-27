@@ -138,14 +138,35 @@ const ChatbotInterface = ({ id, title, classOption }) => {
     const lines = text.split('\n');
     const elements = [];
     
+    const formatInlineText = (text) => {
+      // Handle **text** inline bold formatting
+      const parts = text.split(/(\*\*.*?\*\*)/g);
+      return parts.map((part, partIndex) => {
+        if (part.match(/^\*\*.*\*\*$/)) {
+          const boldText = part.replace(/^\*\*/, '').replace(/\*\*$/, '');
+          return <strong key={partIndex}>{boldText}</strong>;
+        }
+        return part;
+      });
+    };
+    
     lines.forEach((line, index) => {
       if (line.trim() === '') {
         elements.push(<br key={`br-${index}`} />);
         return;
       }
       
+      // Handle ### headers (convert to bold)
+      if (line.match(/^###\s/)) {
+        const headerText = line.replace(/^###\s/, '');
+        elements.push(
+          <div key={index} className="font-bold text-gray-900 mt-3 mb-2 first:mt-0">
+            {formatInlineText(headerText)}
+          </div>
+        );
+      }
       // Handle bold headers (**text:**)
-      if (line.match(/^\*\*.*:\*\*$/)) {
+      else if (line.match(/^\*\*.*:\*\*$/)) {
         const headerText = line.replace(/^\*\*/, '').replace(/:\*\*$/, '');
         elements.push(
           <div key={index} className="font-semibold text-gray-900 mt-3 mb-2 first:mt-0">
@@ -162,7 +183,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
               <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
               <div>
                 <span className="font-medium text-gray-800">{match[1]}:</span>
-                <span className="text-gray-700">{match[2]}</span>
+                <span className="text-gray-700">{formatInlineText(match[2])}</span>
               </div>
             </div>
           );
@@ -174,7 +195,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
         elements.push(
           <div key={index} className="flex items-start ml-4 mb-1">
             <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-            <span className="text-gray-700">{bulletText}</span>
+            <span className="text-gray-700">{formatInlineText(bulletText)}</span>
           </div>
         );
       }
@@ -182,7 +203,7 @@ const ChatbotInterface = ({ id, title, classOption }) => {
       else {
         elements.push(
           <div key={index} className="text-gray-700 mb-1">
-            {line}
+            {formatInlineText(line)}
           </div>
         );
       }
