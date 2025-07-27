@@ -1,11 +1,8 @@
 import _ from "lodash";
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Icon } from '@iconify/react';
-import personOutline from '@iconify/icons-eva/person-outline';
-import catOutline from '@iconify/icons-eva/github-outline';
 import microphoneOutline from '@iconify/icons-eva/mic-outline';
 import microphoneOffOutline from '@iconify/icons-eva/mic-off-outline';
 import paperPlaneOutline from '@iconify/icons-eva/paper-plane-outline';

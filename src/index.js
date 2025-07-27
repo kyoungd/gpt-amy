@@ -1,5 +1,4 @@
 import React from 'react';
-import { HelmetProvider } from 'react-helmet-async';
 import { createRoot } from 'react-dom/client';
 
 // components
@@ -16,11 +15,9 @@ import './assets/scss/style.scss';
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-    <HelmetProvider>
-        <UserProvider>
-            <ErrorProvider>
-                <App />
-            </ErrorProvider>
-        </UserProvider>
-    </HelmetProvider>
+    <UserProvider>
+        <ErrorProvider>
+            <App />
+        </ErrorProvider>
+    </UserProvider>
 );
