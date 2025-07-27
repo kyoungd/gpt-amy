@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function VideoModal(props) {
   const { videoId } = props;
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   function openModal() {
     setIsOpen(true);
